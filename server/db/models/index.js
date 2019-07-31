@@ -17,7 +17,6 @@ const Skill = require('./skill')
  * instead of: const User = require('../db/models/user')
  */
 Mentee.belongsTo(Mentor)
-Mentor.belongsTo(Mentee)
 Mentee.hasOne(Mentor)
 Skill.hasMany(Mentor)
 Mentor.hasMany(Skill)
