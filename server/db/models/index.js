@@ -24,6 +24,7 @@ Mentee.hasOne(Mentor)
 
 Skill.hasMany(Mentor)
 Mentor.hasMany(Skill)
+
 Mentee.hasMany(Skill)
 Skill.hasMany(Mentee)
 
