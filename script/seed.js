@@ -56,7 +56,7 @@ async function seed() {
       company: 'Essteem',
       position: 'Full Stack Software Developer',
       dateJoinedCompany: Date.now(),
-      blurb: 'Washington D.C.'
+      blurb: 'GA Student'
     }),
     User.create({
       firstName: 'Arianna',
@@ -88,6 +88,75 @@ async function seed() {
       gender: 'Male',
       company: 'Essteem',
       position: 'Full Stack Software Developer',
+      dateJoinedCompany: Date.now(),
+      blurb: '1904 FSA-NY Graduate'
+    })
+  ])
+
+  const mentees = await Promise.all([
+    User.create({
+      firstName: 'Wonder',
+      lastName: 'Woman',
+      imgUrl:
+        'https://journeypurebowlinggreen.com/wp-content/uploads/2018/05/placeholder-person.jpg',
+      gender: 'Female',
+      company: 'Essteem',
+      position: 'Full Stack Software Developer in Training',
+      dateJoinedCompany: Date.now(),
+      blurb: '1907 GH-NY Student'
+    }),
+    User.create({
+      firstName: 'Captain',
+      lastName: 'Marvel',
+      imgUrl:
+        'https://journeypurebowlinggreen.com/wp-content/uploads/2018/05/placeholder-person.jpg',
+      gender: 'Female',
+      company: 'Essteem',
+      position: 'Full Stack Software Developer in Training',
+      dateJoinedCompany: Date.now(),
+      blurb: '1907 GH-NY Student'
+    }),
+    User.create({
+      firstName: 'The',
+      lastName: 'Wasp',
+      imgUrl:
+        'https://journeypurebowlinggreen.com/wp-content/uploads/2018/05/placeholder-person.jpg',
+      gender: 'Female',
+      company: 'Essteem',
+      position: 'Full Stack Software Developer in Training',
+      dateJoinedCompany: Date.now(),
+      blurb: 'GA Student'
+    }),
+    User.create({
+      firstName: 'Black',
+      lastName: 'Widow',
+      imgUrl:
+        'https://journeypurebowlinggreen.com/wp-content/uploads/2018/05/placeholder-person.jpg',
+      gender: 'Female',
+      company: 'Essteem',
+      position: 'Front End Software Developer in Training',
+      dateJoinedCompany: Date.now(),
+      blurb: 'GA Student'
+    }),
+    User.create({
+      firstName: 'Captain',
+      lastName: 'America',
+      imgUrl:
+        'https://journeypurebowlinggreen.com/wp-content/uploads/2018/05/placeholder-person.jpg',
+      gender: 'Male',
+      company: 'Essteem',
+      position: 'Full Stack Software Developer in Training',
+      dateJoinedCompany: Date.now(),
+      blurb: '1904 FSA-NY Graduate'
+    }),
+    User.create({
+      firstName: 'Iron',
+      lastName: 'Man',
+      imgUrl:
+        'https://journeypurebowlinggreen.com/wp-content/uploads/2018/05/placeholder-person.jpg',
+      gender: 'Male',
+      company: 'Essteem',
+      position: 'Full Stack Software Developer in Training',
       dateJoinedCompany: Date.now(),
       blurb: '1904 FSA-NY Graduate'
     })
