@@ -1,7 +1,7 @@
 'use strict'
 
 const db = require('../server/db')
-const {User} = require('../server/db/models')
+const {User, Skill, Mentor, Mentee} = require('../server/db/models')
 
 async function seed() {
   await db.sync({force: true})
@@ -13,6 +13,9 @@ async function seed() {
   ])
 
   console.log(`seeded ${users.length} users`)
+  console.log(`seeded ${skills.length} skills`)
+  console.log(`seeded ${mentors.length} mentors`)
+  console.log(`seeded ${mentees.length} mentees`)
   console.log(`seeded successfully`)
 }
 
