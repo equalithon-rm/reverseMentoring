@@ -16,16 +16,15 @@ const Skill = require('./skill')
  * for example, we can say: const {User} = require('../db/models')
  * instead of: const User = require('../db/models/user')
  */
-Mentee.belongsTo(Mentor)
-Mentor.hasOne(Mentee)
 
-Mentor.belongsTo(Mentee)
-Mentee.hasOne(Mentor)
+Mentor.belongsToMany(Mentee, {through: 'mentors_mentees'})
+Mentee.belongsToMany(Mentor, {through: 'mentors_mentees'})
 
-Skill.hasMany(Mentor)
 Mentor.hasMany(Skill)
+Skill.belongsTo(Mentor)
+
 Mentee.hasMany(Skill)
-Skill.hasMany(Mentee)
+Skill.belongsTo(Mentee)
 
 module.exports = {
   User,
