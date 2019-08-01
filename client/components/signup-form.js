@@ -1,7 +1,7 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import PropTypes from 'prop-types'
-import {auth} from '../store'
+import {signup} from '../store'
 
 /**
  * COMPONENT
@@ -18,28 +18,22 @@ const AuthForm = props => {
           </label>
           <input name="email" type="text" />
         </div>
-        {props.name === 'signup' ? (
-          <div>
-            <div>
-              <label htmlFor="email">
-                <small>Are you a mentor or mentee?</small>
-              </label>
-              <input type="radio" name="mentorMentee" value="mentor" /> Mentor
-              <input type="radio" name="mentorMentee" value="mentee" /> Mentee
-            </div>
-            <div>
-              <label htmlFor="email">
-                <small>What skill are you interested in?</small>
-              </label>
-              <input type="checkbox" name="skills" value="leadership" />{' '}
-              Leadership
-              <input type="checkbox" name="skills" value="sales" /> Sales
-              <input type="checkbox" name="skills" value="strategy" /> Strategy
-            </div>
-          </div>
-        ) : (
-          false
-        )}
+
+        <div>
+          <label htmlFor="email">
+            <small>Are you a mentor or mentee?</small>
+          </label>
+          <input type="radio" name="mentorMentee" value="mentor" /> Mentor
+          <input type="radio" name="mentorMentee" value="mentee" /> Mentee
+        </div>
+        <div>
+          <label htmlFor="email">
+            <small>What skill are you interested in?</small>
+          </label>
+          <input type="checkbox" name="skills" value="leadership" /> Leadership
+          <input type="checkbox" name="skills" value="sales" /> Sales
+          <input type="checkbox" name="skills" value="strategy" /> Strategy
+        </div>
 
         <div>
           <label htmlFor="password">
@@ -64,27 +58,19 @@ const AuthForm = props => {
  *   function, and share the same Component. This is a good example of how we
  *   can stay DRY with interfaces that are very similar to each other!
  */
-const mapLogin = state => {
-  return {
-    name: 'login',
-    displayName: 'Login',
-    error: state.user.error
-  }
-}
 
-const mapSignup = state => {
-  return {
-    name: 'signup',
-    displayName: 'Sign Up',
-    error: state.user.error
-  }
-}
+// const mapSignup = state => {
+//   return {
+//     name: 'signup',
+//     displayName: 'Sign Up',
+//     error: state.user.error
+//   }
+// }
 
 const mapDispatch = dispatch => {
   return {
     handleSubmit(evt) {
       evt.preventDefault()
-      const formName = evt.target.name
       const email = evt.target.email.value
       const password = evt.target.password.value
       const mentorOrMentee = evt.target.mentorMentee.value
@@ -97,19 +83,13 @@ const mapDispatch = dispatch => {
         },
         []
       )
-      if (formName === 'login') {
-        dispatch(auth(email, password, formName))
-      } else {
-        dispatch(
-          auth(email, password, formName, password, mentorOrMentee, skills)
-        )
-      }
+
+      dispatch(signup(email, password, mentorOrMentee, skills))
     }
   }
 }
 
-export const Login = connect(mapLogin, mapDispatch)(AuthForm)
-export const Signup = connect(mapSignup, mapDispatch)(AuthForm)
+export const Signup = connect(null, mapDispatch)(AuthForm)
 
 /**
  * PROP TYPES
