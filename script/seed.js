@@ -12,6 +12,18 @@ async function seed() {
     User.create({email: 'murphy@email.com', password: '123'})
   ])
 
+  const skills = await Promise.all([
+    Skill.create({name: 'JavaScript'}),
+    Skill.create({name: 'Node.js'}),
+    Skill.create({name: 'Express.js'}),
+    Skill.create({name: 'Sequelize.js'}),
+    Skill.create({name: 'PostgreSQL'}),
+    Skill.create({name: 'React.js'}),
+    Skill.create({name: 'Redux.js'}),
+    Skill.create({name: 'Socket.io'}),
+    Skill.create({name: 'Bulma.css'})
+  ])
+
   console.log(`seeded ${users.length} users`)
   console.log(`seeded ${skills.length} skills`)
   console.log(`seeded ${mentors.length} mentors`)
