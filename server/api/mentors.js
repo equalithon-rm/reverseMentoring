@@ -11,11 +11,13 @@ router.get('/', async (req, res, next) => {
         // send everything to anyone who asks!
         attributes: [
           'id',
-          'name',
+          'firstName',
+          'lastName',
+          'imgUrl',
           'gender',
+          'company',
           'position',
-          'imageUrl',
-          'industry',
+          'dateJoinedCompany',
           'blurb'
         ]
       },
