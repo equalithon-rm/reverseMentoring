@@ -1,19 +1,12 @@
-const crypto = require('crypto')
 const Sequelize = require('sequelize')
 const db = require('../db')
 
 const Mentor = db.define('mentor', {
-  name: {
+  firstName: {
     type: Sequelize.STRING,
     allowNull: false
   },
-  gender: {
-    type: Sequelize.STRING,
-    validate: {
-      [Sequelize.Op.any]: ['Female', 'Male']
-    }
-  },
-  position: {
+  lastName: {
     type: Sequelize.STRING,
     allowNull: false
   },
@@ -21,9 +14,24 @@ const Mentor = db.define('mentor', {
     type: Sequelize.STRING,
     allowNull: false
   },
-  industry: {
+  gender: {
+    type: Sequelize.STRING,
+    validate: {
+      [Sequelize.Op.any]: ['Female', 'Non-binary', 'Male']
+    }
+  },
+  company: {
     type: Sequelize.STRING,
     allowNull: false
+  },
+  position: {
+    type: Sequelize.STRING,
+    allowNull: false
+  },
+  dateJoinedCompany: {
+    type: Sequelize.DATE,
+    allowNull: false
+    // defaultValue: Sequelize.NOW
   },
   blurb: {
     type: Sequelize.TEXT
