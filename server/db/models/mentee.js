@@ -10,7 +10,7 @@ const Mentee = db.define('mentee', {
     type: Sequelize.STRING,
     allowNull: false
   },
-  imageUrl: {
+  imgUrl: {
     type: Sequelize.STRING,
     allowNull: false
   },
