@@ -1,9 +1,26 @@
-const crypto = require('crypto')
 const Sequelize = require('sequelize')
 const db = require('../db')
 
 const Mentee = db.define('mentee', {
-  name: {
+  firstName: {
+    type: Sequelize.STRING,
+    allowNull: false
+  },
+  lastName: {
+    type: Sequelize.STRING,
+    allowNull: false
+  },
+  imageUrl: {
+    type: Sequelize.STRING,
+    allowNull: false
+  },
+  gender: {
+    type: Sequelize.STRING,
+    validate: {
+      [Sequelize.Op.any]: ['Female', 'Non-binary']
+    }
+  },
+  company: {
     type: Sequelize.STRING,
     allowNull: false
   },
@@ -11,16 +28,13 @@ const Mentee = db.define('mentee', {
     type: Sequelize.STRING,
     allowNull: false
   },
-  imageUrl: {
-    type: Sequelize.STRING
-  },
-  industry: {
-    type: Sequelize.STRING,
+  dateJoinedCompany: {
+    type: Sequelize.DATE,
     allowNull: false
+    // defaultValue: Sequelize.NOW
   },
   blurb: {
-    type: Sequelize.TEXT,
-    allowNull: false
+    type: Sequelize.TEXT
   }
 })
 
