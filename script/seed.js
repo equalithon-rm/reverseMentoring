@@ -25,7 +25,7 @@ async function seed() {
   ])
 
   const mentors = await Promise.all([
-    User.create({
+    Mentor.create({
       firstName: 'Macarena',
       lastName: 'Carreno',
       imgUrl:
@@ -36,7 +36,7 @@ async function seed() {
       dateJoinedCompany: Date.now(),
       blurb: '1902 GH-NY Graduate'
     }),
-    User.create({
+    Mentor.create({
       firstName: 'Linda',
       lastName: 'Saraguro',
       imgUrl:
@@ -47,7 +47,7 @@ async function seed() {
       dateJoinedCompany: Date.now(),
       blurb: '1902 GH-NY Graduate'
     }),
-    User.create({
+    Mentor.create({
       firstName: 'Jocelyn',
       lastName: 'Jeriah',
       imgUrl:
@@ -58,7 +58,7 @@ async function seed() {
       dateJoinedCompany: Date.now(),
       blurb: 'GA Student'
     }),
-    User.create({
+    Mentor.create({
       firstName: 'Arianna',
       lastName: 'Choza',
       imgUrl:
@@ -69,7 +69,7 @@ async function seed() {
       dateJoinedCompany: Date.now(),
       blurb: 'GA Graduate'
     }),
-    User.create({
+    Mentor.create({
       firstName: 'Sam',
       lastName: 'Peach',
       imgUrl:
@@ -80,7 +80,7 @@ async function seed() {
       dateJoinedCompany: Date.now(),
       blurb: '1904 FSA-NY Graduate'
     }),
-    User.create({
+    Mentor.create({
       firstName: 'Tal',
       lastName: 'Luigi',
       imgUrl:
@@ -94,7 +94,7 @@ async function seed() {
   ])
 
   const mentees = await Promise.all([
-    User.create({
+    Mentee.create({
       firstName: 'Wonder',
       lastName: 'Woman',
       imgUrl:
@@ -105,7 +105,7 @@ async function seed() {
       dateJoinedCompany: Date.now(),
       blurb: '1907 GH-NY Student'
     }),
-    User.create({
+    Mentee.create({
       firstName: 'Captain',
       lastName: 'Marvel',
       imgUrl:
@@ -116,7 +116,7 @@ async function seed() {
       dateJoinedCompany: Date.now(),
       blurb: '1907 GH-NY Student'
     }),
-    User.create({
+    Mentee.create({
       firstName: 'The',
       lastName: 'Wasp',
       imgUrl:
@@ -127,7 +127,7 @@ async function seed() {
       dateJoinedCompany: Date.now(),
       blurb: 'GA Student'
     }),
-    User.create({
+    Mentee.create({
       firstName: 'Black',
       lastName: 'Widow',
       imgUrl:
@@ -138,7 +138,7 @@ async function seed() {
       dateJoinedCompany: Date.now(),
       blurb: 'GA Student'
     }),
-    User.create({
+    Mentee.create({
       firstName: 'Captain',
       lastName: 'America',
       imgUrl:
@@ -149,7 +149,7 @@ async function seed() {
       dateJoinedCompany: Date.now(),
       blurb: '1904 FSA-NY Graduate'
     }),
-    User.create({
+    Mentee.create({
       firstName: 'Iron',
       lastName: 'Man',
       imgUrl:
