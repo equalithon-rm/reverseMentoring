@@ -16,8 +16,8 @@ const AuthForm = props => {
           <label htmlFor="status">
             <small>Are you a Mentor or a Mentee?</small>
           </label>
-          <input type="radio" name="mentorMentee" value="mentor" /> Mentor
-          <input type="radio" name="mentorMentee" value="mentee" /> Mentee
+          <input type="checkbox" name="mentorMentee" value="mentor" /> Mentor
+          <input type="checkbox" name="mentorMentee" value="mentee" /> Mentee
         </div>
 
         <div>
@@ -30,7 +30,7 @@ const AuthForm = props => {
         </div>
 
         <div>
-          <button type="submit">{displayName}</button>
+          <button type="submit">Submit</button>
         </div>
         {error && error.response && <div> {error.response.data} </div>}
       </form>

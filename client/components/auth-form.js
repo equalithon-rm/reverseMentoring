@@ -17,21 +17,30 @@ const AuthForm = props => {
         {props.name === 'signup' ? (
           <div>
             <div>
-              <label htmlFor="email">
-                <small>Are you a mentor or mentee?</small>
+              <label htmlFor="status">
+                <small>Are you a Mentor or a Mentee?</small>
               </label>
-              <input type="radio" name="mentorMentee" value="mentor" /> Mentor
-              <input type="radio" name="mentorMentee" value="mentee" /> Mentee
+              <input type="checkbox" name="mentorMentee" value="mentor" />{' '}
+              Mentor
+              <input type="checkbox" name="mentorMentee" value="mentee" />{' '}
+              Mentee
             </div>
+            <br />
             <div>
-              <label htmlFor="email">
+              <label htmlFor="skill">
                 <small>What skill are you interested in?</small>
               </label>
               <input type="checkbox" name="skills" value="leadership" />{' '}
               Leadership
-              <input type="checkbox" name="skills" value="sales" /> Sales
               <input type="checkbox" name="skills" value="strategy" /> Strategy
+              <input type="checkbox" name="skills" value="sales" /> Sales
             </div>
+            <br />
+            <div>
+              <button type="submit">Submit</button>
+            </div>
+            <br />
+            {error && error.response && <div> {error.response.data} </div>}
           </div>
         ) : (
           false
