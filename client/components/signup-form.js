@@ -13,39 +13,28 @@ const AuthForm = props => {
     <div>
       <form onSubmit={handleSubmit} name={name}>
         <div>
-          <label htmlFor="email">
-            <small>Email</small>
+          <label htmlFor="status">
+            <small>Are you a Mentor or a Mentee?</small>
           </label>
-          <input name="email" type="text" />
+          <input type="checkbox" name="mentorMentee" value="mentor" /> Mentor
+          <input type="checkbox" name="mentorMentee" value="mentee" /> Mentee
         </div>
 
         <div>
-          <label htmlFor="email">
-            <small>Are you a mentor or mentee?</small>
-          </label>
-          <input type="radio" name="mentorMentee" value="mentor" /> Mentor
-          <input type="radio" name="mentorMentee" value="mentee" /> Mentee
-        </div>
-        <div>
-          <label htmlFor="email">
+          <label htmlFor="skill">
             <small>What skill are you interested in?</small>
           </label>
           <input type="checkbox" name="skills" value="leadership" /> Leadership
-          <input type="checkbox" name="skills" value="sales" /> Sales
           <input type="checkbox" name="skills" value="strategy" /> Strategy
+          <input type="checkbox" name="skills" value="sales" /> Sales
         </div>
 
         <div>
-          <label htmlFor="password">
-            <small>Password</small>
-          </label>
-          <input name="password" type="password" />
-        </div>
-        <div>
-          <button type="submit">{displayName}</button>
+          <button type="submit">Submit</button>
         </div>
         {error && error.response && <div> {error.response.data} </div>}
       </form>
+
       <a href="/auth/google">{displayName} with Google</a>
     </div>
   )
@@ -59,20 +48,18 @@ const AuthForm = props => {
  *   can stay DRY with interfaces that are very similar to each other!
  */
 
-// const mapSignup = state => {
-//   return {
-//     name: 'signup',
-//     displayName: 'Sign Up',
-//     error: state.user.error
-//   }
-// }
+const mapSignup = state => {
+  return {
+    name: 'signup',
+    displayName: 'Sign Up',
+    error: state.user.error
+  }
+}
 
 const mapDispatch = dispatch => {
   return {
     handleSubmit(evt) {
       evt.preventDefault()
-      const email = evt.target.email.value
-      const password = evt.target.password.value
       const mentorOrMentee = evt.target.mentorMentee.value
       const skills = [...document.getElementsByName('skills')].reduce(
         (accum, el) => {
@@ -89,7 +76,7 @@ const mapDispatch = dispatch => {
   }
 }
 
-export const Signup = connect(null, mapDispatch)(AuthForm)
+export const Signup = connect(mapSignup, mapDispatch)(AuthForm)
 
 /**
  * PROP TYPES
