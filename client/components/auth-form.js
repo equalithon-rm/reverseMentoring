@@ -11,13 +11,9 @@ const AuthForm = props => {
 
   return (
     <div>
+      <br />
+      <a href="/auth/google">{displayName} with Google</a>
       <form onSubmit={handleSubmit} name={name}>
-        <div>
-          <label htmlFor="email">
-            <small>Email</small>
-          </label>
-          <input name="email" type="text" />
-        </div>
         {props.name === 'signup' ? (
           <div>
             <div>
@@ -40,19 +36,7 @@ const AuthForm = props => {
         ) : (
           false
         )}
-
-        <div>
-          <label htmlFor="password">
-            <small>Password</small>
-          </label>
-          <input name="password" type="password" />
-        </div>
-        <div>
-          <button type="submit">{displayName}</button>
-        </div>
-        {error && error.response && <div> {error.response.data} </div>}
       </form>
-      <a href="/auth/google">{displayName} with Google</a>
     </div>
   )
 }
@@ -64,6 +48,7 @@ const AuthForm = props => {
  *   function, and share the same Component. This is a good example of how we
  *   can stay DRY with interfaces that are very similar to each other!
  */
+
 const mapLogin = state => {
   return {
     name: 'login',
@@ -85,8 +70,6 @@ const mapDispatch = dispatch => {
     handleSubmit(evt) {
       evt.preventDefault()
       const formName = evt.target.name
-      const email = evt.target.email.value
-      const password = evt.target.password.value
       const mentorOrMentee = evt.target.mentorMentee.value
       const skills = [...document.getElementsByName('skills')].reduce(
         (accum, el) => {
