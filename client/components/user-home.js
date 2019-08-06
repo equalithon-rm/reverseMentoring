@@ -1,16 +1,18 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
+import UserCaptureForm from './user-capture-form'
 
 /**
  * COMPONENT
  */
 export const UserHome = props => {
-  const {firstName, email} = props
+  const {firstName, email, hasCompletedSignup} = props
 
   return (
     <div>
       <h3>Welcome, {firstName ? firstName : email}.</h3>
+      {hasCompletedSignup ? false : <UserCaptureForm />}
     </div>
   )
 }
