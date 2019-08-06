@@ -146,6 +146,7 @@ async function seed() {
     Mentee.create({
       firstName: 'Captain',
       lastName: 'America',
+      fullName: 'Captain America',
       imgUrl:
         'https://journeypurebowlinggreen.com/wp-content/uploads/2018/05/placeholder-person.jpg',
       gender: 'Male',
@@ -157,6 +158,7 @@ async function seed() {
     Mentee.create({
       firstName: 'Iron',
       lastName: 'Man',
+      fullName: 'Iron Man',
       imgUrl:
         'https://journeypurebowlinggreen.com/wp-content/uploads/2018/05/placeholder-person.jpg',
       gender: 'Male',

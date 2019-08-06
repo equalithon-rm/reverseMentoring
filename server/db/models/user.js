@@ -25,6 +25,7 @@ const User = db.define('user', {
   },
   hasCompletedSignup: {
     type: Sequelize.BOOLEAN,
+    defaultValue: false,
     allowNull: false
   }
 })
