@@ -23,6 +23,7 @@ async function seed() {
     Mentor.create({
       firstName: 'Macarena',
       lastName: 'Carreno',
+      fullName: 'Macarena Carreno',
       imgUrl:
         'https://journeypurebowlinggreen.com/wp-content/uploads/2018/05/placeholder-person.jpg',
       gender: 'Female',
@@ -34,6 +35,7 @@ async function seed() {
     Mentor.create({
       firstName: 'Linda',
       lastName: 'Saraguro',
+      fullName: 'Linda Saraguro',
       imgUrl:
         'https://journeypurebowlinggreen.com/wp-content/uploads/2018/05/placeholder-person.jpg',
       gender: 'Female',
@@ -45,6 +47,7 @@ async function seed() {
     Mentor.create({
       firstName: 'Jocelyn',
       lastName: 'Jeriah',
+      fullName: 'Jocelyn Jeriah',
       imgUrl:
         'https://journeypurebowlinggreen.com/wp-content/uploads/2018/05/placeholder-person.jpg',
       gender: 'Female',
@@ -56,6 +59,7 @@ async function seed() {
     Mentor.create({
       firstName: 'Arianna',
       lastName: 'Choza',
+      fullName: 'Arianna Choza',
       imgUrl:
         'https://journeypurebowlinggreen.com/wp-content/uploads/2018/05/placeholder-person.jpg',
       gender: 'Female',
@@ -67,6 +71,7 @@ async function seed() {
     Mentor.create({
       firstName: 'Sam',
       lastName: 'Peach',
+      fullName: 'Sam Peach',
       imgUrl:
         'https://journeypurebowlinggreen.com/wp-content/uploads/2018/05/placeholder-person.jpg',
       gender: 'Male',
@@ -78,6 +83,7 @@ async function seed() {
     Mentor.create({
       firstName: 'Tal',
       lastName: 'Luigi',
+      fullName: 'Tal Luigi',
       imgUrl:
         'https://journeypurebowlinggreen.com/wp-content/uploads/2018/05/placeholder-person.jpg',
       gender: 'Male',
@@ -92,6 +98,7 @@ async function seed() {
     Mentee.create({
       firstName: 'Wonder',
       lastName: 'Woman',
+      fullName: 'Wonder Woman',
       imgUrl:
         'https://journeypurebowlinggreen.com/wp-content/uploads/2018/05/placeholder-person.jpg',
       gender: 'Female',
@@ -103,6 +110,7 @@ async function seed() {
     Mentee.create({
       firstName: 'Captain',
       lastName: 'Marvel',
+      fullName: 'Captain Marvel',
       imgUrl:
         'https://journeypurebowlinggreen.com/wp-content/uploads/2018/05/placeholder-person.jpg',
       gender: 'Female',
@@ -114,6 +122,7 @@ async function seed() {
     Mentee.create({
       firstName: 'The',
       lastName: 'Wasp',
+      fullName: 'The Wasp',
       imgUrl:
         'https://journeypurebowlinggreen.com/wp-content/uploads/2018/05/placeholder-person.jpg',
       gender: 'Female',
@@ -125,6 +134,7 @@ async function seed() {
     Mentee.create({
       firstName: 'Black',
       lastName: 'Widow',
+      fullName: 'Black Window',
       imgUrl:
         'https://journeypurebowlinggreen.com/wp-content/uploads/2018/05/placeholder-person.jpg',
       gender: 'Female',
@@ -136,6 +146,7 @@ async function seed() {
     Mentee.create({
       firstName: 'Captain',
       lastName: 'America',
+      fullName: 'Captain America',
       imgUrl:
         'https://journeypurebowlinggreen.com/wp-content/uploads/2018/05/placeholder-person.jpg',
       gender: 'Male',
@@ -147,6 +158,7 @@ async function seed() {
     Mentee.create({
       firstName: 'Iron',
       lastName: 'Man',
+      fullName: 'Iron Man',
       imgUrl:
         'https://journeypurebowlinggreen.com/wp-content/uploads/2018/05/placeholder-person.jpg',
       gender: 'Male',

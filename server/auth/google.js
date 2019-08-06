@@ -36,11 +36,11 @@ if (!process.env.GOOGLE_CLIENT_ID || !process.env.GOOGLE_CLIENT_SECRET) {
       const lastName = profile.name.familyName
       const fullName = profile.displayName
       const email = profile.emails[0].value
-      const hasCompletedSignup = false
+      const imgUrl = profile.photos[0].value
 
       User.findOrCreate({
         where: {googleId},
-        defaults: {firstName, lastName, fullName, email, hasCompletedSignup}
+        defaults: {firstName, lastName, fullName, email, imgUrl}
       })
         .then(([user]) => done(null, user))
         .catch(done)
