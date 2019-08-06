@@ -18,13 +18,15 @@ const Booking = require('./booking')
  * instead of: const User = require('../db/models/user')
  */
 
+Skill.hasMany(Booking)
+
 /// MENTOR ///
 Mentor.belongsToMany(Mentee, {through: 'mentors_mentees'})
-Mentee.hasMany(Booking)
+Mentor.hasMany(Booking)
 
 // MENTEE ///
 Mentee.belongsToMany(Mentor, {through: 'mentors_mentees'})
-Mentor.hasMany(Booking)
+Mentee.hasMany(Booking)
 
 module.exports = {
   User,
