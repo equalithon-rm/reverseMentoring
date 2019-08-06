@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
+import {Search} from './search'
 
 /**
  * COMPONENT
@@ -11,6 +12,7 @@ export const UserHome = props => {
   return (
     <div>
       <h3>Welcome, {firstName ? firstName : email}.</h3>
+      <Search />
     </div>
   )
 }
