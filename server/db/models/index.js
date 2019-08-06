@@ -28,6 +28,9 @@ Mentor.hasMany(Booking)
 Mentee.belongsToMany(Mentor, {through: 'mentors_mentees'})
 Mentee.hasMany(Booking)
 
+User.hasOne(Mentor)
+User.hasOne(Mentee)
+
 module.exports = {
   User,
   Mentee,
