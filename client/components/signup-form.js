@@ -70,8 +70,7 @@ const mapDispatch = dispatch => {
         },
         []
       )
-
-      dispatch(signup(email, password, mentorOrMentee, skills))
+      dispatch(signup(mentorOrMentee, skills))
     }
   }
 }

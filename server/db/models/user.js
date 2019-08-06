@@ -18,6 +18,10 @@ const User = db.define('user', {
   },
   googleId: {
     type: Sequelize.STRING
+  },
+  hasCompletedSignup: {
+    type: Sequelize.BOOLEAN,
+    allowNull: false
   }
 })
 

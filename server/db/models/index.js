@@ -26,6 +26,9 @@ Skill.belongsTo(Mentor)
 Mentee.hasMany(Skill)
 Skill.belongsTo(Mentee)
 
+User.hasOne(Mentor)
+User.hasOne(Mentee)
+
 module.exports = {
   User,
   Mentee,
