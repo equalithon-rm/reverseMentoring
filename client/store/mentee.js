@@ -1,110 +1,110 @@
 import axios from 'axios'
 
-const GETTING_MENTORS = 'GETTING_MENTORS '
-const GOT_MENTORS = 'GOT_MENTORS'
-const GETTING_ONE_MENTOR = 'GETTING_ONE_MENTOR'
-const GOT_ONE_MENTOR = 'GOT_ONE_MENTOR'
-const REMOVE_MENTOR = 'REMOVE_MENTOR'
-const UPDATE_MENTOR = 'UPDATE_MENTOR'
-const CREATE_MENTOR = 'CREATE_MENTOR'
+const GETTING_MENTEES = 'GETTING_MENTEES '
+const GOT_MENTEES = 'GOT_MENTEES'
+const GETTING_ONE_MENTEE = 'GETTING_ONE_MENTEE'
+const GOT_ONE_MENTEE = 'GOT_ONE_MENTEE'
+const REMOVE_MENTEE = 'REMOVE_MENTEE'
+const UPDATE_MENTEE = 'UPDATE_MENTEE'
+const CREATE_MENTEE = 'CREATE_MENTEE'
 
-const gettingMentors = () => ({
-  type: GETTING_MENTORS
+const gettingMentees = () => ({
+  type: GETTING_MENTEES
 })
 
-const gotMentors = mentors => ({
-  type: GOT_MENTORS,
-  mentors
+const gotMentees = mentees => ({
+  type: GOT_MENTEES,
+  mentees
 })
 
-const gettingOneMentor = () => ({
-  type: GETTING_ONE_MENTOR
+const gettingOneMentee = () => ({
+  type: GETTING_ONE_MENTEE
 })
 
-const gotOneMentor = mentor => ({
-  type: GOT_ONE_MENTOR,
-  mentor
+const gotOneMentee = mentee => ({
+  type: GOT_ONE_MENTEE,
+  mentee
 })
 
-const removeMentor = mentorId => ({
-  type: REMOVE_MENTOR,
-  mentorId
+const removeMentee = menteeId => ({
+  type: REMOVE_MENTEE,
+  menteeId
 })
 
-const updateMentor = mentor => ({
-  type: UPDATE_MENTOR,
-  mentor
+const updateMentee = mentee => ({
+  type: UPDATE_MENTEE,
+  mentee
 })
 
-const createMentor = mentor => ({
-  type: CREATE_MENTOR,
-  mentor
+const createMentee = mentee => ({
+  type: CREATE_MENTEE,
+  mentee
 })
 
-export const fetchMentors = () => {
+export const fetchMentees = () => {
   return async dispatch => {
-    dispatch(gettingMentors())
-    const response = await axios.get('/api/mentors')
-    dispatch(gotMentors(response.data))
+    dispatch(gettingMentees())
+    const response = await axios.get('/api/mentees')
+    dispatch(gotMentees(response.data))
   }
 }
 
-export const fetchMentor = mentorId => {
+export const fetchMentee = menteeId => {
   return async dispatch => {
-    dispatch(gettingOneMentor())
-    const response = await axios.get(`/api/mentors/${mentorId}`)
-    dispatch(gotOneMentor(response.data))
+    dispatch(gettingOneMentee())
+    const response = await axios.get(`/api/mentees/${menteeId}`)
+    dispatch(gotOneMentee(response.data))
   }
 }
 
-export const deleteMentor = mentorId => {
+export const deleteMentee = menteeId => {
   return async dispatch => {
-    await axios.delete(`/api/mentors/${mentorId}`)
-    dispatch(removeMentor(mentorId))
+    await axios.delete(`/api/mentees/${menteeId}`)
+    dispatch(removeMentee(menteeId))
   }
 }
-export const putMentor = (mentorId, mentor) => {
+export const putMentee = (menteeId, mentee) => {
   return async dispatch => {
-    const response = await axios.put(`/api/mentors/${mentorId}`, mentor)
-    dispatch(updateMentor(response.data))
+    const response = await axios.put(`/api/mentees/${menteeId}`, mentee)
+    dispatch(updateMentee(response.data))
   }
 }
 
-export const addMentor = mentor => {
+export const addMentee = mentee => {
   return async dispatch => {
-    const response = await axios.post('/api/mentors', mentor)
-    dispatch(createMentor(response.data))
+    const response = await axios.post('/api/mentees', mentee)
+    dispatch(createMentee(response.data))
   }
 }
 
 const initialState = {
   loading: false,
-  mentors: [],
-  mentor: {}
+  mentees: [],
+  mentee: {}
 }
 
-const mentorReducer = (state = initialState, action) => {
+const menteeReducer = (state = initialState, action) => {
   switch (action.type) {
-    case GETTING_MENTORS:
+    case GETTING_MENTEES:
       return {...state, loading: true}
-    case GOT_MENTORS:
-      return {...state, loading: false, mentors: action.mentors}
-    case GETTING_ONE_MENTOR:
+    case GOT_MENTEES:
+      return {...state, loading: false, mentees: action.mentees}
+    case GETTING_ONE_MENTEE:
       return {...state, loading: true}
-    case GOT_ONE_MENTOR:
-      return {...state, loading: false, mentor: action.mentor}
-    case REMOVE_MENTOR:
+    case GOT_ONE_MENTEE:
+      return {...state, loading: false, mentee: action.mentee}
+    case REMOVE_MENTEE:
       return {
         ...state,
-        mentors: state.mentors.filter(mentor => mentor.id !== action.mentorsId)
+        mentees: state.mentees.filter(mentee => mentee.id !== action.menteeId)
       }
-    case UPDATE_MENTOR:
-      return {...state, mentor: action.mentor}
-    case CREATE_MENTOR:
-      return {...state, mentor: [...state.mentors, action.mentor]}
+    case UPDATE_MENTEE:
+      return {...state, mentee: action.mentee}
+    case CREATE_MENTEE:
+      return {...state, mentees: [...state.mentees, action.mentee]}
     default:
       return state
   }
 }
 
-export default mentorReducer
+export default menteeReducer
