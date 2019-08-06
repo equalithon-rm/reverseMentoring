@@ -6,11 +6,7 @@ import {logout} from '../store'
 
 const Navbar = ({handleClick, isLoggedIn}) => (
   <div>
-<<<<<<< HEAD
     <h1>Equalithon</h1>
-=======
-    <h1>Reverse Mentoring</h1>
->>>>>>> feat: clean up and refactor some code, add router and connections necessary to display user profile in app
     <nav>
       {isLoggedIn ? (
         <div>
