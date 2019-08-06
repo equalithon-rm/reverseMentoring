@@ -8,6 +8,9 @@ const REMOVE_MENTEE = 'REMOVE_MENTEE'
 const UPDATE_MENTEE = 'UPDATE_MENTEE'
 const CREATE_MENTEE = 'CREATE_MENTEE'
 
+const GETTING_MENTEES_SKILL = 'GETTING_MENTEES_SKILL'
+const GOT_MENTEES_BY_SKILL = 'GOT_MENTEES_BY_SKILL'
+
 const gettingMentees = () => ({
   type: GETTING_MENTEES
 })
@@ -41,11 +44,28 @@ const createMentee = mentee => ({
   mentee
 })
 
+const gettingMenteesSkill = () => ({
+  type: GETTING_MENTEES_SKILL
+})
+
+const gotMenteesBySkill = menteesSkill => ({
+  type: GOT_MENTEES_BY_SKILL,
+  menteesSkill
+})
+
 export const fetchMentees = () => {
   return async dispatch => {
     dispatch(gettingMentees())
     const response = await axios.get('/api/mentees')
     dispatch(gotMentees(response.data))
+  }
+}
+
+export const fetchMenteesSkill = skillId => {
+  return async dispatch => {
+    dispatch(gettingMenteesSkill())
+    const response = await axios.get(`/api/mentees/skill/${skillId}`)
+    dispatch(gotMenteesBySkill(response.data))
   }
 }
 

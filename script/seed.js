@@ -7,7 +7,7 @@ async function seed() {
   await db.sync({force: true})
   console.log('db synced!')
 
-  const skills = await Promise.all([
+  const skill = await Promise.all([
     Skill.create({name: 'JavaScript'}),
     Skill.create({name: 'Node.js'}),
     Skill.create({name: 'Express.js'}),
@@ -88,8 +88,8 @@ async function seed() {
     })
   ])
 
-  const mentees = await Promise.all([
-    Mentee.create({
+  const mentees = [
+    {
       firstName: 'Wonder',
       lastName: 'Woman',
       imgUrl:
@@ -99,8 +99,8 @@ async function seed() {
       position: 'Full Stack Software Developer in Training',
       dateJoinedCompany: Date.now(),
       blurb: '1907 GH-NY Student'
-    }),
-    Mentee.create({
+    },
+    {
       firstName: 'Captain',
       lastName: 'Marvel',
       imgUrl:
@@ -110,8 +110,8 @@ async function seed() {
       position: 'Full Stack Software Developer in Training',
       dateJoinedCompany: Date.now(),
       blurb: '1907 GH-NY Student'
-    }),
-    Mentee.create({
+    },
+    {
       firstName: 'The',
       lastName: 'Wasp',
       imgUrl:
@@ -121,8 +121,8 @@ async function seed() {
       position: 'Full Stack Software Developer in Training',
       dateJoinedCompany: Date.now(),
       blurb: 'GA Student'
-    }),
-    Mentee.create({
+    },
+    {
       firstName: 'Black',
       lastName: 'Widow',
       imgUrl:
@@ -132,8 +132,8 @@ async function seed() {
       position: 'Front End Software Developer in Training',
       dateJoinedCompany: Date.now(),
       blurb: 'GA Student'
-    }),
-    Mentee.create({
+    },
+    {
       firstName: 'Captain',
       lastName: 'America',
       imgUrl:
@@ -143,8 +143,8 @@ async function seed() {
       position: 'Full Stack Software Developer in Training',
       dateJoinedCompany: Date.now(),
       blurb: '1904 FSA-NY Graduate'
-    }),
-    Mentee.create({
+    },
+    {
       firstName: 'Iron',
       lastName: 'Man',
       imgUrl:
@@ -154,10 +154,26 @@ async function seed() {
       position: 'Full Stack Software Developer in Training',
       dateJoinedCompany: Date.now(),
       blurb: '1904 FSA-NY Graduate'
-    })
-  ])
+    }
+  ]
 
-  console.log(`seeded ${skills.length} skills`)
+  await Promise.all(
+    mentees.map(mentee => {
+      return Mentee.create(mentee)
+    })
+  )
+
+  // const mentees = await Promise.all([
+  //   Mentee.create(
+  //  ),
+  //   Mentee.create(),
+  //   Mentee.create(),
+  //   Mentee.create(),
+  //   Mentee.create(),
+  //   Mentee.create()
+  // ])
+
+  // console.log(`seeded ${skill.length} skill`)
   console.log(`seeded ${mentors.length} mentors`)
   console.log(`seeded ${mentees.length} mentees`)
   console.log(`seeded successfully`)
