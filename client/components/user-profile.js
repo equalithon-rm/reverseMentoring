@@ -2,7 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 
 const image = {
-  src: './profile_image.jpg',
+  src: '/img/profile_image.jpg',
   alt: 'profile image',
   width: '30%',
   height: '30%'
