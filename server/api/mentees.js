@@ -57,6 +57,28 @@ router.get('/:menteeId', async (req, res, next) => {
   }
 })
 
+router.get('/skill/:skillId', async (req, res, next) => {
+  try {
+    console.log(req.params.skillId)
+    const skillId = req.params.skillId
+    const Mentees = await Mentee.findByPk(skillId, {
+      include: [
+        {
+          model: Skill,
+          attributes: ['name']
+        }
+      ]
+    })
+    if (Mentees) {
+      res.json(Mentees)
+    } else {
+      res.sendStatus(404).json({})
+    }
+  } catch (err) {
+    next(err)
+  }
+})
+
 router.post('/mentees', async (req, res, next) => {
   try {
     const newMentee = await Mentee.create(req.body)
