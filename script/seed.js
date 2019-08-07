@@ -175,17 +175,7 @@ async function seed() {
     })
   )
 
-  // const mentees = await Promise.all([
-  //   Mentee.create(
-  //  ),
-  //   Mentee.create(),
-  //   Mentee.create(),
-  //   Mentee.create(),
-  //   Mentee.create(),
-  //   Mentee.create()
-  // ])
-
-  // console.log(`seeded ${skill.length} skill`)
+  console.log(`seeded ${skill.length} skill`)
   console.log(`seeded ${mentors.length} mentors`)
   console.log(`seeded ${mentees.length} mentees`)
   console.log(`seeded successfully`)
