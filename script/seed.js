@@ -1,26 +1,32 @@
 'use strict'
 
 const db = require('../server/db')
-const {Skill, Mentor, Mentee} = require('../server/db/models')
+const {
+  Skill,
+  Mentor,
+  Mentee,
+  MentorsSkills,
+  MenteeSkills
+} = require('../server/db/models')
 
 async function seed() {
   await db.sync({force: true})
   console.log('db synced!')
 
-  const skill = await Promise.all([
-    Skill.create({name: 'JavaScript'}),
-    Skill.create({name: 'Node.js'}),
-    Skill.create({name: 'Express.js'}),
-    Skill.create({name: 'Sequelize.js'}),
-    Skill.create({name: 'PostgreSQL'}),
-    Skill.create({name: 'React.js'}),
-    Skill.create({name: 'Redux.js'}),
-    Skill.create({name: 'Socket.io'}),
-    Skill.create({name: 'Bulma.css'})
-  ])
+  const skills = [
+    {name: 'JavaScript'},
+    {name: 'Node.js'},
+    {name: 'Express.js'},
+    {name: 'Sequelize.js'},
+    {name: 'PostgreSQL'},
+    {name: 'React.js'},
+    {name: 'Redux.js'},
+    {name: 'Socket.io'},
+    {name: 'Bulma.css'}
+  ]
 
-  const mentors = await Promise.all([
-    Mentor.create({
+  const mentors = [
+    {
       firstName: 'Macarena',
       lastName: 'Carreno',
       fullName: 'Macarena Carreno',
@@ -31,56 +37,8 @@ async function seed() {
       position: 'Full Stack Software Developer',
       dateJoinedCompany: Date.now(),
       blurb: '1902 GH-NY Graduate'
-    }),
-    Mentor.create({
-      firstName: 'Linda',
-      lastName: 'Saraguro',
-      fullName: 'Linda Saraguro',
-      imgUrl:
-        'https://journeypurebowlinggreen.com/wp-content/uploads/2018/05/placeholder-person.jpg',
-      gender: 'Female',
-      company: 'Essteem',
-      position: 'Full Stack Software Developer',
-      dateJoinedCompany: Date.now(),
-      blurb: '1902 GH-NY Graduate'
-    }),
-    Mentor.create({
-      firstName: 'Jocelyn',
-      lastName: 'Jeriah',
-      fullName: 'Jocelyn Jeriah',
-      imgUrl:
-        'https://journeypurebowlinggreen.com/wp-content/uploads/2018/05/placeholder-person.jpg',
-      gender: 'Female',
-      company: 'Essteem',
-      position: 'Full Stack Software Developer',
-      dateJoinedCompany: Date.now(),
-      blurb: 'GA Student'
-    }),
-    Mentor.create({
-      firstName: 'Arianna',
-      lastName: 'Choza',
-      fullName: 'Arianna Choza',
-      imgUrl:
-        'https://journeypurebowlinggreen.com/wp-content/uploads/2018/05/placeholder-person.jpg',
-      gender: 'Female',
-      company: 'Essteem',
-      position: 'Front End Software Developer',
-      dateJoinedCompany: Date.now(),
-      blurb: 'GA Graduate'
-    }),
-    Mentor.create({
-      firstName: 'Sam',
-      lastName: 'Peach',
-      fullName: 'Sam Peach',
-      imgUrl:
-        'https://journeypurebowlinggreen.com/wp-content/uploads/2018/05/placeholder-person.jpg',
-      gender: 'Male',
-      company: 'Essteem',
-      position: 'Full Stack Software Developer',
-      dateJoinedCompany: Date.now(),
-      blurb: '1904 FSA-NY Graduate'
-    }),
-    Mentor.create({
+    },
+    {
       firstName: 'Tal',
       lastName: 'Luigi',
       fullName: 'Tal Luigi',
@@ -91,8 +49,83 @@ async function seed() {
       position: 'Full Stack Software Developer',
       dateJoinedCompany: Date.now(),
       blurb: '1904 FSA-NY Graduate'
-    })
-  ])
+    },
+    {
+      firstName: 'Sam',
+      lastName: 'Peach',
+      fullName: 'Sam Peach',
+      imgUrl:
+        'https://journeypurebowlinggreen.com/wp-content/uploads/2018/05/placeholder-person.jpg',
+      gender: 'Male',
+      company: 'Essteem',
+      position: 'Full Stack Software Developer',
+      dateJoinedCompany: Date.now(),
+      blurb: '1904 FSA-NY Graduate'
+    },
+    {
+      firstName: 'Arianna',
+      lastName: 'Choza',
+      fullName: 'Arianna Choza',
+      imgUrl:
+        'https://journeypurebowlinggreen.com/wp-content/uploads/2018/05/placeholder-person.jpg',
+      gender: 'Female',
+      company: 'Essteem',
+      position: 'Front End Software Developer',
+      dateJoinedCompany: Date.now(),
+      blurb: 'GA Graduate'
+    },
+    {
+      firstName: 'Jocelyn',
+      lastName: 'Jeriah',
+      fullName: 'Jocelyn Jeriah',
+      imgUrl:
+        'https://journeypurebowlinggreen.com/wp-content/uploads/2018/05/placeholder-person.jpg',
+      gender: 'Female',
+      company: 'Essteem',
+      position: 'Full Stack Software Developer',
+      dateJoinedCompany: Date.now(),
+      blurb: 'GA Student'
+    },
+    {
+      firstName: 'Linda',
+      lastName: 'Saraguro',
+      fullName: 'Linda Saraguro',
+      imgUrl:
+        'https://journeypurebowlinggreen.com/wp-content/uploads/2018/05/placeholder-person.jpg',
+      gender: 'Female',
+      company: 'Essteem',
+      position: 'Full Stack Software Developer',
+      dateJoinedCompany: Date.now(),
+      blurb: '1902 GH-NY Graduate'
+    }
+  ]
+
+  const mentorsSkills = [
+    {
+      mentorId: 1,
+      skillId: 1
+    },
+    {
+      mentorId: 1,
+      skillId: 2
+    },
+    {
+      mentorId: 2,
+      skillId: 2
+    },
+    {
+      mentorId: 2,
+      skillId: 3
+    },
+    {
+      mentorId: 3,
+      skillId: 4
+    },
+    {
+      mentorId: 3,
+      skillId: 5
+    }
+  ]
 
   const mentees = [
     {
@@ -169,13 +202,75 @@ async function seed() {
     }
   ]
 
+  const menteeSkills = [
+    {
+      menteeId: 1,
+      skillId: 1
+    },
+    {
+      menteeId: 1,
+      skillId: 2
+    },
+    {
+      menteeId: 2,
+      skillId: 2
+    },
+    {
+      menteeId: 2,
+      skillId: 3
+    },
+    {
+      menteeId: 3,
+      skillId: 4
+    },
+    {
+      menteeId: 3,
+      skillId: 5
+    },
+    {
+      menteeId: 3,
+      skillId: 6
+    },
+    {
+      menteeId: 3,
+      skillId: 7
+    },
+    {
+      menteeId: 3,
+      skillId: 8
+    }
+  ]
+
   await Promise.all(
-    mentees.map(mentee => {
-      return Mentee.create(mentee)
+    skills.map(skill => {
+      return Skill.create(skill)
     })
   )
 
-  console.log(`seeded ${skill.length} skill`)
+  await Promise.all(
+    mentees.map(mentee => {
+      return Mentee.create(mentee, {include: [Skill]})
+    })
+  )
+  await Promise.all(
+    menteeSkills.map(menteeSkill => {
+      return MenteeSkills.create(menteeSkill)
+    })
+  )
+
+  await Promise.all(
+    mentors.map(mentor => {
+      return Mentor.create(mentor)
+    })
+  )
+
+  await Promise.all(
+    mentorsSkills.map(mentorsSkill => {
+      return MentorsSkills.create(mentorsSkill)
+    })
+  )
+
+  // console.log(`seeded ${skill.length} skill`)
   console.log(`seeded ${mentors.length} mentors`)
   console.log(`seeded ${mentees.length} mentees`)
   console.log(`seeded successfully`)
