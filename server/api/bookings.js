@@ -38,7 +38,7 @@ router.get('/:bookingId', async (req, res, next) => {
   }
 })
 
-router.delete('/bookings/:id', async (req, res, next) => {
+router.delete('/:id', async (req, res, next) => {
   try {
     await Booking.destroy({
       where: {
@@ -51,7 +51,7 @@ router.delete('/bookings/:id', async (req, res, next) => {
   }
 })
 
-router.post('/bookings', async (req, res, next) => {
+router.post('/', async (req, res, next) => {
   try {
     const newBooking = await Booking.create(req.body)
     res.json(newBooking)
