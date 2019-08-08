@@ -2,17 +2,19 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
 import {Search} from './search'
+import UserCaptureForm from './user-capture-form'
 
 /**
  * COMPONENT
  */
 export const UserHome = props => {
-  const {firstName, email} = props
+  const {firstName, email, hasCompletedSignup} = props
 
   return (
     <div>
       <h3>Welcome, {firstName ? firstName : email}.</h3>
       <Search />
+      {hasCompletedSignup ? false : <UserCaptureForm />}
     </div>
   )
 }
@@ -23,7 +25,8 @@ export const UserHome = props => {
 const mapState = state => {
   return {
     firstName: state.user.firstName,
-    email: state.user.email
+    email: state.user.email,
+    hasCompletedSignup: state.user.hasCompletedSignup
   }
 }
 

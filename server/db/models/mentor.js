@@ -2,18 +2,6 @@ const Sequelize = require('sequelize')
 const db = require('../db')
 
 const Mentor = db.define('mentor', {
-  firstName: {
-    type: Sequelize.STRING,
-    allowNull: false
-  },
-  lastName: {
-    type: Sequelize.STRING,
-    allowNull: false
-  },
-  fullName: {
-    type: Sequelize.STRING,
-    allowNull: false
-  },
   imgUrl: {
     type: Sequelize.STRING,
     allowNull: false
@@ -37,7 +25,7 @@ const Mentor = db.define('mentor', {
     allowNull: false
     // defaultValue: Sequelize.NOW
   },
-  blurb: {
+  bio: {
     type: Sequelize.TEXT
   }
 })
