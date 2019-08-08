@@ -3,8 +3,6 @@ const Mentee = require('./mentee')
 const Mentor = require('./mentor')
 const Skill = require('./skill')
 const Booking = require('./booking')
-
-const Sequelize = require('sequelize')
 const db = require('../db')
 
 /**
