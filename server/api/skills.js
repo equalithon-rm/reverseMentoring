@@ -20,6 +20,21 @@ router.get('/', async (req, res, next) => {
   }
 })
 
+router.get('/array', async (req, res, next) => {
+  try {
+    const skillsList = await Skill.findAll({
+      atributes: ['id', 'name']
+    })
+    res.json(
+      skillsList.map(el => {
+        return {id: el.id, name: el.name}
+      })
+    )
+  } catch (err) {
+    next(err)
+  }
+})
+
 //Return all the Skills for relation Mentees - MenteeSkill table
 router.get('/menteesSkills', async (req, res, next) => {
   try {

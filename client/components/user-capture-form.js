@@ -25,13 +25,9 @@ class UserCaptureForm extends React.Component {
     this.setState({skills: data})
   }
 
-  handleSubmit = async evt => {
+  handleSubmit = evt => {
     evt.preventDefault()
     this.props.updateUser(this.props.user.id, this.state.form)
-    // await axios.put(`/api/users`, {
-    //   ...this.state.form,
-    //   id: this.props.user.id
-    // })
   }
 
   handleChange = evt => {
@@ -75,24 +71,14 @@ class UserCaptureForm extends React.Component {
             <label htmlFor="skill">
               <small>What skill are you interested in?</small>
             </label>
-            <input
-              type="checkbox"
-              name="skillsInterestedIn"
-              value="leadership"
-            />{' '}
-            Leadership
-            <input
-              type="checkbox"
-              name="skillsInterestedIn"
-              value="strategy"
-            />{' '}
-            Strategy
-            <input
-              type="checkbox"
-              name="skillsInterestedIn"
-              value="sales"
-            />{' '}
-            Sales
+            {this.state.skills.length ? (
+              <SkillsList
+                skills={this.state.skills}
+                skillType="skillsInterestedIn"
+              />
+            ) : (
+              false
+            )}
           </div>
 
           <div>
@@ -121,7 +107,10 @@ class UserCaptureForm extends React.Component {
               <small>What skill do you have?</small>
             </label>
             {this.state.skills.length ? (
-              <SkillsList skills={this.state.skills} />
+              <SkillsList
+                skills={this.state.skills}
+                skillType="currentSkills"
+              />
             ) : (
               false
             )}
