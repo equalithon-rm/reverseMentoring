@@ -37,7 +37,7 @@ class UserCaptureForm extends React.Component {
     ) {
       const skillArr = this.state.form[evt.target.name]
       if (evt.target.checked) {
-        skillArr.push(evt.target.value)
+        skillArr.push(evt.target.id)
         this.setState({
           form: {...this.state.form, [evt.target.name]: [...skillArr]}
         })
@@ -62,9 +62,10 @@ class UserCaptureForm extends React.Component {
             <label htmlFor="status">
               <small>Please Select Your Gender</small>
             </label>
-            <input type="radio" name="gender" value="male" /> Male
-            <input type="radio" name="gender" value="female" /> Female
-            <input type="radio" name="gender" value="other" /> Other
+            <input type="radio" name="gender" value="Male" /> Male
+            <input type="radio" name="gender" value="Female" /> Female
+            <input type="radio" name="gender" value="Non-binary" /> Non-binary
+            <input type="radio" name="gender" value="Other" /> Other
           </div>
 
           <div>
