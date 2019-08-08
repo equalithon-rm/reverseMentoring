@@ -27,6 +27,8 @@ Mentor.hasMany(Booking)
 // MENTEE ///
 Mentee.belongsToMany(Mentor, {through: 'mentors_mentees'})
 Mentee.hasMany(Booking)
+Skill.belongsToMany(Mentee, {through: 'mentees_skills'})
+Mentee.belongsToMany(Skill, {through: 'mentees_skills'})
 
 User.hasOne(Mentor)
 User.hasOne(Mentee)

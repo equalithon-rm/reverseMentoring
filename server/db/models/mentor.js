@@ -10,6 +10,10 @@ const Mentor = db.define('mentor', {
     type: Sequelize.STRING,
     allowNull: false
   },
+  fullName: {
+    type: Sequelize.STRING,
+    allowNull: false
+  },
   imgUrl: {
     type: Sequelize.STRING,
     allowNull: false

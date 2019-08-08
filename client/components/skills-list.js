@@ -9,7 +9,11 @@ const SkillsList = props => {
             return (
               <div key={skill.id}>
                 {skill.name}
-                <input type="checkbox" name="skills" value={skills.name} />
+                <input
+                  type="checkbox"
+                  name="currentSkills"
+                  value={skill.name}
+                />
               </div>
             )
           })

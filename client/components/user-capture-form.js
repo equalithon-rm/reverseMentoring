@@ -2,17 +2,20 @@ import React from 'react'
 import axios from 'axios'
 import SkillsList from './skills-list'
 
-// const getSkills = async () => {
-//   const {data} = await axios.get('/api/skills')
-//   return data
-// }
-// getSkills()
-
 class UserCaptureForm extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      skills: []
+      skills: [],
+      form: {
+        gender: '',
+        mentorOrMentee: '',
+        skillsInterestedIn: [],
+        currentCompany: '',
+        currentPosition: '',
+        bio: '',
+        currentSkills: []
+      }
     }
   }
 
@@ -21,54 +24,92 @@ class UserCaptureForm extends React.Component {
     this.setState({skills: data})
   }
 
-  handleSubmit = evt => {
+  handleSubmit = async evt => {
     evt.preventDefault()
+    await axios.post(`/api/${this.state.form.mentorOrMentee}`, this.state.form)
+  }
+
+  handleChange = evt => {
+    if (
+      evt.target.name === 'skillsInterestedIn' ||
+      evt.target.name === 'currentSkills'
+    ) {
+      const skillArr = this.state.form[evt.target.name]
+      if (evt.target.checked) {
+        skillArr.push(evt.target.value)
+        this.setState({
+          form: {...this.state.form, [evt.target.name]: [...skillArr]}
+        })
+      } else {
+        const removeArr = skillArr.filter(el => el !== evt.target.value)
+        this.setState({
+          form: {...this.state.form, [evt.target.name]: [...removeArr]}
+        })
+      }
+    } else {
+      this.setState({
+        form: {...this.state.form, [evt.target.name]: evt.target.value}
+      })
+    }
   }
 
   render() {
-    console.log(this.state)
     return (
       <div>
-        <form onSubmit={this.handleSubmit}>
+        <form onSubmit={this.handleSubmit} onChange={this.handleChange}>
           <div>
             <label htmlFor="status">
               <small>Please Select Your Gender</small>
             </label>
-            <input type="checkbox" name="gender" value="male" /> Male
-            <input type="checkbox" name="gender" value="female" /> Female
-            <input type="checkbox" name="gender" value="other" /> Other
+            <input type="radio" name="gender" value="male" /> Male
+            <input type="radio" name="gender" value="female" /> Female
+            <input type="radio" name="gender" value="other" /> Other
           </div>
 
           <div>
             <label htmlFor="status">
               <small>Are you a Mentor or a Mentee?</small>
             </label>
-            <input type="checkbox" name="mentorMentee" value="mentor" /> Mentor
-            <input type="checkbox" name="mentorMentee" value="mentee" /> Mentee
+            <input type="radio" name="mentorOrMentee" value="mentors" /> Mentor
+            <input type="radio" name="mentorOrMentee" value="mentees" /> Mentee
           </div>
 
           <div>
             <label htmlFor="skill">
               <small>What skill are you interested in?</small>
             </label>
-            <input type="checkbox" name="skills" value="leadership" />{' '}
+            <input
+              type="checkbox"
+              name="skillsInterestedIn"
+              value="leadership"
+            />{' '}
             Leadership
-            <input type="checkbox" name="skills" value="strategy" /> Strategy
-            <input type="checkbox" name="skills" value="sales" /> Sales
+            <input
+              type="checkbox"
+              name="skillsInterestedIn"
+              value="strategy"
+            />{' '}
+            Strategy
+            <input
+              type="checkbox"
+              name="skillsInterestedIn"
+              value="sales"
+            />{' '}
+            Sales
           </div>
 
           <div>
             <label htmlFor="status">
               <small>Enter Your Current Company</small>
             </label>
-            <input type="text" name="company" />
+            <input type="text" name="currentCompany" />
           </div>
 
           <div>
             <label htmlFor="status">
               <small>Enter Your Current Position</small>
             </label>
-            <input type="text" name="position" />
+            <input type="text" name="currentPosition" />
           </div>
 
           <div>
