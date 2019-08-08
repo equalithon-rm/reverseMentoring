@@ -6,7 +6,12 @@ import user from './user'
 import mentorReducer from './mentorReducer'
 import menteeReducer from './menteeReducer'
 
-const reducer = combineReducers({user, mentorReducer, menteeReducer})
+const reducer = combineReducers({
+  user,
+  mentorReducer,
+  menteeReducer
+})
+
 const middleware = composeWithDevTools(
   applyMiddleware(thunkMiddleware, createLogger({collapsed: true}))
 )

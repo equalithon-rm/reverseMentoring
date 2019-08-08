@@ -1,39 +1,22 @@
-import React from 'react'
-import ReactDOM from 'react-dom'
+import React, {Component} from 'react'
+import {connect} from 'react-redux'
 
-const image = {
-  src: '/img/profile_image.jpg',
-  alt: 'profile image',
-  width: '30%',
-  height: '30%'
-}
-
-const userInfo = {
-  firstName: 'Jane',
-  lastName: 'Smith',
-  occupation: 'Senior Software Engineer',
-  summary:
-    'Senior Software Engineer with 10 years experience looking for junior Javascript mentee.',
-  experience: 'Javascript and frameworks - 10 years',
-  goals: 'Would like to help junior mentor learn all there is to know about JS',
-  interests: 'learning more about Vue.js',
-  skills: ['Javascript', 'Node.js', 'Express.js', 'Backbone.js', 'D3.js'],
-  socialMedia: ['Email', 'Slack', 'LinkedIn', 'Twitter', 'Instagram']
-}
-
-class UserProfile extends React.Component {
+class UserProfile extends Component {
   render() {
+    console.log('this.state: ', this.state)
+
     return (
       <div>
-        <h1>hello</h1>
+        <h1>{this.props.fullName}</h1>
+        <h3>{this.props.email}</h3>
         <img
           className="userImage"
-          src={image.src}
-          width={image.width}
-          image={image.height}
+          src={this.props.imgUrl}
+          width="200px"
+          image="200px"
         />
 
-        <h1 className="name">{userInfo.firstName + ' ' + userInfo.lastName}</h1>
+        {/* <h1 className="name">{userInfo.firstName + ' ' + userInfo.lastName}</h1>
 
         <h2 className="occupation">{userInfo.occupation}</h2>
 
@@ -61,10 +44,18 @@ class UserProfile extends React.Component {
           {userInfo.skills.map((currentSocialMedia, index) => (
             <li key={index}>{currentSocialMedia}</li>
           ))}
-        </ul>
+        </ul> */}
       </div>
     )
   }
 }
 
-export default UserProfile
+const mapState = state => {
+  return {
+    fullName: state.user.fullName,
+    email: state.user.email,
+    imgUrl: state.user.imgUrl
+  }
+}
+
+export default connect(mapState)(UserProfile)
