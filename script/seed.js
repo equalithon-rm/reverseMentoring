@@ -26,73 +26,78 @@ async function seed() {
       fullName: 'Macarena Carreno',
       email: 'macarena@macarena.com',
       imgUrl:
-        'https://journeypurebowlinggreen.com/wp-content/uploads/2018/05/placeholder-person.jpg'
-      //   gender: 'Female',
-      //   company: 'Essteem',
-      //   position: 'Full Stack Software Developer',
-      //   dateJoinedCompany: Date.now(),
-      //   blurb: '1902 GH-NY Graduate'
+        'https://journeypurebowlinggreen.com/wp-content/uploads/2018/05/placeholder-person.jpg',
+      gender: 'Female',
+      currentCompany: 'Essteem',
+      currentPosition: 'Full Stack Software Developer',
+      dateJoinedCompany: Date.now(),
+      bio: '1902 GH-NY Graduate'
+    },
+    {
+      firstName: 'Tal',
+      lastName: 'Luigi',
+      fullName: 'Tal Luigi',
+      email: 'tal@tal.com',
+      imgUrl:
+        'https://journeypurebowlinggreen.com/wp-content/uploads/2018/05/placeholder-person.jpg',
+      gender: 'Male',
+      currentCompany: 'Essteem',
+      currentPosition: 'Full Stack Software Developer',
+      dateJoinedCompany: Date.now(),
+      bio: '1904 FSA-NY Graduate'
+    },
+    {
+      firstName: 'Sam',
+      lastName: 'Peach',
+      fullName: 'Sam Peach',
+      email: 'sam@sam.com',
+      imgUrl:
+        'https://journeypurebowlinggreen.com/wp-content/uploads/2018/05/placeholder-person.jpg',
+      gender: 'Male',
+      currentCompany: 'Essteem',
+      currentPosition: 'Full Stack Software Developer',
+      dateJoinedCompany: Date.now(),
+      bio: '1904 FSA-NY Graduate'
+    },
+    {
+      firstName: 'Arianna',
+      lastName: 'Choza',
+      fullName: 'Arianna Choza',
+      email: 'arianna@arianna.com',
+      imgUrl:
+        'https://journeypurebowlinggreen.com/wp-content/uploads/2018/05/placeholder-person.jpg',
+      gender: 'Female',
+      currentCompany: 'Essteem',
+      currentPosition: 'Front End Software Developer',
+      dateJoinedCompany: Date.now(),
+      bio: 'GA Graduate'
+    },
+    {
+      firstName: 'Jocelyn',
+      lastName: 'Jeriah',
+      fullName: 'Jocelyn Jeriah',
+      email: 'jj@jj.com',
+      imgUrl:
+        'https://journeypurebowlinggreen.com/wp-content/uploads/2018/05/placeholder-person.jpg',
+      gender: 'Female',
+      currentCompany: 'Essteem',
+      currentPosition: 'Full Stack Software Developer',
+      dateJoinedCompany: Date.now(),
+      bio: 'GA Student'
+    },
+    {
+      firstName: 'Linda',
+      lastName: 'Saraguro',
+      fullName: 'Linda Saraguro',
+      email: 'linda@linda.com',
+      imgUrl:
+        'https://journeypurebowlinggreen.com/wp-content/uploads/2018/05/placeholder-person.jpg',
+      gender: 'Female',
+      currentCompany: 'Essteem',
+      currentPosition: 'Full Stack Software Developer',
+      dateJoinedCompany: Date.now(),
+      bio: '1902 GH-NY Graduate'
     }
-    // {
-    //   firstName: 'Tal',
-    //   lastName: 'Luigi',
-    //   fullName: 'Tal Luigi',
-    //   imgUrl:
-    //     'https://journeypurebowlinggreen.com/wp-content/uploads/2018/05/placeholder-person.jpg',
-    //   gender: 'Male',
-    //   company: 'Essteem',
-    //   position: 'Full Stack Software Developer',
-    //   dateJoinedCompany: Date.now(),
-    //   blurb: '1904 FSA-NY Graduate'
-    // },
-    // {
-    //   firstName: 'Sam',
-    //   lastName: 'Peach',
-    //   fullName: 'Sam Peach',
-    //   imgUrl:
-    //     'https://journeypurebowlinggreen.com/wp-content/uploads/2018/05/placeholder-person.jpg',
-    //   gender: 'Male',
-    //   company: 'Essteem',
-    //   position: 'Full Stack Software Developer',
-    //   dateJoinedCompany: Date.now(),
-    //   blurb: '1904 FSA-NY Graduate'
-    // },
-    // {
-    //   firstName: 'Arianna',
-    //   lastName: 'Choza',
-    //   fullName: 'Arianna Choza',
-    //   imgUrl:
-    //     'https://journeypurebowlinggreen.com/wp-content/uploads/2018/05/placeholder-person.jpg',
-    //   gender: 'Female',
-    //   company: 'Essteem',
-    //   position: 'Front End Software Developer',
-    //   dateJoinedCompany: Date.now(),
-    //   blurb: 'GA Graduate'
-    // },
-    // {
-    //   firstName: 'Jocelyn',
-    //   lastName: 'Jeriah',
-    //   fullName: 'Jocelyn Jeriah',
-    //   imgUrl:
-    //     'https://journeypurebowlinggreen.com/wp-content/uploads/2018/05/placeholder-person.jpg',
-    //   gender: 'Female',
-    //   company: 'Essteem',
-    //   position: 'Full Stack Software Developer',
-    //   dateJoinedCompany: Date.now(),
-    //   blurb: 'GA Student'
-    // },
-    // {
-    //   firstName: 'Linda',
-    //   lastName: 'Saraguro',
-    //   fullName: 'Linda Saraguro',
-    //   imgUrl:
-    //     'https://journeypurebowlinggreen.com/wp-content/uploads/2018/05/placeholder-person.jpg',
-    //   gender: 'Female',
-    //   company: 'Essteem',
-    //   position: 'Full Stack Software Developer',
-    //   dateJoinedCompany: Date.now(),
-    //   blurb: '1902 GH-NY Graduate'
-    // }
   ]
 
   const seedUserSkills = [
@@ -102,9 +107,14 @@ async function seed() {
       skillsInterestedInId: 2
     },
     {
-      userId: 1,
+      userId: 3,
       currentSkillsId: 2,
       skillsInterestedInId: 3
+    },
+    {
+      userId: 2,
+      currentSkillsId: 3,
+      skillsInterestedInId: 1
     }
   ]
 

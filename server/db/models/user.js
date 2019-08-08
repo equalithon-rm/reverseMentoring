@@ -28,6 +28,21 @@ const User = db.define('user', {
     type: Sequelize.BOOLEAN,
     defaultValue: false,
     allowNull: false
+  },
+  currentCompany: {
+    type: Sequelize.STRING
+  },
+  currentPosition: {
+    type: Sequelize.STRING
+  },
+  gender: {
+    type: Sequelize.STRING,
+    validate: {
+      isIn: [['Male', 'Female', 'Non-binary', 'Other']]
+    }
+  },
+  bio: {
+    type: Sequelize.TEXT
   }
 })
 

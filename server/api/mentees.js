@@ -79,9 +79,25 @@ router.get('/skill/:skillId', async (req, res, next) => {
   }
 })
 
-router.post('/mentees', async (req, res, next) => {
+router.post('/', async (req, res, next) => {
+  const {
+    gender,
+    skillsInterestedIn,
+    currentCompany,
+    currentPosition,
+    bio,
+    currentSkills,
+    id
+  } = req.body
+
   try {
-    const newMentee = await Mentee.create(req.body)
+    const newMentee = await Mentee.create({
+      userId: id,
+      gender: gender,
+      company: currentCompany,
+      position: currentPosition,
+      bio: bio
+    })
     res.json(newMentee)
   } catch (error) {
     next(error)

@@ -25,9 +25,30 @@ User.hasMany(Booking)
 
 User.belongsToMany(Skill, {
   through: 'UserSkills',
-  foreignKey: 'userId',
-  fotherKey: 'skillId'
+  foreignKey: 'userId'
 })
+
+// User.belongsToMany(Skill, {
+//   through: 'UserSkills',
+//   foreignKey: 'userId',
+//   as: 'currentSkillsId'
+// })
+
+Skill.belongsToMany(User, {
+  through: 'UserSkills',
+  foreignKey: 'currentSkillsId',
+  as: 'currentSkillsId'
+})
+
+Skill.belongsToMany(User, {
+  through: 'UserSkills',
+  foreignKey: 'skillsInterestedInId',
+  as: 'skillsInterestedInId'
+})
+
+Skill.hasMany(UserSkills)
+
+User.hasMany(UserSkills)
 
 module.exports = {
   User,
