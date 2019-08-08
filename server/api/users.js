@@ -10,12 +10,14 @@ router.get('/', async (req, res, next) => {
           'id',
           'firstName',
           'lastName',
-          'imgUrl',
+          'fullName',
           'gender',
-          'company',
-          'position',
-          'dateJoinedCompany',
-          'blurb'
+          'email',
+          'imgUrl',
+          'currentCompany',
+          'currentPosition',
+          'dateJoinedCurrentCompany',
+          'bio'
         ]
       },
       {

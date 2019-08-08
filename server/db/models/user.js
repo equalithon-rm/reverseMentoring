@@ -2,6 +2,9 @@ const Sequelize = require('sequelize')
 const db = require('../db')
 
 const User = db.define('user', {
+  googleId: {
+    type: Sequelize.STRING
+  },
   firstName: {
     type: Sequelize.STRING
   },
@@ -10,6 +13,12 @@ const User = db.define('user', {
   },
   fullName: {
     type: Sequelize.STRING
+  },
+  gender: {
+    type: Sequelize.STRING,
+    validate: {
+      isIn: [['Male', 'Female', 'Non-binary', 'Other']]
+    }
   },
   email: {
     type: Sequelize.STRING,
@@ -20,29 +29,22 @@ const User = db.define('user', {
     type: Sequelize.STRING,
     allowNull: false
   },
-
-  googleId: {
-    type: Sequelize.STRING
-  },
-  hasCompletedSignup: {
-    type: Sequelize.BOOLEAN,
-    defaultValue: false,
-    allowNull: false
-  },
   currentCompany: {
     type: Sequelize.STRING
   },
   currentPosition: {
     type: Sequelize.STRING
   },
-  gender: {
-    type: Sequelize.STRING,
-    validate: {
-      isIn: [['Male', 'Female', 'Non-binary', 'Other']]
-    }
+  dateJoinedCurrentCompany: {
+    type: Sequelize.DATE
   },
   bio: {
     type: Sequelize.TEXT
+  },
+  hasCompletedSignup: {
+    type: Sequelize.BOOLEAN,
+    defaultValue: false,
+    allowNull: false
   }
 })
 
