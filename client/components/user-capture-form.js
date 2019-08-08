@@ -2,6 +2,7 @@ import React from 'react'
 import axios from 'axios'
 import SkillsList from './skills-list'
 import {connect} from 'react-redux'
+import {updateUser} from '../store/user'
 
 class UserCaptureForm extends React.Component {
   constructor(props) {
@@ -26,10 +27,11 @@ class UserCaptureForm extends React.Component {
 
   handleSubmit = async evt => {
     evt.preventDefault()
-    await axios.put(`/api/users`, {
-      ...this.state.form,
-      id: this.props.user.id
-    })
+    this.props.updateUser(this.props.user.id, this.state.form)
+    // await axios.put(`/api/users`, {
+    //   ...this.state.form,
+    //   id: this.props.user.id
+    // })
   }
 
   handleChange = evt => {
@@ -138,4 +140,10 @@ const mapState = state => {
   }
 }
 
-export default connect(mapState)(UserCaptureForm)
+const mapDispatch = dispatch => {
+  return {
+    updateUser: (userId, formData) => dispatch(updateUser(userId, formData))
+  }
+}
+
+export default connect(mapState, mapDispatch)(UserCaptureForm)
