@@ -3,8 +3,6 @@ import {connect} from 'react-redux'
 
 class UserProfile extends Component {
   render() {
-    console.log('this.state: ', this.state)
-
     return (
       <div>
         <h1>{this.props.fullName}</h1>
