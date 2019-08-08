@@ -20,6 +20,31 @@ router.get('/', async (req, res, next) => {
   }
 })
 
+//Return all the Skills for relation Mentees - MenteeSkill table
+router.get('/menteesSkills', async (req, res, next) => {
+  try {
+    const menteeSkills = await Skills.findAll(
+      {
+        atributes: ['id', 'name']
+      },
+      {
+        include: [
+          {
+            model: Mentee,
+            atributes: ['id', 'firstName']
+          },
+          {
+            model: Skill,
+            atributes: ['id', 'name']
+          }
+        ]
+      }
+    )
+    res.json(menteeSkills)
+  } catch (err) {
+    next(err)
+  }
+})
 
 //Return all the Skills for relation Mentees - MenteeSkill table
 router.get('/mentees', async (req, res, next) => {

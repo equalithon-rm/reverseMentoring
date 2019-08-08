@@ -20,6 +20,7 @@ const User = db.define('user', {
     type: Sequelize.STRING,
     allowNull: false
   },
+
   googleId: {
     type: Sequelize.STRING
   },
@@ -37,7 +38,7 @@ const User = db.define('user', {
   gender: {
     type: Sequelize.STRING,
     validate: {
-      isIn: [['male', 'female', 'other']]
+      isIn: [['Male', 'Female', 'Non-binary', 'Other']]
     }
   },
   bio: {
