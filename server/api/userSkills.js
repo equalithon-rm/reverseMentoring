@@ -1,10 +1,10 @@
 const router = require('express').Router()
-const {Mentor, Skill} = require('../db/models')
+const {User, Skill} = require('../db/models')
 module.exports = router
 
 router.get('/', async (req, res, next) => {
   try {
-    const mentors = await Mentor.findAll(
+    const users = await userSkills.findAll(
       {
         // explicitly select only the id and email fields - even though
         // users' passwords are encrypted, it won't help if we just

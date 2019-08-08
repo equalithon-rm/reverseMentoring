@@ -1,6 +1,5 @@
 const User = require('./user')
-const Mentee = require('./mentee')
-const Mentor = require('./mentor')
+const UserSkills = require('./userskills')
 const Skill = require('./skill')
 const Booking = require('./booking')
 
@@ -20,21 +19,40 @@ const Booking = require('./booking')
 
 Skill.hasMany(Booking)
 
-/// MENTOR ///
-Mentor.belongsToMany(Mentee, {through: 'mentors_mentees'})
-Mentor.hasMany(Booking)
+/// USER Skills  ///
 
-// MENTEE ///
-Mentee.belongsToMany(Mentor, {through: 'mentors_mentees'})
-Mentee.hasMany(Booking)
+User.hasMany(Booking)
 
-User.hasOne(Mentor)
-User.hasOne(Mentee)
+User.belongsToMany(Skill, {
+  through: 'UserSkills',
+  foreignKey: 'userId'
+})
+
+// User.belongsToMany(Skill, {
+//   through: 'UserSkills',
+//   foreignKey: 'userId',
+//   as: 'currentSkillsId'
+// })
+
+Skill.belongsToMany(User, {
+  through: 'UserSkills',
+  foreignKey: 'currentSkillsId',
+  as: 'currentSkillsId'
+})
+
+Skill.belongsToMany(User, {
+  through: 'UserSkills',
+  foreignKey: 'skillsInterestedInId',
+  as: 'skillsInterestedInId'
+})
+
+Skill.hasMany(UserSkills)
+
+User.hasMany(UserSkills)
 
 module.exports = {
   User,
-  Mentee,
-  Mentor,
   Skill,
+  UserSkills,
   Booking
 }

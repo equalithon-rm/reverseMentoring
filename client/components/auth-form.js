@@ -82,9 +82,7 @@ const mapDispatch = dispatch => {
       const mentorOrMentee = evt.target.mentorMentee.value
       const skills = [...document.getElementsByName('skills')].reduce(
         (accum, el) => {
-          if (el.checked) {
-            accum.push(el.value)
-          }
+          if (el.checked) accum.push(el.value)
           return accum
         },
         []

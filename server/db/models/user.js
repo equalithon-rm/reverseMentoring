@@ -16,12 +16,33 @@ const User = db.define('user', {
     unique: true,
     allowNull: false
   },
+  imgUrl: {
+    type: Sequelize.STRING,
+    allowNull: false
+  },
+
   googleId: {
     type: Sequelize.STRING
   },
   hasCompletedSignup: {
     type: Sequelize.BOOLEAN,
+    defaultValue: false,
     allowNull: false
+  },
+  currentCompany: {
+    type: Sequelize.STRING
+  },
+  currentPosition: {
+    type: Sequelize.STRING
+  },
+  gender: {
+    type: Sequelize.STRING,
+    validate: {
+      isIn: [['Male', 'Female', 'Non-binary', 'Other']]
+    }
+  },
+  bio: {
+    type: Sequelize.TEXT
   }
 })
 

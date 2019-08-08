@@ -1,5 +1,7 @@
 const router = require('express').Router()
+
 const {Booking, User} = require('../db/models')
+
 module.exports = router
 
 router.get('/', async (req, res, next) => {
@@ -8,6 +10,7 @@ router.get('/', async (req, res, next) => {
       include: [
         {
           model: User
+
         }
       ]
     })
@@ -25,6 +28,7 @@ router.get('/:bookingId', async (req, res, next) => {
       include: [
         {
           model: User
+
         }
       ]
     })
