@@ -1,5 +1,7 @@
 const router = require('express').Router()
-const {Booking, Mentor, Mentee} = require('../db/models')
+
+const {Booking, User} = require('../db/models')
+
 module.exports = router
 
 router.get('/', async (req, res, next) => {
@@ -7,16 +9,8 @@ router.get('/', async (req, res, next) => {
     const bookings = await Booking.findAll({
       include: [
         {
-          include: [
-            {
-              model: Mentor,
-              where: {id: Booking.mentorId}
-            },
-            {
-              model: Mentee,
-              where: {id: Booking.menteeId}
-            }
-          ]
+          model: User
+
         }
       ]
     })
@@ -33,12 +27,8 @@ router.get('/:bookingId', async (req, res, next) => {
     const singleBooking = await Booking.findByPk(id, {
       include: [
         {
-          model: Mentor,
-          where: {id: Booking.mentorId}
-        },
-        {
-          model: Mentee,
-          where: {id: Booking.menteeId}
+          model: User
+
         }
       ]
     })
@@ -49,5 +39,27 @@ router.get('/:bookingId', async (req, res, next) => {
     }
   } catch (err) {
     next(err)
+  }
+})
+
+router.delete('/:id', async (req, res, next) => {
+  try {
+    await Booking.destroy({
+      where: {
+        id: req.params.id
+      }
+    })
+    res.sendStatus(204).json({})
+  } catch (error) {
+    next(error)
+  }
+})
+
+router.post('/', async (req, res, next) => {
+  try {
+    const newBooking = await Booking.create(req.body)
+    res.json(newBooking)
+  } catch (error) {
+    next(error)
   }
 })
