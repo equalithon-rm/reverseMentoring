@@ -1,4 +1,5 @@
 const router = require('express').Router()
+
 const {
   Skill,
   MenteeSkills,
@@ -18,6 +19,7 @@ router.get('/', async (req, res, next) => {
     next(err)
   }
 })
+
 
 //Return all the Skills for relation Mentees - MenteeSkill table
 router.get('/mentees', async (req, res, next) => {
