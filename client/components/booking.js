@@ -23,7 +23,7 @@ export class Booking extends Component {
     }
     return (
       <div id="booking-view">
-        <h1>Booking History:</h1>
+        <h1>Meeting History:</h1>
         {history.map(book => (
           <div key={book.id}>
             <h2>Connection Date: {book.dateConnection}</h2>
