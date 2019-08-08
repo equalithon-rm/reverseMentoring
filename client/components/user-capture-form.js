@@ -1,6 +1,7 @@
 import React from 'react'
 import axios from 'axios'
 import SkillsList from './skills-list'
+import {connect} from 'react-redux'
 
 class UserCaptureForm extends React.Component {
   constructor(props) {
@@ -9,7 +10,6 @@ class UserCaptureForm extends React.Component {
       skills: [],
       form: {
         gender: '',
-        mentorOrMentee: '',
         skillsInterestedIn: [],
         currentCompany: '',
         currentPosition: '',
@@ -26,7 +26,10 @@ class UserCaptureForm extends React.Component {
 
   handleSubmit = async evt => {
     evt.preventDefault()
-    await axios.post(`/api/${this.state.form.mentorOrMentee}`, this.state.form)
+    await axios.put(`/api/users`, {
+      ...this.state.form,
+      id: this.props.user.id
+    })
   }
 
   handleChange = evt => {
@@ -64,14 +67,6 @@ class UserCaptureForm extends React.Component {
             <input type="radio" name="gender" value="male" /> Male
             <input type="radio" name="gender" value="female" /> Female
             <input type="radio" name="gender" value="other" /> Other
-          </div>
-
-          <div>
-            <label htmlFor="status">
-              <small>Are you a Mentor or a Mentee?</small>
-            </label>
-            <input type="radio" name="mentorOrMentee" value="mentors" /> Mentor
-            <input type="radio" name="mentorOrMentee" value="mentees" /> Mentee
           </div>
 
           <div>
@@ -137,4 +132,10 @@ class UserCaptureForm extends React.Component {
   }
 }
 
-export default UserCaptureForm
+const mapState = state => {
+  return {
+    user: state.user
+  }
+}
+
+export default connect(mapState)(UserCaptureForm)

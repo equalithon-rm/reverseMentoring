@@ -25,7 +25,8 @@ export const UserHome = props => {
 const mapState = state => {
   return {
     firstName: state.user.firstName,
-    email: state.user.email
+    email: state.user.email,
+    hasCompletedSignup: state.user.hasCompletedSignup
   }
 }
 
