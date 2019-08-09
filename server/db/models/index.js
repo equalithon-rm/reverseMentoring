@@ -16,8 +16,8 @@ const db = require('../db')
  * instead of: const User = require('../db/models/user')
  */
 
-const skillsInterestedIn = db.define('skillsInterestedIn')
-const currentSkills = db.define('currentSkills')
+const SkillsInterestedIn = db.define('skillsInterestedIn')
+const CurrentSkills = db.define('currentSkills')
 
 Skill.hasMany(Booking)
 User.hasMany(Booking)
@@ -34,6 +34,6 @@ module.exports = {
   User,
   Skill,
   Booking,
-  skillsInterestedIn,
-  currentSkills
+  SkillsInterestedIn,
+  CurrentSkills
 }

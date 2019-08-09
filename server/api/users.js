@@ -1,5 +1,5 @@
 const router = require('express').Router()
-const {User, UserSkills} = require('../db/models')
+const {User, CurrentSkills, SkillsInterestedIn} = require('../db/models')
 const {formatUserSkillCapture} = require('./utils')
 module.exports = router
 
@@ -43,21 +43,23 @@ router.put('/:id', async (req, res, next) => {
       }
     )
 
-    // const skillsData = formatUserSkillCapture(
-    //   userId,
-    //   skillsInterestedIn,
-    //   currentSkills
-    // )
-    const skillsData = [
-      {userId: userId, skillId: 3},
-      {userId: userId, skillId: 4},
-      {userId: userId, skillId: 5}
-    ]
-    console.log('>>> ', skillsData)
+    const currentSkillsData = formatUserSkillCapture(userId, currentSkills)
+    const interestedInSkillsData = formatUserSkillCapture(
+      userId,
+      skillsInterestedIn
+    )
+
     const [
-      numberOfAffectedSkillsRows,
-      skillsInstance
-    ] = await UserSkills.bulkCreate(skillsData, {returning: true})
+      numberOfAffectedCurrRows,
+      currInstance
+    ] = await CurrentSkills.bulkCreate(currentSkillsData, {returning: true})
+
+    const [
+      numberOfAffectedInterRows,
+      interInstance
+    ] = await SkillsInterestedIn.bulkCreate(interestedInSkillsData, {
+      returning: true
+    })
 
     res.json(userInstance)
   } catch (err) {

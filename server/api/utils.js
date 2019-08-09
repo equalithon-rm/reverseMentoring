@@ -1,16 +1,10 @@
-const formatUserSkillCapture = (userId, interestedIn, currentSkills) => {
-  const longest =
-    currentSkills.length > interestedIn.length ? currentSkills : interestedIn
-
+const formatUserSkillCapture = (userId, arr) => {
   const holdArr = []
 
-  for (let i = 0; i < longest.length; i++) {
-    const currSkillsNum = currentSkills[i] || null
-    const interestedInNum = interestedIn[i] || null
+  for (let i = 0; i < arr.length; i++) {
     holdArr.push({
       userId: userId,
-      skillsInterestedInId: interestedInNum,
-      skillId: currSkillsNum
+      skillId: arr[i]
     })
   }
 
