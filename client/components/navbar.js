@@ -3,8 +3,7 @@ import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
 import {logout} from '../store'
-import Routes from '../routes'
-import {Heading, Navbar} from 'react-bulma-components/full'
+import {Heading, Navbar, Button} from 'react-bulma-components/full'
 
 const NavbarMenu = ({handleClick, isLoggedIn}) => (
   <Navbar>
@@ -39,10 +38,6 @@ const NavbarMenu = ({handleClick, isLoggedIn}) => (
 
           <Navbar.Item>
             <Link to="/signup">Sign Up</Link>
-          </Navbar.Item>
-
-          <Navbar.Item>
-            <Routes />
           </Navbar.Item>
         </Navbar.Container>
       </Navbar.Menu>
