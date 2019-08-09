@@ -6,12 +6,14 @@ import user from './user'
 import mentorReducer from './mentorReducer'
 import menteeReducer from './menteeReducer'
 import bookingReducer from './bookingReducer'
+import skillsReducer from './skillsListReducer'
 
 const reducer = combineReducers({
   user,
   mentorReducer,
   menteeReducer,
-  bookingReducer
+  bookingReducer,
+  skillsReducer
 })
 
 const middleware = composeWithDevTools(
@@ -24,3 +26,4 @@ export * from './user'
 export * from './mentorReducer'
 export * from './menteeReducer'
 export * from './bookingReducer'
+export * from './skillsListReducer'
