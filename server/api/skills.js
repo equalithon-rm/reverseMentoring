@@ -1,9 +1,9 @@
 const router = require('express').Router()
 
-const {Skill, User, UserSkills} = require('../db/models')
+const {Skill, User, SkillsInterestedIn, CurrentSkills} = require('../db/models')
 module.exports = router
 
-router.get('/table', async (req, res, next) => {
+router.get('/', async (req, res, next) => {
   try {
     const skillsList = await Skill.findAll({
       atributes: ['id', 'name']
@@ -14,48 +14,75 @@ router.get('/table', async (req, res, next) => {
   }
 })
 
-//Return all the Skills for relation Mentees - MenteeSkill table
-router.get('/', async (req, res, next) => {
+router.get('/currentSkills', async (req, res, next) => {
   try {
-    const menteeSkills = await Skill.findAll({
+    const currentSkill = await Skill.findAll({
       include: [
         {
           model: User,
-          as: 'skillId'
+          as: CurrentSkills
         }
       ]
-      //  order: [[UserSkills, User, 'firstName']],
     })
-    res.json(menteeSkills)
+    res.json(currentSkill)
   } catch (err) {
     next(err)
   }
 })
 
-//Return all the Skills for relation Mentees - MenteeSkill table
-router.get('/:skillId', async (req, res, next) => {
+router.get('/currentSkills/:idSkill', async (req, res, next) => {
   try {
-    const id = req.params.skillId
-    const mentorsSkills = await Skill.findByPk(id, {
+    const id = req.params.idSkill
+    const currentSkill = await Skill.findByPk(id, {
       include: [
         {
           model: User,
-          as: 'skillId',
-          atributes: [
-            'firstName',
-            'lastName',
-            'email',
-            'imgUrl',
-            'currentCompany',
-            'currentPosition',
-            'bio',
-            'UserSkills'
+          as: CurrentSkills
+        }
+      ]
+    })
+    if (currentSkill) {
+      res.json(currentSkill)
+    } else {
+      res.sendStatus(404).json({})
+    }
+  } catch (err) {
+    next(err)
+  }
+})
+
+router.get('/skillsInterestedIn', async (req, res, next) => {
+  try {
+    const skillsInterested = await Skill.findAll({
+      include: [
+        {
+          model: SkillsInterestedIn,
+          include: [
+            {
+              model: User
+            }
           ]
         }
       ]
     })
-    if (mentorsSkills) {
-      res.json(mentorsSkills)
+    res.json(skillsInterested)
+  } catch (err) {
+    next(err)
+  }
+})
+
+router.get('/skillsInterestedIn/:idSkill', async (req, res, next) => {
+  try {
+    const id = req.params.idSkill
+    const skillInterested = await Skill.findByPk(id, {
+      include: [
+        {
+          model: User
+        }
+      ]
+    })
+    if (skillInterested) {
+      res.json(skillInterested)
     } else {
       res.sendStatus(404).json({})
     }
