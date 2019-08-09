@@ -1,8 +1,7 @@
 const User = require('./user')
-const UserSkills = require('./userskills')
 const Skill = require('./skill')
 const Booking = require('./booking')
-
+const db = require('../db')
 /**
  * If we had any associations to make, this would be a great place to put them!
  * ex. if we had another model called BlogPost, we might say:
@@ -17,42 +16,29 @@ const Booking = require('./booking')
  * instead of: const User = require('../db/models/user')
  */
 
+const SkillsInterestedIn = db.define('skillsInterestedIn')
+const CurrentSkills = db.define('currentSkills')
+
 Skill.hasMany(Booking)
-
-/// USER Skills  ///
-
 User.hasMany(Booking)
 
-User.belongsToMany(Skill, {
-  through: 'UserSkills',
-  foreignKey: 'userId'
+Skill.belongsToMany(User, {
+  through: 'skillsInterestedIn'
 })
 
-// User.belongsToMany(Skill, {
-//   through: 'UserSkills',
-//   foreignKey: 'userId',
-//   as: 'currentSkillsId'
-// })
+Skill.hasMany(SkillsInterestedIn)
+
+SkillsInterestedIn.belongsTo(Skill)
+SkillsInterestedIn.belongsTo(User)
 
 Skill.belongsToMany(User, {
-  through: 'UserSkills',
-  foreignKey: 'currentSkillsId',
-  as: 'currentSkillsId'
+  through: 'currentSkills'
 })
-
-Skill.belongsToMany(User, {
-  through: 'UserSkills',
-  foreignKey: 'skillsInterestedInId',
-  as: 'skillsInterestedInId'
-})
-
-Skill.hasMany(UserSkills)
-
-User.hasMany(UserSkills)
 
 module.exports = {
   User,
   Skill,
-  UserSkills,
-  Booking
+  Booking,
+  SkillsInterestedIn,
+  CurrentSkills
 }
