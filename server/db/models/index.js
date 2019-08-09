@@ -1,8 +1,7 @@
 const User = require('./user')
-const UserSkills = require('./userskills')
 const Skill = require('./skill')
 const Booking = require('./booking')
-
+const db = require('../db')
 /**
  * If we had any associations to make, this would be a great place to put them!
  * ex. if we had another model called BlogPost, we might say:
@@ -17,35 +16,24 @@ const Booking = require('./booking')
  * instead of: const User = require('../db/models/user')
  */
 
+const skillsInterestedIn = db.define('skillsInterestedIn')
+const currentSkills = db.define('currentSkills')
+
 Skill.hasMany(Booking)
-
-/// USER Skills  ///
-
 User.hasMany(Booking)
 
-User.belongsToMany(Skill, {
-  through: 'UserSkills',
-  foreignKey: 'userId'
+Skill.belongsToMany(User, {
+  through: 'skillsInterestedIn'
 })
 
 Skill.belongsToMany(User, {
-  through: 'UserSkills',
-  foreignKey: 'skillId',
-  as: 'skillId'
-})
-
-UserSkills.hasOne(User)
-
-User.hasMany(UserSkills)
-
-Skill.hasMany(UserSkills, {
-  foreignKey: 'skillsInterestedInId',
-  as: 'skillsInterestedInId'
+  through: 'currentSkills'
 })
 
 module.exports = {
   User,
   Skill,
-  UserSkills,
-  Booking
+  Booking,
+  skillsInterestedIn,
+  currentSkills
 }
