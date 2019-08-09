@@ -1,6 +1,6 @@
 const router = require('express').Router()
 
-const {Skill, User, UserSkills} = require('../db/models')
+const {Skill, User, skillsInterestedIn, currentSkills} = require('../db/models')
 module.exports = router
 
 router.get('/table', async (req, res, next) => {
@@ -14,66 +14,37 @@ router.get('/table', async (req, res, next) => {
   }
 })
 
-router.get('/array', async (req, res, next) => {
+router.get('/currentSkills', async (req, res, next) => {
   try {
-    const skillsList = await Skill.findAll({
-      atributes: ['id', 'name']
-    })
-    res.json(
-      skillsList.map(el => {
-        return {id: el.id, name: el.name}
-      })
-    )
-  } catch (err) {
-    next(err)
-  }
-})
-
-//Return all the Skills for relation Mentees - MenteeSkill table
-router.get('/', async (req, res, next) => {
-  try {
-    const menteeSkills = await Skill.findAll({
+    const currentSkill = await Skill.findAll({
       include: [
         {
           model: User,
-          as: 'skillId'
+          as: currentSkills
         }
       ]
-      //  order: [[UserSkills, User, 'firstName']],
     })
-    res.json(menteeSkills)
+    res.json(currentSkill)
   } catch (err) {
     next(err)
   }
 })
 
-//Return all the Skills for relation Mentees - MenteeSkill table
-router.get('/:skillId', async (req, res, next) => {
+router.get('/skillsInterestedIn', async (req, res, next) => {
   try {
-    const id = req.params.skillId
-    const mentorsSkills = await Skill.findByPk(id, {
+    const skillsInterested = await Skill.findAll({
       include: [
         {
-          model: User,
-          as: 'skillId',
-          atributes: [
-            'firstName',
-            'lastName',
-            'email',
-            'imgUrl',
-            'currentCompany',
-            'currentPosition',
-            'bio',
-            'UserSkills'
+          model: skillsInterestedIn,
+          include: [
+            {
+              model: User
+            }
           ]
         }
       ]
     })
-    if (mentorsSkills) {
-      res.json(mentorsSkills)
-    } else {
-      res.sendStatus(404).json({})
-    }
+    res.json(skillsInterested)
   } catch (err) {
     next(err)
   }

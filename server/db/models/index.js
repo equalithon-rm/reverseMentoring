@@ -26,6 +26,11 @@ Skill.belongsToMany(User, {
   through: 'skillsInterestedIn'
 })
 
+Skill.hasMany(skillsInterestedIn)
+
+skillsInterestedIn.belongsTo(Skill)
+skillsInterestedIn.belongsTo(User)
+
 Skill.belongsToMany(User, {
   through: 'currentSkills'
 })
