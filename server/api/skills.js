@@ -3,7 +3,7 @@ const router = require('express').Router()
 const {Skill, User, SkillsInterestedIn, CurrentSkills} = require('../db/models')
 module.exports = router
 
-router.get('/table', async (req, res, next) => {
+router.get('/', async (req, res, next) => {
   try {
     const skillsList = await Skill.findAll({
       atributes: ['id', 'name']
