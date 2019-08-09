@@ -11,7 +11,6 @@ const AuthForm = props => {
 
   return (
     <div>
-      <br />
       <a href="/auth/google">{displayName} with Google</a>
       <form onSubmit={handleSubmit} name={name}>
         {props.name === 'signup' ? (

@@ -1,14 +1,13 @@
 import React from 'react'
 
 import {NavbarMenu} from './components'
-import Routes from './routes'
-import {Button} from 'react-bulma-components/full'
+// import Routes from './routes'
 
 const App = () => {
   return (
     <div>
       <NavbarMenu />
-      <Routes />
+      <hr />
     </div>
   )
 }
