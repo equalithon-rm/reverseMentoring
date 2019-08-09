@@ -1,16 +1,63 @@
 const router = require('express').Router()
+
 const {User, CurrentSkills, SkillsInterestedIn} = require('../db/models')
 const {formatUserSkillCapture} = require('./utils')
+
 module.exports = router
 
 router.get('/', async (req, res, next) => {
   try {
-    const users = await User.findAll({
-      // explicitly select only the id and email fields - even though
-      // users' passwords are encrypted, it won't help if we just
-      // send everything to anyone who asks!
-      attributes: ['id', 'email']
-    })
+    const users = await User.findAll(
+      {
+        attributes: [
+          'id',
+          'firstName',
+          'lastName',
+          'fullName',
+          'gender',
+          'email',
+          'imgUrl',
+          'currentCompany',
+          'currentPosition',
+          'dateJoinedCurrentCompany',
+          'bio'
+        ]
+      },
+      {
+        include: [
+          {
+            model: Skill,
+            attributes: ['name']
+          }
+        ]
+      }
+    )
+    res.json(users)
+  } catch (err) {
+    next(err)
+  }
+})
+
+router.get('/:id', async (req, res, next) => {
+  try {
+    const users = await User.findOne(
+      {
+        where: {
+          id: req.params.id
+        }
+      },
+      {
+        include: [
+          {
+            model: Skill,
+            attributes: ['name'],
+            where: {
+              userId: req.params.id
+            }
+          }
+        ]
+      }
+    )
     res.json(users)
   } catch (err) {
     next(err)
