@@ -1,7 +1,7 @@
 import React from 'react'
 
 const SkillsList = props => {
-  const {skills} = props
+  const {skills, skillType} = props
   return (
     <div>
       {skills.length
@@ -11,8 +11,9 @@ const SkillsList = props => {
                 {skill.name}
                 <input
                   type="checkbox"
-                  name="currentSkills"
+                  name={skillType}
                   value={skill.name}
+                  id={skill.id}
                 />
               </div>
             )
