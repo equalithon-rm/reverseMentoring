@@ -6,7 +6,7 @@ import {logout} from '../store'
 import {Heading, Navbar, Button} from 'react-bulma-components/full'
 
 const NavbarMenu = ({handleClick, isLoggedIn}) => (
-  <Navbar>
+  <Navbar color="primary" gradient="true">
     <Navbar.Brand>
       <Navbar.Item>
         <Heading size={2}>Equalithon</Heading>
