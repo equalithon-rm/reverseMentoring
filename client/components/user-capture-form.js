@@ -25,13 +25,9 @@ class UserCaptureForm extends React.Component {
     this.setState({skills: data})
   }
 
-  handleSubmit = async evt => {
+  handleSubmit = evt => {
     evt.preventDefault()
     this.props.updateUser(this.props.user.id, this.state.form)
-    // await axios.put(`/api/users`, {
-    //   ...this.state.form,
-    //   id: this.props.user.id
-    // })
   }
 
   handleChange = evt => {
@@ -41,7 +37,7 @@ class UserCaptureForm extends React.Component {
     ) {
       const skillArr = this.state.form[evt.target.name]
       if (evt.target.checked) {
-        skillArr.push(evt.target.value)
+        skillArr.push(evt.target.id)
         this.setState({
           form: {...this.state.form, [evt.target.name]: [...skillArr]}
         })
@@ -66,33 +62,24 @@ class UserCaptureForm extends React.Component {
             <label htmlFor="status">
               <small>Please Select Your Gender</small>
             </label>
-            <input type="radio" name="gender" value="male" /> Male
-            <input type="radio" name="gender" value="female" /> Female
-            <input type="radio" name="gender" value="other" /> Other
+            <input type="radio" name="gender" value="Male" /> Male
+            <input type="radio" name="gender" value="Female" /> Female
+            <input type="radio" name="gender" value="Non-binary" /> Non-binary
+            <input type="radio" name="gender" value="Other" /> Other
           </div>
 
           <div>
             <label htmlFor="skill">
               <small>What skill are you interested in?</small>
             </label>
-            <input
-              type="checkbox"
-              name="skillsInterestedIn"
-              value="leadership"
-            />{' '}
-            Leadership
-            <input
-              type="checkbox"
-              name="skillsInterestedIn"
-              value="strategy"
-            />{' '}
-            Strategy
-            <input
-              type="checkbox"
-              name="skillsInterestedIn"
-              value="sales"
-            />{' '}
-            Sales
+            {this.state.skills.length ? (
+              <SkillsList
+                skills={this.state.skills}
+                skillType="skillsInterestedIn"
+              />
+            ) : (
+              false
+            )}
           </div>
 
           <div>
@@ -121,7 +108,10 @@ class UserCaptureForm extends React.Component {
               <small>What skill do you have?</small>
             </label>
             {this.state.skills.length ? (
-              <SkillsList skills={this.state.skills} />
+              <SkillsList
+                skills={this.state.skills}
+                skillType="currentSkills"
+              />
             ) : (
               false
             )}

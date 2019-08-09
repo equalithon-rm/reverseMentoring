@@ -4,8 +4,8 @@ const db = require('../server/db')
 const {
   Skill,
   User,
-  skillsInterestedIn,
-  currentSkills
+  SkillsInterestedIn,
+  CurrentSkills
 } = require('../server/db/models')
 
 async function seed() {
@@ -37,8 +37,8 @@ async function seed() {
       currentPosition: 'Full Stack Software Developer',
       dateJoinedCompany: Date.now(),
       bio: '1902 GH-NY Graduate',
-      currentskill: [{skillId: 1}],
-      skillsInterestedIn: [{skillId: 2}]
+      currentskills: [{skillId: 1}],
+      SkillsInterestedIn: [{skillId: 2}]
     },
     {
       firstName: 'Tal',
@@ -52,8 +52,8 @@ async function seed() {
       currentPosition: 'Full Stack Software Developer',
       dateJoinedCompany: Date.now(),
       bio: '1904 FSA-NY Graduate',
-      currentskill: [{skillId: 1}],
-      skillsInterestedIn: [{skillId: 2}]
+      currentskills: [{skillId: 1}],
+      SkillsInterestedIn: [{skillId: 2}]
     },
     {
       firstName: 'Sam',
@@ -67,8 +67,8 @@ async function seed() {
       currentPosition: 'Full Stack Software Developer',
       dateJoinedCompany: Date.now(),
       bio: '1904 FSA-NY Graduate',
-      currentskill: [{skillId: 1}],
-      skillsInterestedIn: [{skillId: 2}]
+      currentskills: [{skillId: 1}],
+      SkillsInterestedIn: [{skillId: 2}]
     },
     {
       firstName: 'Arianna',
@@ -82,8 +82,8 @@ async function seed() {
       currentPosition: 'Front End Software Developer',
       dateJoinedCompany: Date.now(),
       bio: 'GA Graduate',
-      currentskill: [{skillId: 1}],
-      skillsInterestedIn: [{skillId: 2}]
+      currentskills: [{skillId: 1}],
+      SkillsInterestedIn: [{skillId: 2}]
     },
     {
       firstName: 'Jocelyn',
@@ -97,8 +97,8 @@ async function seed() {
       currentPosition: 'Full Stack Software Developer',
       dateJoinedCompany: Date.now(),
       bio: 'GA Student',
-      currentskill: [{skillId: 1}],
-      skillsInterestedIn: [{skillId: 2}]
+      currentskills: [{skillId: 1}],
+      SkillsInterestedIn: [{skillId: 2}]
     },
     {
       firstName: 'Linda',
@@ -112,8 +112,8 @@ async function seed() {
       currentPosition: 'Full Stack Software Developer',
       dateJoinedCompany: Date.now(),
       bio: '1902 GH-NY Graduate',
-      currentskill: [{skillId: 1}],
-      skillsInterestedIn: [{skillId: 2}]
+      currentskills: [{skillId: 1}],
+      SkillsInterestedIn: [{skillId: 2}]
     }
   ]
 
@@ -185,12 +185,12 @@ async function seed() {
 
   await Promise.all(
     seedCurrentSkill.map(currSkill => {
-      return currentSkills.create(currSkill)
+      return CurrentSkills.create(currSkill)
     })
   )
   await Promise.all(
     seedSkillInterestedOn.map(skillInt => {
-      return skillsInterestedIn.create(skillInt)
+      return SkillsInterestedIn.create(skillInt)
     })
   )
 
