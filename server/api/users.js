@@ -1,5 +1,6 @@
 const router = require('express').Router()
 const {User, UserSkills} = require('../db/models')
+const {formatUserSkillCapture} = require('./utils')
 module.exports = router
 
 router.get('/', async (req, res, next) => {
@@ -41,15 +42,22 @@ router.put('/:id', async (req, res, next) => {
         plain: true
       }
     )
-    /* TO DO: create a util function that merges the skillsInterestedIn 
-    and currentSkills array in an object with the userId e.g {userId: 5, skillsInterestedInId: 6, skillId: 7}
-    this objects then need to be pushed into an array.
-    const dataArr = []
+
+    // const skillsData = formatUserSkillCapture(
+    //   userId,
+    //   skillsInterestedIn,
+    //   currentSkills
+    // )
+    const skillsData = [
+      {userId: userId, skillId: 3},
+      {userId: userId, skillId: 4},
+      {userId: userId, skillId: 5}
+    ]
+    console.log('>>> ', skillsData)
     const [
       numberOfAffectedSkillsRows,
       skillsInstance
-    ] = await UserSkills.bulkCreate(data, {returning: true})
-    */
+    ] = await UserSkills.bulkCreate(skillsData, {returning: true})
 
     res.json(userInstance)
   } catch (err) {
