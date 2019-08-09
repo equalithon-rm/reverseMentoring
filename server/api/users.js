@@ -35,6 +35,32 @@ router.get('/', async (req, res, next) => {
   }
 })
 
+router.get('/:id', async (req, res, next) => {
+  try {
+    const users = await User.findOne(
+      {
+        where: {
+          id: req.params.id
+        }
+      },
+      {
+        include: [
+          {
+            model: Skill,
+            attributes: ['name'],
+            where: {
+              userId: req.params.id
+            }
+          }
+        ]
+      }
+    )
+    res.json(users)
+  } catch (err) {
+    next(err)
+  }
+})
+
 router.put('/:id', async (req, res, next) => {
   const {gender, currentCompany, currentPosition, bio} = req.body
   const userId = req.params.id
