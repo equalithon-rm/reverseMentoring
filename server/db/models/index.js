@@ -28,27 +28,20 @@ User.belongsToMany(Skill, {
   foreignKey: 'userId'
 })
 
-// User.belongsToMany(Skill, {
-//   through: 'UserSkills',
-//   foreignKey: 'userId',
-//   as: 'currentSkillsId'
-// })
-
 Skill.belongsToMany(User, {
   through: 'UserSkills',
-  foreignKey: 'currentSkillsId',
-  as: 'currentSkillsId'
+  foreignKey: 'skillId',
+  as: 'skillId'
 })
 
-Skill.belongsToMany(User, {
-  through: 'UserSkills',
+UserSkills.hasOne(User)
+
+User.hasMany(UserSkills)
+
+Skill.hasMany(UserSkills, {
   foreignKey: 'skillsInterestedInId',
   as: 'skillsInterestedInId'
 })
-
-Skill.hasMany(UserSkills)
-
-User.hasMany(UserSkills)
 
 module.exports = {
   User,

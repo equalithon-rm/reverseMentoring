@@ -103,17 +103,31 @@ async function seed() {
   const seedUserSkills = [
     {
       userId: 1,
-      currentSkillsId: 1,
+      skillId: 1,
       skillsInterestedInId: 2
     },
     {
-      userId: 3,
-      currentSkillsId: 2,
+      userId: 1,
+      skillId: 2,
       skillsInterestedInId: 3
     },
     {
       userId: 2,
-      currentSkillsId: 3,
+      skillId: 3
+    },
+    {
+      userId: 2,
+      skillId: 1,
+      skillsInterestedInId: 3
+    },
+    {
+      userId: 3,
+      skillId: 3,
+      skillsInterestedInId: 1
+    },
+    {
+      userId: 4,
+      skillId: 3,
       skillsInterestedInId: 1
     }
   ]
