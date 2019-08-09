@@ -1,40 +1,48 @@
 import React, {Component} from 'react'
-import {fetchMentees} from '../store/menteeReducer'
+// import {fetchMentees} from '../store/menteeReducer'
 import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
+import axios from 'axios'
+
+//http://localhost:8080/api/skills/skillsInterestedIn/1
+//i am user id:1 name: Linda intrestedSkill: 2
 
 export class Dashboard extends Component {
-  componentDidMount() {
-    this.props.fetchMentees()
+  async componentDidMount() {
+    const {data} = await axios.get('/api/skills/array')
   }
-  render() {
-    const {loading, mentees} = this.props
 
-    if (loading) return <div>Loading...</div>
+  render() {
+    // const {loading, users,} = this.props
+
+    // if (loading) return <div>Loading...</div>
 
     return (
-      <div id="mentee-list">
-        {mentees.map(mentee => (
+      <div id="dashbaord-list">
+        <h1>Hello</h1>
+        {/* {mentees.map(mentee => (
           <div key={mentee.id}>
             <h2>{`${mentee.firstName} ${mentee.lastName}`}</h2>
             <p>{mentee.blurb}</p>
           </div>
-        ))}
+        ))} */}
       </div>
     )
   }
 }
 
 const mapStateToProps = state => {
+  console.log('USER INFO', state.user)
   return {
-    loading: state.menteeReducer.loading,
-    mentees: state.menteeReducer.mentees
+    userId: state.user.id
+    //search what skills your intrested in based on you id
+    //search users that have the skill based on your interseted skillId
   }
 }
 
 const mapDispatchToProps = dispatch => {
   return {
-    fetchMentees: () => dispatch(fetchMentees())
+    // fetchMentees: () => dispatch(fetchMentees())
   }
 }
 
