@@ -21,7 +21,7 @@ class UserCaptureForm extends React.Component {
   }
 
   async componentDidMount() {
-    const {data} = await axios.get('/api/skills/array')
+    const {data} = await axios.get('/api/skills')
     this.setState({skills: data})
   }
 
