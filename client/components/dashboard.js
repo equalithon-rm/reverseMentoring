@@ -4,20 +4,11 @@ import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
 import axios from 'axios'
 
-//http://localhost:8080/api/skills/skillsInterestedIn/1
-//i am user id:1 name: Linda intrestedSkill: 2
-
 export class Dashboard extends Component {
-  async componentDidMount() {
-    //ex i am interested in seeing all users with skillId 1
-    // const {data} = await axios.get('/api/skills/currentSkills/:idSkill')
-    const {data} = await axios.get('/api/skills/currentSkills/1')
-    console.log('DATA', data)
-  }
+  async componentDidMount() {}
 
   render() {
-    const {userId} = this.props
-    // console.log('DATA', {data})
+    // const {} = this.props
 
     return (
       <div id="dashbaord-list">
@@ -34,17 +25,11 @@ export class Dashboard extends Component {
 }
 
 const mapStateToProps = state => {
-  // console.log('USER INFO', state.user)
-  return {
-    //once capture form is completed will Users have a skillsIntrestedIn property?
-    userId: state.user.id
-  }
+  return {}
 }
 
-// const mapDispatchToProps = dispatch => {
-//   return {
-//     getSkills: () => dispatch(skills())
-//   }
-// }
+const mapDispatchToProps = dispatch => {
+  return {}
+}
 
-export default connect(mapStateToProps)(Dashboard)
+export default connect(mapStateToProps, mapDispatchToProps)(Dashboard)
