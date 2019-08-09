@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-// import {fetchMentees} from '../store/menteeReducer'
+// import {skills} from '../store/skillReducer'
 import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
 import axios from 'axios'
@@ -9,17 +9,19 @@ import axios from 'axios'
 
 export class Dashboard extends Component {
   async componentDidMount() {
-    const {data} = await axios.get('/api/skills/array')
+    //ex i am interested in seeing all users with skillId 1
+    // const {data} = await axios.get('/api/skills/currentSkills/:idSkill')
+    const {data} = await axios.get('/api/skills/currentSkills/1')
+    console.log('DATA', data)
   }
 
   render() {
-    // const {loading, users,} = this.props
-
-    // if (loading) return <div>Loading...</div>
+    const {userId} = this.props
+    // console.log('DATA', {data})
 
     return (
       <div id="dashbaord-list">
-        <h1>Hello</h1>
+        <h1>Dashboard List</h1>
         {/* {mentees.map(mentee => (
           <div key={mentee.id}>
             <h2>{`${mentee.firstName} ${mentee.lastName}`}</h2>
@@ -32,18 +34,17 @@ export class Dashboard extends Component {
 }
 
 const mapStateToProps = state => {
-  console.log('USER INFO', state.user)
+  // console.log('USER INFO', state.user)
   return {
+    //once capture form is completed will Users have a skillsIntrestedIn property?
     userId: state.user.id
-    //search what skills your intrested in based on you id
-    //search users that have the skill based on your interseted skillId
   }
 }
 
-const mapDispatchToProps = dispatch => {
-  return {
-    // fetchMentees: () => dispatch(fetchMentees())
-  }
-}
+// const mapDispatchToProps = dispatch => {
+//   return {
+//     getSkills: () => dispatch(skills())
+//   }
+// }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Dashboard)
+export default connect(mapStateToProps)(Dashboard)
