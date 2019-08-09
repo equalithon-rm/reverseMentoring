@@ -26,7 +26,7 @@ router.get('/', async (req, res, next) => {
       {
         include: [
           {
-            model: Skill,
+            model: CurrentSkills,
             attributes: ['name']
           }
         ]
@@ -49,7 +49,7 @@ router.get('/:id', async (req, res, next) => {
       {
         include: [
           {
-            model: Skill,
+            model: CurrentSkills,
             attributes: ['name'],
             where: {
               userId: req.params.id
