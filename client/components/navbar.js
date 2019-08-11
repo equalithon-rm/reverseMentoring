@@ -11,6 +11,7 @@ const NavbarMenu = ({handleClick, isLoggedIn}) => (
       <Navbar.Item>
         <Heading size={2}>Equalithon</Heading>
       </Navbar.Item>
+      <Navbar.Burger />
     </Navbar.Brand>
 
     {isLoggedIn ? (

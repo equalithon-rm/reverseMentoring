@@ -17,7 +17,7 @@ const getUsersWithCurrentSkill = skillId => ({
 
 export const skills = () => async dispatch => {
   try {
-    const res = await axios.get('/skills/')
+    const res = await axios.get('/api/skills')
     console.log('rest in reducer', res)
     dispatch(getSkills(res.data))
   } catch (error) {
@@ -27,9 +27,8 @@ export const skills = () => async dispatch => {
 
 export const currentSkill = skillId => async dispatch => {
   try {
-    const res = await axios.get(`/skills/currentSkills/${skillId}`)
-    console.log('THUNK DATA', [res.data])
-    dispatch(getUsersWithCurrentSkill([res.data]))
+    const res = await axios.get(`/api/skills/currentSkills/${skillId}`)
+    dispatch(getUsersWithCurrentSkill(res.data))
   } catch (error) {
     console.error(error)
   }

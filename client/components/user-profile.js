@@ -1,6 +1,8 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
 
+import {ConnectButton} from './connect-button'
+
 class UserProfile extends Component {
   render() {
     return (

@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
 import {Search} from './search'
 import UserCaptureForm from './user-capture-form'
+import ConnectButton from './connect-button'
 
 /**
  * COMPONENT
@@ -14,6 +15,9 @@ export const UserHome = props => {
     <div>
       <h3>Welcome, {firstName ? firstName : email}.</h3>
       <Search />
+
+      <ConnectButton />
+
       {hasCompletedSignup ? false : <UserCaptureForm />}
     </div>
   )

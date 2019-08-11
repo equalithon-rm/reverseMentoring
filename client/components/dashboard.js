@@ -7,7 +7,7 @@ import axios from 'axios'
 export class Dashboard extends Component {
   componentDidMount() {
     //trouble grabbing the desired skill Id, so hardcoded a desired skillId
-    this.props.currentSkill(2)
+    this.props.currentSkill(9) //CHANGE THE ID HERE
     // grab all users with current skill
   }
 
@@ -19,13 +19,13 @@ export class Dashboard extends Component {
     return (
       <div id="dashbaord-list">
         <h1>Dashboard List</h1>
-        {/* {usersWithCurrentSkill.map(user => (
+        {usersWithCurrentSkill.map(user => (
           <div key={user.id}>
-          <img src={user.imgUrl}/>78tuyl.;..
+            <img src={user.imgUrl} />78tuyl.;..
             <h2>{`${user.firstName} ${user.lastName}`}</h2>
             <p>{user.bio}</p>
           </div>
-        ))} */}
+        ))}
       </div>
     )
   }
