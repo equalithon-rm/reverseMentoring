@@ -7,13 +7,14 @@ import axios from 'axios'
 export class Dashboard extends Component {
   componentDidMount() {
     //trouble grabbing the desired skill Id, so hardcoded a desired skillId
-    this.props.currentSkill(1)
+    this.props.currentSkill(2)
     // grab all users with current skill
   }
 
   render() {
     const {usersWithCurrentSkill} = this.props
-    console.log('INFO', usersWithCurrentSkill)
+    console.log('THIS.PROPS', this.props)
+    console.log('ALLUSERSWITHCURRENTSKILL', usersWithCurrentSkill)
 
     return (
       <div id="dashbaord-list">

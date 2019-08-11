@@ -28,8 +28,8 @@ export const skills = () => async dispatch => {
 export const currentSkill = skillId => async dispatch => {
   try {
     const res = await axios.get(`/skills/currentSkills/${skillId}`)
-    console.log('THUNK DATA', res.data)
-    dispatch(getUsersWithCurrentSkill(res.data))
+    console.log('THUNK DATA', [res.data])
+    dispatch(getUsersWithCurrentSkill([res.data]))
   } catch (error) {
     console.error(error)
   }

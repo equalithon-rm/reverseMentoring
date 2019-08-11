@@ -107,7 +107,7 @@ router.put('/:id', async (req, res, next) => {
     ] = await SkillsInterestedIn.bulkCreate(interestedInSkillsData, {
       returning: true
     })
-
+    console.log(userInstance)
     res.json(userInstance)
   } catch (err) {
     next(err)
