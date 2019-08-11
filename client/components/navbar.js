@@ -3,19 +3,26 @@ import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
 import {logout} from '../store'
+import Routes from '../routes'
 import {Heading, Navbar, Button} from 'react-bulma-components/full'
 
 const NavbarMenu = ({handleClick, isLoggedIn}) => (
-  <Navbar>
+  <Navbar className="is-light">
     <Navbar.Brand>
-      <Navbar.Item>
-        <Heading size={2}>Equalithon</Heading>
-      </Navbar.Item>
+      <img src={require('./elevate.png')} width="150" height="80" />
     </Navbar.Brand>
-
+    //{' '}
+    <Navbar.Burger
+    //   active={open}
+    //   onClick={() =>
+    //     this.setState(state => {
+    //       !state.open
+    //     })
+    //   }
+    />
     {isLoggedIn ? (
-      <Navbar.Menu>
-        <Navbar.Container position="end">
+      <Navbar.Menu active={open}>
+        <Navbar.Container>
           <Navbar.Item>
             <Link to="/home">Home</Link>
           </Navbar.Item>
@@ -23,21 +30,19 @@ const NavbarMenu = ({handleClick, isLoggedIn}) => (
           <Navbar.Item>
             <Link to="/profile">Profile</Link>
           </Navbar.Item>
+        </Navbar.Container>
 
+        <Navbar.Container position="end">
           <Navbar.Item onClick={handleClick}>
             <Button>Logout</Button>
           </Navbar.Item>
         </Navbar.Container>
       </Navbar.Menu>
     ) : (
-      <Navbar.Menu>
+      <Navbar.Menu active={open}>
         <Navbar.Container position="end">
           <Navbar.Item>
-            <Link to="/login">Login</Link>
-          </Navbar.Item>
-
-          <Navbar.Item>
-            <Link to="/signup">Sign Up</Link>
+            <Routes />
           </Navbar.Item>
         </Navbar.Container>
       </Navbar.Menu>
