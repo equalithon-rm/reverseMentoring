@@ -10,8 +10,7 @@ const NavbarMenu = ({handleClick, isLoggedIn}) => (
   <Navbar className="is-light">
     <Navbar.Brand>
       <img src={require('./elevate.png')} width="150" height="80" />
-    </Navbar.Brand>
-    //{' '}
+    </Navbar.Brand>{' '}
     <Navbar.Burger
     //   active={open}
     //   onClick={() =>
