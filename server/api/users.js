@@ -1,6 +1,11 @@
 const router = require('express').Router()
 
-const {User, CurrentSkills, SkillsInterestedIn} = require('../db/models')
+const {
+  User,
+  Skills,
+  CurrentSkills,
+  SkillsInterestedIn
+} = require('../db/models')
 const {formatUserSkillCapture} = require('./utils')
 
 module.exports = router
@@ -26,7 +31,7 @@ router.get('/', async (req, res, next) => {
       {
         include: [
           {
-            model: CurrentSkills,
+            model: Skills,
             attributes: ['name']
           }
         ]

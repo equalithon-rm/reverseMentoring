@@ -6,7 +6,7 @@ module.exports = router
 router.get('/', async (req, res, next) => {
   try {
     const skillsList = await Skill.findAll({
-      atributes: ['id', 'name']
+      attributes: ['id', 'name']
     })
     res.json(skillsList)
   } catch (err) {
@@ -17,10 +17,26 @@ router.get('/', async (req, res, next) => {
 router.get('/currentSkills', async (req, res, next) => {
   try {
     const currentSkill = await Skill.findAll({
+      attributes: ['id', 'name'],
       include: [
         {
           model: User,
-          as: CurrentSkills
+          as: CurrentSkills,
+          attributes: [
+            'id',
+            'googleId',
+            'firstName',
+            'lastName',
+            'fullName',
+            'gender',
+            'email',
+            'imgUrl',
+            'currentCompany',
+            'currentPosition',
+            'dateJoinedCurrentCompany',
+            'bio',
+            'hasCompletedSignup'
+          ]
         }
       ]
     })
@@ -34,6 +50,7 @@ router.get('/currentSkills/:idSkill', async (req, res, next) => {
   try {
     const id = req.params.idSkill
     const currentSkill = await Skill.findByPk(id, {
+      attributes: ['id', 'name'],
       include: [
         {
           model: User,
@@ -54,6 +71,7 @@ router.get('/currentSkills/:idSkill', async (req, res, next) => {
 router.get('/skillsInterestedIn', async (req, res, next) => {
   try {
     const skillsInterested = await Skill.findAll({
+      attributes: ['id', 'name'],
       include: [
         {
           model: SkillsInterestedIn,
@@ -75,6 +93,7 @@ router.get('/skillsInterestedIn/:idSkill', async (req, res, next) => {
   try {
     const id = req.params.idSkill
     const skillInterested = await Skill.findByPk(id, {
+      attributes: ['id', 'name'],
       include: [
         {
           model: User
