@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
 import {logout} from '../store'
-import Routes from '../routes'
+import {Login} from '../components'
 import {Heading, Navbar, Button} from 'react-bulma-components/full'
 
 const NavbarMenu = ({handleClick, isLoggedIn}) => (
@@ -11,7 +11,6 @@ const NavbarMenu = ({handleClick, isLoggedIn}) => (
     <Navbar.Brand>
       <img src={require('./elevate.png')} width="150" height="80" />
     </Navbar.Brand>
-    //{' '}
     <Navbar.Burger
     //   active={open}
     //   onClick={() =>
@@ -42,7 +41,8 @@ const NavbarMenu = ({handleClick, isLoggedIn}) => (
       <Navbar.Menu active={open}>
         <Navbar.Container position="end">
           <Navbar.Item>
-            <Routes />
+            <Login />
+            <Link to="/signup">Sign Up</Link>
           </Navbar.Item>
         </Navbar.Container>
       </Navbar.Menu>
