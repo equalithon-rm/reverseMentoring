@@ -46,15 +46,30 @@ router.get('/currentSkills', async (req, res, next) => {
   }
 })
 
-router.get('/currentSkills/:idSkill', async (req, res, next) => {
+router.get('/currentSkills/:skillId', async (req, res, next) => {
   try {
-    const id = req.params.idSkill
+    const id = req.params.skillId
     const currentSkill = await Skill.findByPk(id, {
       attributes: ['id', 'name'],
       include: [
         {
           model: User,
-          as: CurrentSkills
+          as: CurrentSkills,
+          attributes: [
+            'id',
+            'googleId',
+            'firstName',
+            'lastName',
+            'fullName',
+            'gender',
+            'email',
+            'imgUrl',
+            'currentCompany',
+            'currentPosition',
+            'dateJoinedCurrentCompany',
+            'bio',
+            'hasCompletedSignup'
+          ]
         }
       ]
     })
@@ -77,7 +92,22 @@ router.get('/skillsInterestedIn', async (req, res, next) => {
           model: SkillsInterestedIn,
           include: [
             {
-              model: User
+              model: User,
+              attributes: [
+                'id',
+                'googleId',
+                'firstName',
+                'lastName',
+                'fullName',
+                'gender',
+                'email',
+                'imgUrl',
+                'currentCompany',
+                'currentPosition',
+                'dateJoinedCurrentCompany',
+                'bio',
+                'hasCompletedSignup'
+              ]
             }
           ]
         }
@@ -89,14 +119,29 @@ router.get('/skillsInterestedIn', async (req, res, next) => {
   }
 })
 
-router.get('/skillsInterestedIn/:idSkill', async (req, res, next) => {
+router.get('/skillsInterestedIn/:skillId', async (req, res, next) => {
   try {
-    const id = req.params.idSkill
+    const id = req.params.skillId
     const skillInterested = await Skill.findByPk(id, {
       attributes: ['id', 'name'],
       include: [
         {
-          model: User
+          model: User,
+          attributes: [
+            'id',
+            'googleId',
+            'firstName',
+            'lastName',
+            'fullName',
+            'gender',
+            'email',
+            'imgUrl',
+            'currentCompany',
+            'currentPosition',
+            'dateJoinedCurrentCompany',
+            'bio',
+            'hasCompletedSignup'
+          ]
         }
       ]
     })
