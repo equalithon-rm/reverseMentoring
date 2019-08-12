@@ -2,6 +2,8 @@ import React from 'react'
 import {connect} from 'react-redux'
 import PropTypes from 'prop-types'
 import {auth} from '../store'
+import {Button} from 'react-bulma-components/full'
+import {Link} from 'react-router-dom'
 
 /**
  * COMPONENT
@@ -11,7 +13,10 @@ const AuthForm = props => {
 
   return (
     <div>
-      <a href="/auth/google">{displayName} with Google</a>
+      <Button href="/auth/google" renderAs="a" color="light" size="medium">
+        Sign In
+      </Button>
+
       <form onSubmit={handleSubmit} name={name}>
         {props.name === 'signup' ? (
           <div>
