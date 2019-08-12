@@ -1,4 +1,4 @@
-import Welcome from './Welcome'
+import Welcome from './welcome'
 
 /**
  * `components/index.js` exists simply as a 'central export' for our components.
@@ -12,4 +12,4 @@ export {Login, Signup} from './auth-form'
 export {default as Dashboard} from './dashboard'
 export {default as Booking} from './booking'
 export {default as Search} from './search'
-export {default as Welcome} from './Welcome'
+export {default as Welcome} from './welcome'
