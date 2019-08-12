@@ -51,3 +51,7 @@ div.navbar-menu.is-active {
 .flex-containee {
   flex: 1;
 }
+
+.NavMargins {
+  margin: 2rem 0 0 2rem;
+}

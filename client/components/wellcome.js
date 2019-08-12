@@ -10,9 +10,8 @@ const Wellcome = () => {
       <br />
       <h5> Wellcome to Elevate </h5>
       <br />
-
-      <h6>
-        <p>
+      <div>
+        <h6>
           {' '}
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. In rhoncus
           efficitur vulputate. Nullam bibendum augue ut luctus posuere.
@@ -36,8 +35,8 @@ const Wellcome = () => {
           enim, dignissim id luctus sed, efficitur ac turpis. Mauris tincidunt
           arcu ut augue aliquet ullamcorper. Interdum et malesuada fames ac ante
           ipsum primis in faucibus.{' '}
-        </p>
-      </h6>
+        </h6>
+      </div>
 
       <hr />
       <h6> Are you a member?</h6>
