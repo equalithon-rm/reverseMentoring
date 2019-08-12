@@ -2,6 +2,7 @@ import React from 'react'
 import {connect} from 'react-redux'
 import PropTypes from 'prop-types'
 import {signup} from '../store'
+import {Link} from 'react-router-dom'
 
 /**
  * COMPONENT
@@ -35,7 +36,8 @@ const AuthForm = props => {
         {error && error.response && <div> {error.response.data} </div>}
       </form>
 
-      <a href="/auth/google">{displayName} with Google</a>
+      {/* <a href="/auth/google">{displayName} with Google</a> */}
+      <Link to="/auth/google">{displayName} with Google</Link>
     </div>
   )
 }

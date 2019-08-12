@@ -2,6 +2,7 @@ import React from 'react'
 import {connect} from 'react-redux'
 import PropTypes from 'prop-types'
 import {auth} from '../store'
+import {Link} from 'react-router-dom'
 
 /**
  * COMPONENT
@@ -9,11 +10,7 @@ import {auth} from '../store'
 const AuthForm = props => {
   const {name, displayName, handleSubmit, error} = props
 
-  return (
-    <div>
-      <a href="/auth/google">{displayName} with Google</a>
-    </div>
-  )
+  return <Link to="/auth/google">{displayName} with Google</Link>
 }
 
 /**
