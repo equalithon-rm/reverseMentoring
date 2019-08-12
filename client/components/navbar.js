@@ -29,6 +29,10 @@ const NavbarMenu = ({handleClick, isLoggedIn}) => (
           <Navbar.Item>
             <Link to="/profile">Profile</Link>
           </Navbar.Item>
+
+          <Navbar.Item>
+            <Link to="/search">Search</Link>
+          </Navbar.Item>
         </Navbar.Container>
 
         <Navbar.Container position="end">

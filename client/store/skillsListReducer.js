@@ -2,14 +2,13 @@ import axios from 'axios'
 
 // ACTION TYPES //
 
-const GET_SKILLS = 'GET_SKILLS'
-
+const GOT_SKILLS = 'GOT_SKILLS'
 const GOT_SKILLS_USER_HAS = 'GOT_SKILLS_USER_HAS'
 const GOT_SKILLS_USER_WANTS = 'GOT_SKILLS_USER_WANTS'
 
 // ACTION CREATORS //
 
-const getSkills = skill => ({type: GET_SKILLS, skill})
+const gotSkillsActionCreator = skills => ({type: GOT_SKILLS, skills})
 
 const gotSkillsUserHasActionCreator = skillsHas => ({
   type: GOT_SKILLS_USER_HAS,
@@ -23,11 +22,11 @@ const gotSkillsUserWantsActionCreator = skillsWants => ({
 
 //THUNK CREATORS//
 
-export const skills = () => async dispatch => {
+export const getSkillsThunkCreator = () => async dispatch => {
   try {
-    const res = await axios.get('/api/skills')
-    console.log('rest in reducer', res)
-    dispatch(getSkills(res.data))
+    const {data} = await axios.get('/api/skills')
+    console.log('getSkillsThunkCreator data: ', data)
+    dispatch(gotSkillsActionCreator(data))
   } catch (error) {
     console.error(error)
   }
@@ -65,7 +64,7 @@ const initialState = {
 
 const skillsReducer = (state = initialState, action) => {
   switch (action.type) {
-    case GET_SKILLS:
+    case GOT_SKILLS:
       return {...state, skills: action.skills}
     case GOT_SKILLS_USER_HAS:
       return {...state, skillsUserHas: action.skillsHas}

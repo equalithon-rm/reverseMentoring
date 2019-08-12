@@ -3,6 +3,7 @@ import {connect} from 'react-redux'
 
 class UserProfile extends Component {
   render() {
+    console.log('this.props in the UserProfile render method: ', this.props)
     return (
       <div className="flex-container">
         <h1 className="flex-containee">Full Name: {this.props.fullName}</h1>
@@ -66,22 +67,20 @@ class UserProfile extends Component {
   }
 }
 
-const mapState = state => {
-  return {
-    fullName: state.user.fullName,
-    firstName: state.user.fullName,
-    lastName: state.user.fullName,
-    gender: state.user.gender,
-    email: state.user.email,
-    imgUrl: state.user.imgUrl,
-    currentCompany: state.user.currentCompany,
-    currentPosition: state.user.currentPosition,
-    dateJoinedCurrentCompany: state.user.dateJoinedCurrentCompany,
-    bio: state.user.bio,
-    hasCompletedSignup: state.user.hasCompletedSignup,
-    skillsHas: state.user.currentSkills,
-    skillsWants: state.user.skillsInterestedIns
-  }
-}
+const mapStateToProps = state => ({
+  fullName: state.user.fullName,
+  firstName: state.user.fullName,
+  lastName: state.user.fullName,
+  gender: state.user.gender,
+  email: state.user.email,
+  imgUrl: state.user.imgUrl,
+  currentCompany: state.user.currentCompany,
+  currentPosition: state.user.currentPosition,
+  dateJoinedCurrentCompany: state.user.dateJoinedCurrentCompany,
+  bio: state.user.bio,
+  hasCompletedSignup: state.user.hasCompletedSignup,
+  skillsHas: state.user.currentSkills,
+  skillsWants: state.user.skillsInterestedIns
+})
 
-export default connect(mapState)(UserProfile)
+export default connect(mapStateToProps)(UserProfile)
