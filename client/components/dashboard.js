@@ -14,7 +14,7 @@ export class Dashboard extends Component {
   //   }
   componentDidMount() {
     //trouble grabbing the desired skill Id, so hardcoded a desired skillId
-    let arr = [1, 2]
+    let arr = [2, 3]
     for (let i = 0; i < arr.length; i++) {
       this.props.currentSkill(arr[i])
     }
