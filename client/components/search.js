@@ -100,7 +100,7 @@ export class Search extends Component {
         <br />
         <br />
         <ul className="flex-container flex-containee">
-          <li>Users seeking mentoring in selected skill:</li>
+          <li>Employees seeking mentoring in selected skill:</li>
           <br />
           {this.props.allUsersThatWantSelectedSkill.users ? (
             this.props.allUsersThatWantSelectedSkill.users.length ? (
