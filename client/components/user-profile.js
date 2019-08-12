@@ -28,20 +28,28 @@ class UserProfile extends Component {
         <br />
         <h3 className="flex-containee">Skills To Offer:</h3>
         <ul className="flex-containee">
-          {this.props.skillsHas.map(curSkill => (
-            <li key={curSkill.skill.id} className="flex-containee">
-              {curSkill.skill.name}
-            </li>
-          ))}
+          {this.props.skillsHas.length ? (
+            this.props.skillsHas.map(curSkill => (
+              <li key={curSkill.skill.id} className="flex-containee">
+                {curSkill.skill.name}
+              </li>
+            ))
+          ) : (
+            <li>Loading skills...</li>
+          )}
         </ul>
         <br />
         <h3 className="flex-containee">Skills Interested In:</h3>
         <ul className="flex-containee">
-          {this.props.skillsWants.map(curSkill => (
-            <li key={curSkill.skill.id} className="flex-containee">
-              {curSkill.skill.name}
-            </li>
-          ))}
+          {this.props.skillsWants.length ? (
+            this.props.skillsWants.map(curSkill => (
+              <li key={curSkill.skill.id} className="flex-containee">
+                {curSkill.skill.name}
+              </li>
+            ))
+          ) : (
+            <li>Loading skills...</li>
+          )}
         </ul>
         <br />
         <h3 className="flex-containee">Bio:</h3>
