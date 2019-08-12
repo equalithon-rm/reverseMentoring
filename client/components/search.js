@@ -1,5 +1,7 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
+import {Link} from 'react-router-dom'
+import axios from 'axios'
 
 import {
   getSkillsThunkCreator,
@@ -15,6 +17,7 @@ export class Search extends Component {
     }
     this.handleChange = this.handleChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
+    this.handleClick = this.handleClick.bind(this)
   }
 
   componentDidMount() {
@@ -28,6 +31,11 @@ export class Search extends Component {
     this.setState({
       [event.target.id]: event.target.value
     })
+  }
+
+  async handleClick(email, targetName, userName) {
+    await axios.post('/api/sendEmail', {email, targetName, userName})
+    console.log(email, targetName, userName)
   }
 
   handleSubmit(event) {
@@ -100,15 +108,27 @@ export class Search extends Component {
           <br />
           {allUsersThatWantSelectedSkill ? (
             allUsersThatWantSelectedSkill.length ? (
-              allUsersThatWantSelectedSkill.map(curUser => (
-                <li
-                  key={curUser.usersId}
-                  className="flex-containee"
-                  style={{textAlign: 'center'}}
-                >
-                  {curUser.user.fullName}
-                </li>
-              ))
+              allUsersThatWantSelectedSkill.map(curUser => {
+                return (
+                  <Link
+                    key={curUser.usersId}
+                    onClick={() =>
+                      this.handleClick(
+                        curUser.user.email,
+                        curUser.user.fullName,
+                        this.props.currentUserName
+                      )
+                    }
+                  >
+                    <li
+                      className="flex-containee"
+                      style={{textAlign: 'center'}}
+                    >
+                      {curUser.user.fullName}
+                    </li>
+                  </Link>
+                )
+              })
             ) : (
               <li className="flex-containee" style={{textAlign: 'center'}}>
                 No users were found for the selected skill.
@@ -128,13 +148,20 @@ export class Search extends Component {
           {allUsersThatHaveSelectedSkill ? (
             allUsersThatHaveSelectedSkill.length ? (
               allUsersThatHaveSelectedSkill.map(curUser => (
-                <li
+                <Link
                   key={curUser.usersId}
-                  className="flex-containee"
-                  style={{textAlign: 'center'}}
+                  onClick={() =>
+                    this.handleClick(
+                      curUser.user.email,
+                      curUser.user.fullName,
+                      this.props.currentUserName
+                    )
+                  }
                 >
-                  {curUser.user.fullName}
-                </li>
+                  <li className="flex-containee" style={{textAlign: 'center'}}>
+                    {curUser.user.fullName}
+                  </li>
+                </Link>
               ))
             ) : (
               <li className="flex-containee" style={{textAlign: 'center'}}>
@@ -155,7 +182,8 @@ export class Search extends Component {
 const mapStateToProps = state => ({
   allSkills: state.skillsReducer.allSkills,
   allUsersThatWantSelectedSkill: state.skillsReducer.skillUserWants,
-  allUsersThatHaveSelectedSkill: state.skillsReducer.skillUserHas
+  allUsersThatHaveSelectedSkill: state.skillsReducer.skillUserHas,
+  currentUserName: state.user.fullName
 })
 
 const mapDispatchToProps = dispatch => ({
