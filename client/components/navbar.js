@@ -7,7 +7,11 @@ import {Login} from '../components'
 import {Heading, Navbar, Button} from 'react-bulma-components/full'
 
 const NavbarMenu = ({handleClick, isLoggedIn}) => (
-  <Navbar className="is-light">
+  <Navbar
+    className="navbar is-light"
+    role="navigation"
+    aria-label="main navigation"
+  >
     <Navbar.Brand>
       <img src={require('./elevate.png')} width="150" height="80" />
     </Navbar.Brand>
@@ -19,8 +23,9 @@ const NavbarMenu = ({handleClick, isLoggedIn}) => (
     //     })
     //   }
     />
+
     {isLoggedIn ? (
-      <Navbar.Menu active={open}>
+      <Navbar.Menu className="is-active">
         <Navbar.Container>
           <Navbar.Item>
             <Link to="/home">Home</Link>
@@ -28,6 +33,10 @@ const NavbarMenu = ({handleClick, isLoggedIn}) => (
 
           <Navbar.Item>
             <Link to="/profile">Profile</Link>
+          </Navbar.Item>
+
+          <Navbar.Item>
+            <Link to="/search">Search</Link>
           </Navbar.Item>
         </Navbar.Container>
 
@@ -38,10 +47,13 @@ const NavbarMenu = ({handleClick, isLoggedIn}) => (
         </Navbar.Container>
       </Navbar.Menu>
     ) : (
-      <Navbar.Menu active={open}>
+      <Navbar.Menu className="is-active">
         <Navbar.Container position="end">
           <Navbar.Item>
             <Login />
+          </Navbar.Item>
+
+          <Navbar.Item>
             <Link to="/signup">Sign Up</Link>
           </Navbar.Item>
         </Navbar.Container>

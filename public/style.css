@@ -1,5 +1,9 @@
+html,
 body {
   font-family: sans-serif;
+  height: 100%;
+  width: 100%;
+  margin: 0;
 }
 
 a {
@@ -15,7 +19,35 @@ nav a {
   margin: 1em;
 }
 
-form div {
-  margin: 1em;
-  display: inline-block;
+.form {
+  padding: 50px;
+}
+
+.control input {
+  max-width: 300px;
+}
+
+div.navbar-brand {
+  padding-left: 30px;
+}
+
+div.field-body {
+  max-width: 300px;
+  padding-bottom: 10px;
+}
+
+div.navbar-menu.is-active {
+  background: #f5f5f5;
+  text-align: center;
+}
+
+.flex-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.flex-containee {
+  flex: 1;
 }

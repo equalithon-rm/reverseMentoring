@@ -1,64 +1,91 @@
 const router = require('express').Router()
 
-const {User, CurrentSkills, SkillsInterestedIn} = require('../db/models')
+const {User, Skill, CurrentSkills, SkillsInterestedIn} = require('../db/models')
 const {formatUserSkillCapture} = require('./utils')
 
 module.exports = router
 
 router.get('/', async (req, res, next) => {
   try {
-    const users = await User.findAll(
-      {
-        attributes: [
-          'id',
-          'firstName',
-          'lastName',
-          'fullName',
-          'gender',
-          'email',
-          'imgUrl',
-          'currentCompany',
-          'currentPosition',
-          'dateJoinedCurrentCompany',
-          'bio'
-        ]
-      },
-      {
-        include: [
-          {
-            model: CurrentSkills,
-            attributes: ['name']
-          }
-        ]
-      }
-    )
+    const users = await User.findAll({
+      attributes: [
+        'id',
+        'firstName',
+        'lastName',
+        'fullName',
+        'gender',
+        'email',
+        'imgUrl',
+        'currentCompany',
+        'currentPosition',
+        'dateJoinedCurrentCompany',
+        'bio'
+      ],
+      include: [
+        {
+          model: SkillsInterestedIn,
+          include: [
+            {
+              model: Skill
+            }
+          ]
+        },
+        {
+          model: CurrentSkills,
+          include: [
+            {
+              model: Skill
+            }
+          ]
+        }
+      ]
+    })
     res.json(users)
   } catch (err) {
     next(err)
   }
 })
 
-router.get('/:id', async (req, res, next) => {
+router.get('/:userId', async (req, res, next) => {
+  const curUserId = req.params.userId
   try {
-    const users = await User.findOne(
-      {
-        where: {
-          id: req.params.id
-        }
+    const curUserData = await User.findOne({
+      where: {
+        id: curUserId
       },
-      {
-        include: [
-          {
-            model: CurrentSkills,
-            attributes: ['name'],
-            where: {
-              userId: req.params.id
+      attributes: [
+        'id',
+        'firstName',
+        'lastName',
+        'fullName',
+        'gender',
+        'email',
+        'imgUrl',
+        'currentCompany',
+        'currentPosition',
+        'dateJoinedCurrentCompany',
+        'bio'
+      ],
+      include: [
+        {
+          model: SkillsInterestedIn,
+          include: [
+            {
+              model: Skill
             }
-          }
-        ]
-      }
-    )
-    res.json(users)
+          ]
+        },
+        {
+          model: CurrentSkills,
+          include: [
+            {
+              model: Skill
+            }
+          ]
+        }
+      ]
+    })
+    res.json(curUserData)
   } catch (err) {
     next(err)
   }
