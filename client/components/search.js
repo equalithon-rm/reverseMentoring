@@ -131,9 +131,9 @@ export class Search extends Component {
                                 this.props.currentUserName
                               )
                             }
-                          >{`Send a request to connect with ${
-                            curUser.user.fullName
-                          }`}</Link>
+                          >
+                            Send a request to connect
+                          </Link>
                         </Content>
                       </Media.Item>
                     </Media>
@@ -173,9 +173,9 @@ export class Search extends Component {
                               this.props.currentUserName
                             )
                           }
-                        >{`Send a request to connect with ${
-                          curUser.user.fullName
-                        }`}</Link>
+                        >
+                          Send a request to connect
+                        </Link>
                       </Content>
                     </Media.Item>
                   </Media>
