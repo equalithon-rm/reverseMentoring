@@ -3,7 +3,8 @@ import {connect} from 'react-redux'
 
 import {
   getSkillsThunkCreator,
-  getSkillsUserWantsThunkCreator
+  getSkillsUserWantsThunkCreator,
+  getSkillsUserHasThunkCreator
 } from '../store/skillsListReducer'
 
 export class Search extends Component {
@@ -34,6 +35,7 @@ export class Search extends Component {
     // console.log('event.target.value: ', event.target.value)
     event.preventDefault()
     this.props.getSkillsUserWantsThunk(this.state.selectedSkillId)
+    this.props.getSkillsUserHasThunk(this.state.selectedSkillId)
   }
 
   render() {
@@ -44,6 +46,10 @@ export class Search extends Component {
     // console.log(
     //   'this.props.allUsersThatWantSelectedSkill.users in the render method: ',
     //   this.props.allUsersThatWantSelectedSkill.users
+    // )
+    // console.log(
+    //   'this.props.allUsersThatHaveSelectedSkill.users in the render method: ',
+    //   this.props.allUsersThatHaveSelectedSkill.users
     // )
 
     return (
@@ -124,6 +130,33 @@ export class Search extends Component {
             </li>
           )}
         </ul>
+        <br />
+        <br />
+        <ul className="flex-container flex-containee">
+          <li>Employees offering mentoring in selected skill:</li>
+          <br />
+          {this.props.allUsersThatHaveSelectedSkill.users ? (
+            this.props.allUsersThatHaveSelectedSkill.users.length ? (
+              this.props.allUsersThatHaveSelectedSkill.users.map(curUser => (
+                <li
+                  key={curUser.id}
+                  className="flex-containee"
+                  style={{textAlign: 'center'}}
+                >
+                  {curUser.fullName}
+                </li>
+              ))
+            ) : (
+              <li className="flex-containee" style={{textAlign: 'center'}}>
+                No users were found for the selected skill.
+              </li>
+            )
+          ) : (
+            <li className="flex-containee" style={{textAlign: 'center'}}>
+              Please select a skill and submit.
+            </li>
+          )}
+        </ul>
       </div>
     )
   }
@@ -131,7 +164,8 @@ export class Search extends Component {
 
 const mapStateToProps = state => ({
   allSkills: state.skillsReducer.allSkills,
-  allUsersThatWantSelectedSkill: state.skillsReducer.skillUserWants
+  allUsersThatWantSelectedSkill: state.skillsReducer.skillUserWants,
+  allUsersThatHaveSelectedSkill: state.skillsReducer.skillUserHas
 })
 
 const mapDispatchToProps = dispatch => ({
@@ -140,6 +174,9 @@ const mapDispatchToProps = dispatch => ({
   },
   getSkillsUserWantsThunk(skillId) {
     dispatch(getSkillsUserWantsThunkCreator(skillId))
+  },
+  getSkillsUserHasThunk(skillId) {
+    dispatch(getSkillsUserHasThunkCreator(skillId))
   }
 })
 
