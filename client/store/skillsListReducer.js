@@ -2,19 +2,51 @@ import axios from 'axios'
 
 // ACTION TYPES //
 
-const GET_SKILLS = 'GET_SKILLS'
+const GOT_SKILLS = 'GOT_SKILLS'
+const GOT_SKILLS_USER_HAS = 'GOT_SKILLS_USER_HAS'
+const GOT_SKILLS_USER_WANTS = 'GOT_SKILLS_USER_WANTS'
 
 // ACTION CREATORS //
 
-const getSkills = skill => ({type: GET_SKILLS, skill})
+const gotSkillsActionCreator = skills => ({type: GOT_SKILLS, skills})
 
-//Think Creators//
+const gotSkillsUserHasActionCreator = skillsHas => ({
+  type: GOT_SKILLS_USER_HAS,
+  skillsHas
+})
 
-export const skills = () => async dispatch => {
+const gotSkillsUserWantsActionCreator = skillsWants => ({
+  type: GOT_SKILLS_USER_WANTS,
+  skillsWants
+})
+
+//THUNK CREATORS//
+
+export const getSkillsThunkCreator = () => async dispatch => {
   try {
-    const res = await axios.get('/skills/')
-    console.log('rest in reducer', res)
-    dispatch(getSkills(res.data))
+    const {data} = await axios.get('/api/skills')
+    // console.log('getSkillsThunkCreator data: ', data)
+    dispatch(gotSkillsActionCreator(data))
+  } catch (error) {
+    console.error(error)
+  }
+}
+
+export const getSkillsUserHasThunkCreator = skillId => async dispatch => {
+  try {
+    const {data} = await axios.get(`/api/skills/currentSkills/${skillId}`)
+    // console.log('skillsUserHas data: ', data)
+    dispatch(gotSkillsUserHasActionCreator(data))
+  } catch (error) {
+    console.error(error)
+  }
+}
+
+export const getSkillsUserWantsThunkCreator = skillId => async dispatch => {
+  try {
+    const {data} = await axios.get(`api/skills/skillsInterestedIn/${skillId}`)
+    // console.log('skillsUserHas data: ', data)
+    dispatch(gotSkillsUserWantsActionCreator(data))
   } catch (error) {
     console.error(error)
   }
@@ -23,15 +55,21 @@ export const skills = () => async dispatch => {
 //INIITIAL STATE //
 
 const initialState = {
-  skills: []
+  allSkills: [],
+  skillUserHas: {},
+  skillUserWants: {}
 }
 
 // REDUCER //
 
 const skillsReducer = (state = initialState, action) => {
   switch (action.type) {
-    case GET_SKILLS:
-      return {...state, skills: action.skills}
+    case GOT_SKILLS:
+      return {...state, allSkills: action.skills}
+    case GOT_SKILLS_USER_HAS:
+      return {...state, skillUserHas: action.skillsHas}
+    case GOT_SKILLS_USER_WANTS:
+      return {...state, skillUserWants: action.skillsWants}
     default:
       return state
   }

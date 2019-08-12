@@ -15,7 +15,6 @@ const NavbarMenu = ({handleClick, isLoggedIn}) => (
     <Navbar.Brand>
       <img src={require('./elevate.png')} width="150" height="80" />
     </Navbar.Brand>
-
     <Navbar.Burger
     //   active={open}
     //   onClick={() =>
@@ -34,6 +33,10 @@ const NavbarMenu = ({handleClick, isLoggedIn}) => (
 
           <Navbar.Item>
             <Link to="/profile">Profile</Link>
+          </Navbar.Item>
+
+          <Navbar.Item>
+            <Link to="/search">Search</Link>
           </Navbar.Item>
         </Navbar.Container>
 

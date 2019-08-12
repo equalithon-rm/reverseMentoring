@@ -9,6 +9,7 @@ import {
   UserProfile,
   Dashboard,
   Booking,
+  Search,
   Wellcome
 } from './components'
 import {me} from './store'
@@ -36,6 +37,7 @@ class Routes extends Component {
             <Route path="/profile" component={UserProfile} />
             <Route path="/dashboard" component={Dashboard} />
             <Route path="/booking" component={Booking} />
+            <Route path="/search" component={Search} />
           </Switch>
         )}
         {/* Displays our Login component as a fallback */}
