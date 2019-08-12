@@ -17,34 +17,34 @@ export class Search extends Component {
   }
 
   componentDidMount() {
-    console.log('this.props in the componentDidMount: ', this.props)
+    // console.log('this.props in the componentDidMount: ', this.props)
     this.props.getSkillsThunk()
   }
 
   handleChange(event) {
-    console.log('event.target.id: ', event.target.id)
-    console.log('event.target.value: ', event.target.value)
+    // console.log('event.target.id: ', event.target.id)
+    // console.log('event.target.value: ', event.target.value)
     this.setState({
       [event.target.id]: event.target.value
     })
   }
 
   handleSubmit(event) {
-    console.log('event.target.id: ', event.target.id)
-    console.log('event.target.value: ', event.target.value)
+    // console.log('event.target.id: ', event.target.id)
+    // console.log('event.target.value: ', event.target.value)
     event.preventDefault()
     this.props.getSkillsUserWantsThunk(this.state.selectedSkillId)
   }
 
   render() {
-    console.log(
-      'this.props.allSkills in the render method: ',
-      this.props.allSkills
-    )
-    console.log(
-      'this.props.allUsersThatWantSelectedSkill.users in the render method: ',
-      this.props.allUsersThatWantSelectedSkill.users
-    )
+    // console.log(
+    //   'this.props.allSkills in the render method: ',
+    //   this.props.allSkills
+    // )
+    // console.log(
+    //   'this.props.allUsersThatWantSelectedSkill.users in the render method: ',
+    //   this.props.allUsersThatWantSelectedSkill.users
+    // )
 
     return (
       <div className="flex-container">

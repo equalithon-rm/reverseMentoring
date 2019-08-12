@@ -3,7 +3,8 @@ import {connect} from 'react-redux'
 
 class UserProfile extends Component {
   render() {
-    console.log('this.props in the UserProfile render method: ', this.props)
+    // console.log('this.props in the UserProfile render method: ', this.props)
+
     return (
       <div className="flex-container">
         <h1 className="flex-containee">Full Name: {this.props.fullName}</h1>

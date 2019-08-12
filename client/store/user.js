@@ -104,7 +104,7 @@ export const logout = () => async dispatch => {
 export default function(state = defaultUser, action) {
   switch (action.type) {
     case GET_USER:
-      console.log('userReducer GET_USER action.user: ', action.user)
+      // console.log('userReducer GET_USER action.user: ', action.user)
       return action.user
     case UPDATE_USER:
       return action.user
