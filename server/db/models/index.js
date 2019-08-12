@@ -24,17 +24,24 @@ Skill.hasMany(Booking)
 User.hasMany(Booking)
 
 Skill.belongsToMany(User, {
+  through: 'currentSkills'
+})
+
+Skill.belongsToMany(User, {
   through: 'skillsInterestedIn'
 })
 
+Skill.hasMany(CurrentSkills)
 Skill.hasMany(SkillsInterestedIn)
+
+User.hasMany(CurrentSkills)
+User.hasMany(SkillsInterestedIn)
+
+CurrentSkills.belongsTo(User)
+CurrentSkills.belongsTo(Skill)
 
 SkillsInterestedIn.belongsTo(Skill)
 SkillsInterestedIn.belongsTo(User)
-
-Skill.belongsToMany(User, {
-  through: 'currentSkills'
-})
 
 module.exports = {
   User,

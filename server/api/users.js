@@ -1,42 +1,37 @@
 const router = require('express').Router()
 
-const {
-  User,
-  Skills,
-  CurrentSkills,
-  SkillsInterestedIn
-} = require('../db/models')
+const {User, Skill, CurrentSkills, SkillsInterestedIn} = require('../db/models')
 const {formatUserSkillCapture} = require('./utils')
 
 module.exports = router
 
 router.get('/', async (req, res, next) => {
   try {
-    const users = await User.findAll(
-      {
-        attributes: [
-          'id',
-          'firstName',
-          'lastName',
-          'fullName',
-          'gender',
-          'email',
-          'imgUrl',
-          'currentCompany',
-          'currentPosition',
-          'dateJoinedCurrentCompany',
-          'bio'
-        ]
-      },
-      {
-        include: [
-          {
-            model: Skills,
-            attributes: ['name']
-          }
-        ]
-      }
-    )
+    const users = await User.findAll({
+      attributes: [
+        'id',
+        'firstName',
+        'lastName',
+        'fullName',
+        'gender',
+        'email',
+        'imgUrl',
+        'currentCompany',
+        'currentPosition',
+        'dateJoinedCurrentCompany',
+        'bio'
+      ],
+      include: [
+        {
+          model: SkillsInterestedIn,
+          include: [
+            {
+              model: Skill
+            }
+          ]
+        }
+      ]
+    })
     res.json(users)
   } catch (err) {
     next(err)
@@ -55,10 +50,12 @@ router.get('/:id', async (req, res, next) => {
         include: [
           {
             model: CurrentSkills,
-            attributes: ['name'],
-            where: {
-              userId: req.params.id
-            }
+            attributes: ['id', 'name'],
+            include: [
+              {
+                model: Skill
+              }
+            ]
           }
         ]
       }
