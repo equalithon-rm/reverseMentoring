@@ -1,3 +1,5 @@
+import Wellcome from './wellcome'
+
 /**
  * `components/index.js` exists simply as a 'central export' for our components.
  * This way, we can import all of our components from the same place, rather than
@@ -10,3 +12,4 @@ export {Login, Signup} from './auth-form'
 export {default as Dashboard} from './dashboard'
 export {default as Booking} from './booking'
 export {default as Search} from './search'
+export {default as Wellcome} from './wellcome'
