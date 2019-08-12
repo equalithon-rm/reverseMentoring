@@ -47,46 +47,81 @@ export class Search extends Component {
     )
 
     return (
-      <div>
+      <div className="flex-container">
         {/* <input type="text" placeholder="Search..." /> */}
         <br />
         <br />
         <div>
-          <form onSubmit={this.handleSubmit} type="submit">
-            <label htmlFor="selectedSkillId">Please choose a skill:</label>
+          <form
+            onSubmit={this.handleSubmit}
+            type="submit"
+            className="flex-container flex-containee"
+          >
+            <label
+              htmlFor="selectedSkillId"
+              className="flex-containee"
+              style={{textAlign: 'center'}}
+            >
+              Please choose a skill:
+            </label>
             <br />
-            <select id="selectedSkillId" required onChange={this.handleChange}>
-              <option value="" disabled>
+            <select
+              onChange={this.handleChange}
+              id="selectedSkillId"
+              required
+              className="flex-containee"
+            >
+              <option value="" disabled className="flex-containee">
                 --Please choose an option--
               </option>
 
               {this.props.allSkills.length
                 ? this.props.allSkills.map(curSkill => (
-                    <option key={curSkill.id} value={curSkill.id}>
+                    <option
+                      key={curSkill.id}
+                      value={curSkill.id}
+                      className="flex-containee"
+                    >
                       {curSkill.name}
                     </option>
                   ))
                 : null}
             </select>
             <br />
-            <br />
-            <button onSubmit={this.handleSubmit} type="submit">
+            <button
+              onSubmit={this.handleSubmit}
+              type="submit"
+              className="flex-containee"
+            >
               Submit
             </button>
           </form>
         </div>
         <br />
-        <ul>
+        <br />
+        <ul className="flex-container flex-containee">
+          <li>Users seeking mentoring in selected skill:</li>
+          <br />
           {this.props.allUsersThatWantSelectedSkill.users ? (
             this.props.allUsersThatWantSelectedSkill.users.length ? (
               this.props.allUsersThatWantSelectedSkill.users.map(curUser => (
-                <li key={curUser.id}>{curUser.fullName}</li>
+                <li
+                  key={curUser.id}
+                  className="flex-containee"
+                  style={{textAlign: 'center'}}
+                >
+                  {curUser.fullName}
+                </li>
               ))
             ) : (
-              <li>No users were found for the selected skill.</li>
+              <li className="flex-containee" style={{textAlign: 'center'}}>
+                No users were found for the selected skill.
+              </li>
             )
           ) : (
-            <li>Please select a skill and submit.</li>
+            <li className="flex-containee" style={{textAlign: 'center'}}>
+              Please select a skill and submit.
+            </li>
           )}
         </ul>
       </div>
