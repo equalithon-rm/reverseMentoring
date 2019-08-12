@@ -2,6 +2,14 @@ import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
 import axios from 'axios'
+import {
+  Card,
+  Content,
+  Media,
+  Heading,
+  Columns,
+  Box
+} from 'react-bulma-components'
 
 import {
   getSkillsThunkCreator,
@@ -78,7 +86,6 @@ export class Search extends Component {
               <option value="" disabled className="flex-containee">
                 --Please choose an option--
               </option>
-
               {this.props.allSkills.length
                 ? this.props.allSkills.map(curSkill => (
                     <option
@@ -103,6 +110,7 @@ export class Search extends Component {
         </div>
         <br />
         <br />
+
         <ul className="flex-container flex-containee">
           <li>Employees seeking mentoring in selected skill:</li>
           <br />
@@ -110,23 +118,26 @@ export class Search extends Component {
             allUsersThatWantSelectedSkill.length ? (
               allUsersThatWantSelectedSkill.map(curUser => {
                 return (
-                  <Link
-                    key={curUser.usersId}
-                    onClick={() =>
-                      this.handleClick(
-                        curUser.user.email,
-                        curUser.user.fullName,
-                        this.props.currentUserName
-                      )
-                    }
-                  >
-                    <li
-                      className="flex-containee"
-                      style={{textAlign: 'center'}}
-                    >
-                      {curUser.user.fullName}
-                    </li>
-                  </Link>
+                  <Box key={curUser.usersId} size="4by3">
+                    <Media>
+                      <Media.Item>
+                        <Content>
+                          <p>{curUser.user.fullName}</p>
+                          <Link
+                            onClick={() =>
+                              this.handleClick(
+                                curUser.user.email,
+                                curUser.user.fullName,
+                                this.props.currentUserName
+                              )
+                            }
+                          >{`Send a request to connect with ${
+                            curUser.user.fullName
+                          }`}</Link>
+                        </Content>
+                      </Media.Item>
+                    </Media>
+                  </Box>
                 )
               })
             ) : (
@@ -140,6 +151,7 @@ export class Search extends Component {
             </li>
           )}
         </ul>
+
         <br />
         <br />
         <ul className="flex-container flex-containee">
@@ -148,20 +160,26 @@ export class Search extends Component {
           {allUsersThatHaveSelectedSkill ? (
             allUsersThatHaveSelectedSkill.length ? (
               allUsersThatHaveSelectedSkill.map(curUser => (
-                <Link
-                  key={curUser.usersId}
-                  onClick={() =>
-                    this.handleClick(
-                      curUser.user.email,
-                      curUser.user.fullName,
-                      this.props.currentUserName
-                    )
-                  }
-                >
-                  <li className="flex-containee" style={{textAlign: 'center'}}>
-                    {curUser.user.fullName}
-                  </li>
-                </Link>
+                <Box key={curUser.usersId} size="4by3">
+                  <Media>
+                    <Media.Item>
+                      <Content>
+                        <p>{curUser.user.fullName}</p>
+                        <Link
+                          onClick={() =>
+                            this.handleClick(
+                              curUser.user.email,
+                              curUser.user.fullName,
+                              this.props.currentUserName
+                            )
+                          }
+                        >{`Send a request to connect with ${
+                          curUser.user.fullName
+                        }`}</Link>
+                      </Content>
+                    </Media.Item>
+                  </Media>
+                </Box>
               ))
             ) : (
               <li className="flex-containee" style={{textAlign: 'center'}}>
