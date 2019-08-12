@@ -24,15 +24,27 @@ class UserProfile extends Component {
           Position: {this.props.currentPosition}
         </h3>
         <br />
+        <h3 className="flex-containee">Skills To Offer:</h3>
+        <ul className="flex-containee">
+          {this.props.skillsHas.map(curSkill => (
+            <li key={curSkill.skill.id} className="flex-containee">
+              {curSkill.skill.name}
+            </li>
+          ))}
+        </ul>
+        <br />
+        <h3 className="flex-containee">Skills Interested In:</h3>
+        <ul className="flex-containee">
+          {this.props.skillsWants.map(curSkill => (
+            <li key={curSkill.skill.id} className="flex-containee">
+              {curSkill.skill.name}
+            </li>
+          ))}
+        </ul>
+        <br />
         <h3 className="flex-containee">Bio:</h3>
         <p className="flex-containee">{this.props.bio}</p>
-
-        {/* <h3 className="skills">Skills</h3>
-        <ul>
-          {userInfo.skills.map((currentSkill, index) => (
-            <li key={index}>{currentSkill}</li>
-          ))}
-        </ul> */}
+        <br />
 
         {/* <h3 className="experience">Experience</h3>
         <p>{userInfo.experience}</p> */}
@@ -66,7 +78,9 @@ const mapState = state => {
     currentPosition: state.user.currentPosition,
     dateJoinedCurrentCompany: state.user.dateJoinedCurrentCompany,
     bio: state.user.bio,
-    hasCompletedSignup: state.user.hasCompletedSignup
+    hasCompletedSignup: state.user.hasCompletedSignup,
+    skillsHas: state.user.currentSkills,
+    skillsWants: state.user.skillsInterestedIns
   }
 }
 
