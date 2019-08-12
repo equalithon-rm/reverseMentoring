@@ -23,7 +23,9 @@ export const skills = () => async dispatch => {
 //INIITIAL STATE //
 
 const initialState = {
-  skills: []
+  skills: [],
+  skillsUserHas: [],
+  skillsUserWants: []
 }
 
 // REDUCER //
