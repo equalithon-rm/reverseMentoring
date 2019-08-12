@@ -1,7 +1,10 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
 
-import {getSkillsThunkCreator} from '../store/skillsListReducer'
+import {
+  getSkillsThunkCreator,
+  getSkillsUserWantsThunkCreator
+} from '../store/skillsListReducer'
 
 export class Search extends Component {
   constructor() {
@@ -30,18 +33,26 @@ export class Search extends Component {
     console.log('event.target.id: ', event.target.id)
     console.log('event.target.value: ', event.target.value)
     event.preventDefault()
-    this.props.signUpThunk(this.state)
+    this.props.getSkillsUserWantsThunk(this.state.selectedSkillId)
   }
 
   render() {
-    console.log('this.props in the render method: ', this.props)
+    console.log(
+      'this.props.allSkills in the render method: ',
+      this.props.allSkills
+    )
+    console.log(
+      'this.props.allUsersThatWantSelectedSkill.users in the render method: ',
+      this.props.allUsersThatWantSelectedSkill.users
+    )
+
     return (
       <div>
         {/* <input type="text" placeholder="Search..." /> */}
         <br />
         <br />
         <div>
-          <form type="submit">
+          <form onSubmit={this.handleSubmit} type="submit">
             <label htmlFor="selectedSkillId">Please choose a skill:</label>
             <br />
             <select id="selectedSkillId" required onChange={this.handleChange}>
@@ -49,7 +60,7 @@ export class Search extends Component {
                 --Please choose an option--
               </option>
 
-              {this.props.allSkills && this.props.allSkills.length
+              {this.props.allSkills.length
                 ? this.props.allSkills.map(curSkill => (
                     <option key={curSkill.id} value={curSkill.id}>
                       {curSkill.name}
@@ -59,21 +70,41 @@ export class Search extends Component {
             </select>
             <br />
             <br />
-            <button type="submit">Submit</button>
+            <button onSubmit={this.handleSubmit} type="submit">
+              Submit
+            </button>
           </form>
         </div>
+        <br />
+        <ul>
+          {this.props.allUsersThatWantSelectedSkill.users ? (
+            this.props.allUsersThatWantSelectedSkill.users.length ? (
+              this.props.allUsersThatWantSelectedSkill.users.map(curUser => (
+                <li key={curUser.id}>{curUser.fullName}</li>
+              ))
+            ) : (
+              <li>No users were found for the selected skill.</li>
+            )
+          ) : (
+            <li>Please select a skill and submit.</li>
+          )}
+        </ul>
       </div>
     )
   }
 }
 
 const mapStateToProps = state => ({
-  allSkills: state.skillsReducer.skills
+  allSkills: state.skillsReducer.allSkills,
+  allUsersThatWantSelectedSkill: state.skillsReducer.skillUserWants
 })
 
 const mapDispatchToProps = dispatch => ({
   getSkillsThunk() {
     dispatch(getSkillsThunkCreator())
+  },
+  getSkillsUserWantsThunk(skillId) {
+    dispatch(getSkillsUserWantsThunkCreator(skillId))
   }
 })
 

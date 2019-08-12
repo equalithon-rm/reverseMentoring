@@ -32,9 +32,9 @@ export const getSkillsThunkCreator = () => async dispatch => {
   }
 }
 
-export const getSkillsUserHasThunkCreator = () => async dispatch => {
+export const getSkillsUserHasThunkCreator = skillId => async dispatch => {
   try {
-    const {data} = await axios.get('/api/skills/currentSkills')
+    const {data} = await axios.get(`/api/skills/currentSkills/${skillId}`)
     console.log('skillsUserHas data: ', data)
     dispatch(gotSkillsUserHasActionCreator(data))
   } catch (error) {
@@ -42,9 +42,9 @@ export const getSkillsUserHasThunkCreator = () => async dispatch => {
   }
 }
 
-export const getSkillsUserWantsThunkCreator = () => async dispatch => {
+export const getSkillsUserWantsThunkCreator = skillId => async dispatch => {
   try {
-    const {data} = await axios.get('api/skills/skillsInterestedIn')
+    const {data} = await axios.get(`api/skills/skillsInterestedIn/${skillId}`)
     console.log('skillsUserHas data: ', data)
     dispatch(gotSkillsUserWantsActionCreator(data))
   } catch (error) {
@@ -55,9 +55,9 @@ export const getSkillsUserWantsThunkCreator = () => async dispatch => {
 //INIITIAL STATE //
 
 const initialState = {
-  skills: [],
-  skillsUserHas: [],
-  skillsUserWants: []
+  allSkills: [],
+  skillUserHas: {},
+  skillUserWants: {}
 }
 
 // REDUCER //
@@ -65,11 +65,11 @@ const initialState = {
 const skillsReducer = (state = initialState, action) => {
   switch (action.type) {
     case GOT_SKILLS:
-      return {...state, skills: action.skills}
+      return {...state, allSkills: action.skills}
     case GOT_SKILLS_USER_HAS:
-      return {...state, skillsUserHas: action.skillsHas}
+      return {...state, skillUserHas: action.skillsHas}
     case GOT_SKILLS_USER_WANTS:
-      return {...state, skillsUserWants: action.skillsWants}
+      return {...state, skillUserWants: action.skillsWants}
     default:
       return state
   }
