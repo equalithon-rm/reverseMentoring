@@ -29,6 +29,14 @@ router.get('/', async (req, res, next) => {
               model: Skill
             }
           ]
+        },
+        {
+          model: CurrentSkills,
+          include: [
+            {
+              model: Skill
+            }
+          ]
         }
       ]
     })
@@ -38,29 +46,46 @@ router.get('/', async (req, res, next) => {
   }
 })
 
-router.get('/:id', async (req, res, next) => {
+router.get('/:userId', async (req, res, next) => {
+  const curUserId = req.params.userId
   try {
-    const users = await User.findOne(
-      {
-        where: {
-          id: req.params.id
-        }
+    const curUserData = await User.findOne({
+      where: {
+        id: curUserId
       },
-      {
-        include: [
-          {
-            model: CurrentSkills,
-            attributes: ['id', 'name'],
-            include: [
-              {
-                model: Skill
-              }
-            ]
-          }
-        ]
-      }
-    )
-    res.json(users)
+      attributes: [
+        'id',
+        'firstName',
+        'lastName',
+        'fullName',
+        'gender',
+        'email',
+        'imgUrl',
+        'currentCompany',
+        'currentPosition',
+        'dateJoinedCurrentCompany',
+        'bio'
+      ],
+      include: [
+        {
+          model: SkillsInterestedIn,
+          include: [
+            {
+              model: Skill
+            }
+          ]
+        },
+        {
+          model: CurrentSkills,
+          include: [
+            {
+              model: Skill
+            }
+          ]
+        }
+      ]
+    })
+    res.json(curUserData)
   } catch (err) {
     next(err)
   }
