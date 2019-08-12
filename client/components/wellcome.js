@@ -2,13 +2,13 @@ import React from 'react'
 import {Login} from '../components'
 import {Link} from 'react-router-dom'
 
-const Wellcome = () => {
+const Welcome = () => {
   return (
     <div>
       <hr />
-      <h1> Wellcome to Elevate </h1>
+      <h1> Welcome to Elevate </h1>
       <br />
-      <h5> Wellcome to Elevate </h5>
+      <h5> A Reverse Mentoring App </h5>
       <br />
       <p>
         <h6>
@@ -47,4 +47,4 @@ const Wellcome = () => {
   )
 }
 
-export default Wellcome
+export default Welcome
