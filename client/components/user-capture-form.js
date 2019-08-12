@@ -56,68 +56,101 @@ class UserCaptureForm extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="form">
         <form onSubmit={this.handleSubmit} onChange={this.handleChange}>
-          <div>
-            <label htmlFor="status">
-              <small>Please Select Your Gender</small>
-            </label>
-            <input type="radio" name="gender" value="Male" /> Male
-            <input type="radio" name="gender" value="Female" /> Female
-            <input type="radio" name="gender" value="Non-binary" /> Non-binary
-            <input type="radio" name="gender" value="Other" /> Other
+          <div className="field" htmlFor="status">
+            <label className="label">Please Select Your Gender:</label>
+            <div className="control">
+              <p>
+                <input type="radio" name="gender" value="Female" />Female
+              </p>
+              <p>
+                <input type="radio" name="gender" value="Male" />Male
+              </p>
+              <p>
+                <input type="radio" name="gender" value="Non-binary" />Non-binary
+              </p>
+              <p>
+                <input type="radio" name="gender" value="Other" />Other
+              </p>
+            </div>
           </div>
 
-          <div>
-            <label htmlFor="skill">
-              <small>What skill are you interested in?</small>
+          <div className="field" htmlFor="skill">
+            <label className="label">
+              What skill(s) are you interested in?
             </label>
-            {this.state.skills.length ? (
-              <SkillsList
-                skills={this.state.skills}
-                skillType="skillsInterestedIn"
+            <div className="control">
+              {this.state.skills.length ? (
+                <SkillsList
+                  skills={this.state.skills}
+                  skillType="skillsInterestedIn"
+                />
+              ) : (
+                false
+              )}
+            </div>
+          </div>
+
+          <div className="field" htmlFor="status">
+            <label className="label">Enter Your Current Company:</label>
+            <div className="control">
+              <input
+                className="input"
+                type="text"
+                name="currentCompany"
+                placeholder="Current Company"
               />
-            ) : (
-              false
-            )}
+            </div>
           </div>
 
-          <div>
-            <label htmlFor="status">
-              <small>Enter Your Current Company</small>
-            </label>
-            <input type="text" name="currentCompany" />
-          </div>
-
-          <div>
-            <label htmlFor="status">
-              <small>Enter Your Current Position</small>
-            </label>
-            <input type="text" name="currentPosition" />
-          </div>
-
-          <div>
-            <label htmlFor="status">
-              <small>Enter Your Bio</small>
-            </label>
-            <textarea type="text" name="bio" />
-          </div>
-
-          <div>
-            <label htmlFor="skill">
-              <small>What skill do you have?</small>
-            </label>
-            {this.state.skills.length ? (
-              <SkillsList
-                skills={this.state.skills}
-                skillType="currentSkills"
+          <div className="field" htmlFor="status">
+            <label className="label">Enter Your Current Position:</label>
+            <div className="control">
+              <input
+                className="input"
+                type="text"
+                name="currentPosition"
+                placeholder="Current Position"
               />
-            ) : (
-              false
-            )}
+            </div>
           </div>
 
-          <button type="submit">Submit</button>
+          <div className="field-body" htmlFor="status">
+            <div className="field">
+              <label className="label">Enter Your Bio:</label>
+              <div className="control">
+                <textarea
+                  className="textarea"
+                  type="text"
+                  name="bio"
+                  placeholder="Tell us about yourself."
+                />
+              </div>
+            </div>
+          </div>
+
+          <div className="field" htmlFor="skill">
+            <label className="label">What skill(s) do you have?</label>
+            <div className="control">
+              {this.state.skills.length ? (
+                <SkillsList
+                  skills={this.state.skills}
+                  skillType="currentSkills"
+                />
+              ) : (
+                false
+              )}
+            </div>
+          </div>
+
+          <div className="field is-grouped">
+            <p className="control">
+              <button className="button is-success" type="submit">
+                Submit
+              </button>
+            </p>
+          </div>
         </form>
       </div>
     )
