@@ -52,6 +52,20 @@ div.navbar-menu.is-active {
   flex: 1;
 }
 
+div.hero-title {
+  padding-top: 50px;
+  text-align: center;
+}
+
+div.hero-body {
+  text-align: center;
+}
+
+div.hero-footer {
+  text-align: center;
+  padding-bottom: 25px;
+}
+
 .NavMargins {
   margin: 2rem 0 0 2rem;
 }
