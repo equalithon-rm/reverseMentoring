@@ -39,18 +39,8 @@ export class Search extends Component {
   }
 
   render() {
-    // console.log(
-    //   'this.props.allSkills in the render method: ',
-    //   this.props.allSkills
-    // )
-    // console.log(
-    //   'this.props.allUsersThatWantSelectedSkill.users in the render method: ',
-    //   this.props.allUsersThatWantSelectedSkill.users
-    // )
-    // console.log(
-    //   'this.props.allUsersThatHaveSelectedSkill.users in the render method: ',
-    //   this.props.allUsersThatHaveSelectedSkill.users
-    // )
+    let allUsersThatWantSelectedSkill = this.props.allUsersThatWantSelectedSkill
+    let allUsersThatHaveSelectedSkill = this.props.allUsersThatHaveSelectedSkill
 
     return (
       <div className="flex-container">
@@ -108,15 +98,15 @@ export class Search extends Component {
         <ul className="flex-container flex-containee">
           <li>Employees seeking mentoring in selected skill:</li>
           <br />
-          {this.props.allUsersThatWantSelectedSkill.users ? (
-            this.props.allUsersThatWantSelectedSkill.users.length ? (
-              this.props.allUsersThatWantSelectedSkill.users.map(curUser => (
+          {allUsersThatWantSelectedSkill ? (
+            allUsersThatWantSelectedSkill.length ? (
+              allUsersThatWantSelectedSkill.map(curUser => (
                 <li
-                  key={curUser.id}
+                  key={curUser.usersId}
                   className="flex-containee"
                   style={{textAlign: 'center'}}
                 >
-                  {curUser.fullName}
+                  {curUser.user.fullName}
                 </li>
               ))
             ) : (
@@ -135,15 +125,15 @@ export class Search extends Component {
         <ul className="flex-container flex-containee">
           <li>Employees offering mentoring in selected skill:</li>
           <br />
-          {this.props.allUsersThatHaveSelectedSkill.users ? (
-            this.props.allUsersThatHaveSelectedSkill.users.length ? (
-              this.props.allUsersThatHaveSelectedSkill.users.map(curUser => (
+          {allUsersThatHaveSelectedSkill ? (
+            allUsersThatHaveSelectedSkill.length ? (
+              allUsersThatHaveSelectedSkill.map(curUser => (
                 <li
-                  key={curUser.id}
+                  key={curUser.usersId}
                   className="flex-containee"
                   style={{textAlign: 'center'}}
                 >
-                  {curUser.fullName}
+                  {curUser.user.fullName}
                 </li>
               ))
             ) : (
