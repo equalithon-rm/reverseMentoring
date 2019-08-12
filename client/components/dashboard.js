@@ -5,9 +5,20 @@ import {Link} from 'react-router-dom'
 import axios from 'axios'
 
 export class Dashboard extends Component {
+  async
+  // async componentDidMount() {
+  //   //trouble grabbing the desired skill Id, so hardcoded a desired skillId
+  //   let arr = [1,2];
+  //   for(let i =0; i < arr.length; i++){
+  //    await this.props.currentSkill(arr[i])
+  //   }
   componentDidMount() {
     //trouble grabbing the desired skill Id, so hardcoded a desired skillId
-    this.props.currentSkill(9) //CHANGE THE ID HERE
+    let arr = [1, 2]
+    for (let i = 0; i < arr.length; i++) {
+      this.props.currentSkill(arr[i])
+    }
+
     // grab all users with current skill
   }
 
@@ -18,12 +29,13 @@ export class Dashboard extends Component {
 
     return (
       <div id="dashbaord-list">
-        <h1>Dashboard List</h1>
+        <h1>Users with desired skill:</h1>
         {usersWithCurrentSkill.map(user => (
           <div key={user.id}>
-            <img src={user.imgUrl} />78tuyl.;..
+            <img src={user.imgUrl} />
             <h2>{`${user.firstName} ${user.lastName}`}</h2>
-            <p>{user.bio}</p>
+            <p>Bio: {user.bio}</p>
+            <br />
           </div>
         ))}
       </div>

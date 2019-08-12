@@ -48,7 +48,13 @@ const skillsReducer = (state = initialState, action) => {
     case GET_SKILLS:
       return {...state, skills: action.skills}
     case GET_USERS_WITH_CURRENT_SKILL:
-      return {...state, usersWithCurrentSkill: action.skillId.users}
+      // return {...state, usersWithCurrentSkill: action.skillId.users}
+      return {
+        ...state,
+        usersWithCurrentSkill: state.usersWithCurrentSkill.concat(
+          action.skillId.users
+        )
+      }
     default:
       return state
   }
