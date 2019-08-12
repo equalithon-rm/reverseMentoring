@@ -26,7 +26,12 @@ const updateUserAction = user => ({type: UPDATE_USER, user})
 export const me = () => async dispatch => {
   try {
     const res = await axios.get('/auth/me')
-    dispatch(getUser(res.data || defaultUser))
+    if (res.data.id) {
+      const {data} = await axios.get(`/api/users/${res.data.id}`)
+      dispatch(getUser({...res.data, ...data} || defaultUser))
+    } else {
+      dispatch(getUser(res.data || defaultUser))
+    }
   } catch (err) {
     console.error(err)
   }
@@ -99,6 +104,7 @@ export const logout = () => async dispatch => {
 export default function(state = defaultUser, action) {
   switch (action.type) {
     case GET_USER:
+      console.log('userReducer GET_USER action.user: ', action.user)
       return action.user
     case UPDATE_USER:
       return action.user
