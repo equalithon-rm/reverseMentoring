@@ -11,14 +11,14 @@ const GOT_SKILLS_USER_WANTS = 'GOT_SKILLS_USER_WANTS'
 
 const getSkills = skill => ({type: GET_SKILLS, skill})
 
-const gotSkillsUserHasActionCreator = skills => ({
+const gotSkillsUserHasActionCreator = skillsHas => ({
   type: GOT_SKILLS_USER_HAS,
-  skills
+  skillsHas
 })
 
-const gotSkillsUserWantsActionCreator = skills => ({
+const gotSkillsUserWantsActionCreator = skillsWants => ({
   type: GOT_SKILLS_USER_WANTS,
-  skills
+  skillsWants
 })
 
 //THUNK CREATORS//
@@ -67,6 +67,10 @@ const skillsReducer = (state = initialState, action) => {
   switch (action.type) {
     case GET_SKILLS:
       return {...state, skills: action.skills}
+    case GOT_SKILLS_USER_HAS:
+      return {...state, skillsUserHas: action.skillsHas}
+    case GOT_SKILLS_USER_WANTS:
+      return {...state, skillsUserWants: action.skillsWants}
     default:
       return state
   }
