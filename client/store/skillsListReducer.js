@@ -35,8 +35,8 @@ export const getSkillsThunkCreator = () => async dispatch => {
 export const getSkillsUserHasThunkCreator = skillId => async dispatch => {
   try {
     const {data} = await axios.get(`/api/skills/currentSkills/${skillId}`)
-    // console.log('skillsUserHas data: ', data)
-    dispatch(gotSkillsUserHasActionCreator(data))
+    // console.log('skillsUserHas data: ', data.currentSkills)
+    dispatch(gotSkillsUserHasActionCreator(data.currentSkills))
   } catch (error) {
     console.error(error)
   }
@@ -45,8 +45,8 @@ export const getSkillsUserHasThunkCreator = skillId => async dispatch => {
 export const getSkillsUserWantsThunkCreator = skillId => async dispatch => {
   try {
     const {data} = await axios.get(`api/skills/skillsInterestedIn/${skillId}`)
-    // console.log('skillsUserHas data: ', data)
-    dispatch(gotSkillsUserWantsActionCreator(data))
+    // console.log('skillsUserWants data React: ', data.skillsInterestedIns)
+    dispatch(gotSkillsUserWantsActionCreator(data.skillsInterestedIns))
   } catch (error) {
     console.error(error)
   }

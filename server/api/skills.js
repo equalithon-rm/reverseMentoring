@@ -20,22 +20,28 @@ router.get('/currentSkills', async (req, res, next) => {
       attributes: ['id', 'name'],
       include: [
         {
-          model: User,
-          as: CurrentSkills,
-          attributes: [
-            'id',
-            'googleId',
-            'firstName',
-            'lastName',
-            'fullName',
-            'gender',
-            'email',
-            'imgUrl',
-            'currentCompany',
-            'currentPosition',
-            'dateJoinedCurrentCompany',
-            'bio',
-            'hasCompletedSignup'
+          model: CurrentSkills,
+          attributes: ['skillId', 'userId'],
+
+          include: [
+            {
+              model: User,
+              attributes: [
+                'id',
+                'googleId',
+                'firstName',
+                'lastName',
+                'fullName',
+                'gender',
+                'email',
+                'imgUrl',
+                'currentCompany',
+                'currentPosition',
+                'dateJoinedCurrentCompany',
+                'bio',
+                'hasCompletedSignup'
+              ]
+            }
           ]
         }
       ]
@@ -53,22 +59,27 @@ router.get('/currentSkills/:skillId', async (req, res, next) => {
       attributes: ['id', 'name'],
       include: [
         {
-          model: User,
-          as: CurrentSkills,
-          attributes: [
-            'id',
-            'googleId',
-            'firstName',
-            'lastName',
-            'fullName',
-            'gender',
-            'email',
-            'imgUrl',
-            'currentCompany',
-            'currentPosition',
-            'dateJoinedCurrentCompany',
-            'bio',
-            'hasCompletedSignup'
+          model: CurrentSkills,
+          attributes: ['skillId', 'userId'],
+          include: [
+            {
+              model: User,
+              attributes: [
+                'id',
+                'googleId',
+                'firstName',
+                'lastName',
+                'fullName',
+                'gender',
+                'email',
+                'imgUrl',
+                'currentCompany',
+                'currentPosition',
+                'dateJoinedCurrentCompany',
+                'bio',
+                'hasCompletedSignup'
+              ]
+            }
           ]
         }
       ]
@@ -90,6 +101,8 @@ router.get('/skillsInterestedIn', async (req, res, next) => {
       include: [
         {
           model: SkillsInterestedIn,
+          attributes: ['skillId', 'userId'],
+
           include: [
             {
               model: User,
@@ -126,21 +139,28 @@ router.get('/skillsInterestedIn/:skillId', async (req, res, next) => {
       attributes: ['id', 'name'],
       include: [
         {
-          model: User,
-          attributes: [
-            'id',
-            'googleId',
-            'firstName',
-            'lastName',
-            'fullName',
-            'gender',
-            'email',
-            'imgUrl',
-            'currentCompany',
-            'currentPosition',
-            'dateJoinedCurrentCompany',
-            'bio',
-            'hasCompletedSignup'
+          model: SkillsInterestedIn,
+          attributes: ['skillId', 'userId'],
+
+          include: [
+            {
+              model: User,
+              attributes: [
+                'id',
+                'googleId',
+                'firstName',
+                'lastName',
+                'fullName',
+                'gender',
+                'email',
+                'imgUrl',
+                'currentCompany',
+                'currentPosition',
+                'dateJoinedCurrentCompany',
+                'bio',
+                'hasCompletedSignup'
+              ]
+            }
           ]
         }
       ]
