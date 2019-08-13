@@ -17,7 +17,6 @@ class NavbarMenu extends Component {
   }
 
   render() {
-    console.log(this.state)
     const {handleClick, isLoggedIn} = this.props
     return (
       <Navbar
