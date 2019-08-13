@@ -34,7 +34,6 @@ export const getSkillsThunkCreator = () => async dispatch => {
 export const getSkillsUserHasThunkCreator = skillId => async dispatch => {
   try {
     const {data} = await axios.get(`/api/skills/currentSkills/${skillId}`)
-    console.log('DATA>>> ', data)
     dispatch(gotSkillsUserHasActionCreator(data.currentSkills))
   } catch (error) {
     console.error(error)
