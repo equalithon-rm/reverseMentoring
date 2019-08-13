@@ -3,6 +3,7 @@ import axios from 'axios'
 import SkillsList from './skills-list'
 import {connect} from 'react-redux'
 import {updateUser} from '../store/user'
+import history from '../history'
 
 class UserCaptureForm extends React.Component {
   constructor(props) {
@@ -28,6 +29,7 @@ class UserCaptureForm extends React.Component {
   handleSubmit = evt => {
     evt.preventDefault()
     this.props.updateUser(this.props.user.id, this.state.form)
+    history.push('/search')
   }
 
   handleChange = evt => {
