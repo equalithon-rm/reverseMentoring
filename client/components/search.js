@@ -16,6 +16,7 @@ import {
   getSkillsUserWantsThunkCreator,
   getSkillsUserHasThunkCreator
 } from '../store/skillsListReducer'
+import SearchCardList from './search-card-list'
 
 export class Search extends Component {
   constructor() {
@@ -25,7 +26,6 @@ export class Search extends Component {
     }
     this.handleChange = this.handleChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
-    this.handleClick = this.handleClick.bind(this)
   }
 
   componentDidMount() {
@@ -41,10 +41,10 @@ export class Search extends Component {
     })
   }
 
-  async handleClick(email, targetName, userName) {
-    await axios.post('/api/sendEmail', {email, targetName, userName})
-    console.log(email, targetName, userName)
-  }
+  // async handleClick(email, targetName, userName) {
+  //   await axios.post('/api/sendEmail', {email, targetName, userName})
+  //   console.log(email, targetName, userName)
+  // }
 
   handleSubmit(event) {
     // console.log('event.target.id: ', event.target.id)
@@ -57,6 +57,7 @@ export class Search extends Component {
   render() {
     let allUsersThatWantSelectedSkill = this.props.allUsersThatWantSelectedSkill
     let allUsersThatHaveSelectedSkill = this.props.allUsersThatHaveSelectedSkill
+    console.log('>>> ', this.props)
 
     return (
       <div className="flex-container">
@@ -118,26 +119,11 @@ export class Search extends Component {
             allUsersThatWantSelectedSkill.length ? (
               allUsersThatWantSelectedSkill.map(curUser => {
                 return (
-                  <Box key={curUser.usersId} size="4by3">
-                    <Media>
-                      <Media.Item>
-                        <Content>
-                          <p>{curUser.user.fullName}</p>
-                          <Link
-                            onClick={() =>
-                              this.handleClick(
-                                curUser.user.email,
-                                curUser.user.fullName,
-                                this.props.currentUserName
-                              )
-                            }
-                          >
-                            Send a request to connect
-                          </Link>
-                        </Content>
-                      </Media.Item>
-                    </Media>
-                  </Box>
+                  <SearchCardList
+                    key={curUser.usersId}
+                    curUser={curUser}
+                    currentUserName={this.props.currentUserName}
+                  />
                 )
               })
             ) : (
@@ -160,26 +146,11 @@ export class Search extends Component {
           {allUsersThatHaveSelectedSkill ? (
             allUsersThatHaveSelectedSkill.length ? (
               allUsersThatHaveSelectedSkill.map(curUser => (
-                <Box key={curUser.usersId} size="4by3">
-                  <Media>
-                    <Media.Item>
-                      <Content>
-                        <p>{curUser.user.fullName}</p>
-                        <Link
-                          onClick={() =>
-                            this.handleClick(
-                              curUser.user.email,
-                              curUser.user.fullName,
-                              this.props.currentUserName
-                            )
-                          }
-                        >
-                          Send a request to connect
-                        </Link>
-                      </Content>
-                    </Media.Item>
-                  </Media>
-                </Box>
+                <SearchCardList
+                  key={curUser.usersId}
+                  curUser={curUser}
+                  currentUserName={this.props.currentUserName}
+                />
               ))
             ) : (
               <li className="flex-containee" style={{textAlign: 'center'}}>
