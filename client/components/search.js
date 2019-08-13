@@ -1,15 +1,5 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
-import {Link} from 'react-router-dom'
-import axios from 'axios'
-import {
-  Card,
-  Content,
-  Media,
-  Heading,
-  Columns,
-  Box
-} from 'react-bulma-components'
 
 import {
   getSkillsThunkCreator,
@@ -29,26 +19,16 @@ export class Search extends Component {
   }
 
   componentDidMount() {
-    // console.log('this.props in the componentDidMount: ', this.props)
     this.props.getSkillsThunk()
   }
 
   handleChange(event) {
-    // console.log('event.target.id: ', event.target.id)
-    // console.log('event.target.value: ', event.target.value)
     this.setState({
       [event.target.id]: event.target.value
     })
   }
 
-  // async handleClick(email, targetName, userName) {
-  //   await axios.post('/api/sendEmail', {email, targetName, userName})
-  //   console.log(email, targetName, userName)
-  // }
-
   handleSubmit(event) {
-    // console.log('event.target.id: ', event.target.id)
-    // console.log('event.target.value: ', event.target.value)
     event.preventDefault()
     this.props.getSkillsUserWantsThunk(this.state.selectedSkillId)
     this.props.getSkillsUserHasThunk(this.state.selectedSkillId)
@@ -57,11 +37,8 @@ export class Search extends Component {
   render() {
     let allUsersThatWantSelectedSkill = this.props.allUsersThatWantSelectedSkill
     let allUsersThatHaveSelectedSkill = this.props.allUsersThatHaveSelectedSkill
-    console.log('>>> ', this.props)
-
     return (
       <div className="flex-container">
-        {/* <input type="text" placeholder="Search..." /> */}
         <br />
         <br />
         <div>

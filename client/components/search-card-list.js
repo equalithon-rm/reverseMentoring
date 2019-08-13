@@ -9,12 +9,16 @@ const handleClick = async (email, targetName, userName) => {
 
 const SearchCardList = props => {
   const {curUser, currentUserName} = props
+
   return (
     <Box size="4by3">
       <Media>
         <Media.Item>
           <Content>
-            <p>{curUser.user.fullName}</p>
+            <h3>{curUser.user.fullName}</h3>
+            <h5>{curUser.user.currentCompany}</h5>
+            <p>{curUser.user.currentPosition}</p>
+            <p>{curUser.user.bio}</p>
             <Link
               onClick={() =>
                 handleClick(
@@ -24,7 +28,7 @@ const SearchCardList = props => {
                 )
               }
             >
-              Send a request to connect
+              <button type="button">Send a request to connect</button>
             </Link>
           </Content>
         </Media.Item>
