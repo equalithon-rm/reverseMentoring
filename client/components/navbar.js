@@ -1,57 +1,105 @@
-import React from 'react'
+import React, {Component} from 'react'
 import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
 import {logout} from '../store'
 import {Login} from '../components'
-import {Navbar, Button} from 'react-bulma-components/full'
+import {Navbar, Button, Menu} from 'react-bulma-components/full'
 
-const NavbarMenu = ({handleClick, isLoggedIn}) => (
-  <Navbar
-    className="navbar is-light"
-    role="navigation"
-    aria-label="main navigation"
-  >
-    <Navbar.Brand>
-      <img src={require('./elevate.png')} width="150" height="80" />
-    </Navbar.Brand>
-    <Navbar.Burger />
+class NavbarMenu extends Component {
+  state = {
+    active: false
+  }
 
-    {isLoggedIn ? (
-      <Navbar.Menu className="is-active">
-        <Navbar.Container className="NavMargins">
-          <Button to="/home" renderAs={Link} color="light" size="medium">
-            Home
-          </Button>
+  navToggleClick = () => {
+    const {active} = this.state
+    this.setState({active: !active})
+  }
 
-          <Button to="/profile" renderAs={Link} color="light" size="medium">
-            Profile
-          </Button>
+  render() {
+    console.log(this.state)
+    const {handleClick, isLoggedIn} = this.props
+    return (
+      <Navbar
+        className="navbar is-light"
+        role="navigation"
+        aria-label="main navigation"
+      >
+        <Navbar.Brand>
+          <img src={require('./elevate.png')} width="150" height="80" />
+          <Navbar.Burger
+            onClick={this.navToggleClick}
+            active={String(this.state.active)}
+          />
+        </Navbar.Brand>
 
-          <Button to="/search" renderAs={Link} color="light" size="medium">
-            Search
-          </Button>
-        </Navbar.Container>
+        {this.state.active ? (
+          isLoggedIn ? (
+            <Menu.List>
+              <Button to="/home" renderAs={Link} color="light" size="medium">
+                Home
+              </Button>
 
-        <Navbar.Container position="end">
-          <Navbar.Item onClick={handleClick}>
-            <Button>Logout</Button>
-          </Navbar.Item>
-        </Navbar.Container>
-      </Navbar.Menu>
-    ) : (
-      <Navbar.Menu className="is-active">
-        <Navbar.Container position="end" className="NavMargins">
-          <Login />
+              <Button to="/profile" renderAs={Link} color="light" size="medium">
+                Profile
+              </Button>
 
-          <Button to="/signup" renderAs={Link} color="light" size="medium">
-            Sign Up
-          </Button>
-        </Navbar.Container>
-      </Navbar.Menu>
-    )}
-  </Navbar>
-)
+              <Button to="/search" renderAs={Link} color="light" size="medium">
+                Search
+              </Button>
+
+              <Menu.List onClick={handleClick}>
+                <Button>Logout</Button>
+              </Menu.List>
+            </Menu.List>
+          ) : (
+            <Menu.List>
+              <Login />
+
+              <Button to="/signup" renderAs={Link} color="light" size="medium">
+                Sign Up
+              </Button>
+            </Menu.List>
+          )
+        ) : null}
+
+        {isLoggedIn ? (
+          <Navbar.Menu>
+            <Navbar.Container className="NavMargins">
+              <Button to="/home" renderAs={Link} color="light" size="medium">
+                Home
+              </Button>
+
+              <Button to="/profile" renderAs={Link} color="light" size="medium">
+                Profile
+              </Button>
+
+              <Button to="/search" renderAs={Link} color="light" size="medium">
+                Search
+              </Button>
+            </Navbar.Container>
+
+            <Navbar.Container position="end">
+              <Navbar.Item onClick={handleClick}>
+                <Button>Logout</Button>
+              </Navbar.Item>
+            </Navbar.Container>
+          </Navbar.Menu>
+        ) : (
+          <Navbar.Menu>
+            <Navbar.Container position="end" className="NavMargins">
+              <Login />
+
+              <Button to="/signup" renderAs={Link} color="light" size="medium">
+                Sign Up
+              </Button>
+            </Navbar.Container>
+          </Navbar.Menu>
+        )}
+      </Navbar>
+    )
+  }
+}
 
 /**
  * CONTAINER
