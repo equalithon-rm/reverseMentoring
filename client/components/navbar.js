@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
 import {logout} from '../store'
-import {Login, Signup} from '../components'
+import {Login} from '../components'
 import {Navbar, Button, Menu} from 'react-bulma-components/full'
 
 class NavbarMenu extends Component {
