@@ -22,7 +22,6 @@ const CurrentSkills = db.define('currentSkills')
 
 Skill.hasMany(Booking)
 User.hasMany(Booking)
-Booking.belongsToMany(User, {through: 'userBooking'})
 
 Skill.belongsToMany(User, {
   through: 'currentSkills'
