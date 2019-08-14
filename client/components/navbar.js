@@ -54,10 +54,6 @@ class NavbarMenu extends Component {
           ) : (
             <Menu.List>
               <Login />
-
-              <Button to="/signup" renderAs={Link} color="light" size="medium">
-                Sign Up
-              </Button>
             </Menu.List>
           )
         ) : null}
@@ -88,10 +84,6 @@ class NavbarMenu extends Component {
           <Navbar.Menu>
             <Navbar.Container position="end" className="NavMargins">
               <Login />
-
-              <Button to="/signup" renderAs={Link} color="light" size="medium">
-                Sign Up
-              </Button>
             </Navbar.Container>
           </Navbar.Menu>
         )}
