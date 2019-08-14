@@ -7,9 +7,16 @@ const Booking = db.define('booking', {
     allowNull: false,
     defaultValue: Sequelize.NOW
   },
-
   notes: {
     type: Sequelize.TEXT
+  },
+  mentorId: {
+    type: Sequelize.INTEGER,
+    allowNull: false
+  },
+  verified: {
+    type: Sequelize.BOOLEAN,
+    defaultValue: false
   }
 })
 
