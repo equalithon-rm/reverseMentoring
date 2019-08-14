@@ -4,7 +4,9 @@ import {fetchOneProfile} from '../store/profiles'
 
 class UserProfile extends Component {
   componentDidMount() {
-    this.props.fetchOneProfile(this.props.userId)
+    this.props.fetchOneProfile(
+      this.props.match.params.senderId || this.props.userId
+    )
   }
   render() {
     const {loading, user} = this.props
