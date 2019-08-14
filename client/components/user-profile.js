@@ -1,35 +1,41 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
+import {fetchOneProfile} from '../store/profiles'
 
 class UserProfile extends Component {
+  componentDidMount() {
+    this.props.fetchOneProfile(this.props.userId)
+  }
   render() {
-    // console.log('this.props in the UserProfile render method: ', this.props)
+    const {loading, user} = this.props
+    const currentSkills = this.props.user.currentSkills
+    const skillsInterestedIns = this.props.user.skillsInterestedIns
+
+    if (loading) return <div>Loading...</div>
 
     return (
       <div className="flex-container">
-        <h1 className="flex-containee">Full Name: {this.props.fullName}</h1>
+        <h1 className="flex-containee">Full Name: {user.fullName}</h1>
         <br />
-        <h3 className="flex-containee">Email: {this.props.email}</h3>
+        <h3 className="flex-containee">Email: {user.email}</h3>
         <br />
-        <h3 className="flex-containee">Gender: {this.props.gender}</h3>
+        <h3 className="flex-containee">Gender: {user.gender}</h3>
         <br />
         <img
           className="userImage flex-containee"
-          src={this.props.imgUrl}
+          src={user.imgUrl}
           width="200px"
           image="200px"
         />
         <br />
-        <h3 className="flex-containee">Company: {this.props.currentCompany}</h3>
+        <h3 className="flex-containee">Company: {user.currentCompany}</h3>
         <br />
-        <h3 className="flex-containee">
-          Position: {this.props.currentPosition}
-        </h3>
+        <h3 className="flex-containee">Position: {user.currentPosition}</h3>
         <br />
         <h3 className="flex-containee">Skills To Offer:</h3>
         <ul className="flex-containee">
-          {this.props.skillsHas.length ? (
-            this.props.skillsHas.map(curSkill => (
+          {currentSkills ? (
+            currentSkills.map(curSkill => (
               <li key={curSkill.skill.id} className="flex-containee">
                 {curSkill.skill.name}
               </li>
@@ -41,8 +47,8 @@ class UserProfile extends Component {
         <br />
         <h3 className="flex-containee">Skills Interested In:</h3>
         <ul className="flex-containee">
-          {this.props.skillsWants.length ? (
-            this.props.skillsWants.map(curSkill => (
+          {skillsInterestedIns ? (
+            skillsInterestedIns.map(curSkill => (
               <li key={curSkill.skill.id} className="flex-containee">
                 {curSkill.skill.name}
               </li>
@@ -53,43 +59,23 @@ class UserProfile extends Component {
         </ul>
         <br />
         <h3 className="flex-containee">Bio:</h3>
-        <p className="flex-containee">{this.props.bio}</p>
+        <p className="flex-containee">{user.bio}</p>
         <br />
-
-        {/* <h3 className="experience">Experience</h3>
-        <p>{userInfo.experience}</p> */}
-
-        {/* <h3 className="goals">Goals</h3>
-        <p>{userInfo.goals}</p> */}
-
-        {/* <h3 className="interests">Interests</h3>
-        <p>{userInfo.interests}</p> */}
-
-        {/* <h3 className="socialMedia">Social Media</h3>
-        <ul>
-          {userInfo.skills.map((currentSocialMedia, index) => (
-            <li key={index}>{currentSocialMedia}</li>
-          ))}
-        </ul> */}
       </div>
     )
   }
 }
 
 const mapStateToProps = state => ({
-  fullName: state.user.fullName,
-  firstName: state.user.fullName,
-  lastName: state.user.fullName,
-  gender: state.user.gender,
-  email: state.user.email,
-  imgUrl: state.user.imgUrl,
-  currentCompany: state.user.currentCompany,
-  currentPosition: state.user.currentPosition,
-  dateJoinedCurrentCompany: state.user.dateJoinedCurrentCompany,
-  bio: state.user.bio,
-  hasCompletedSignup: state.user.hasCompletedSignup,
-  skillsHas: state.user.currentSkills,
-  skillsWants: state.user.skillsInterestedIns
+  userId: state.user.id,
+  loading: state.profileReducer.loading,
+  user: state.profileReducer.profile
 })
 
-export default connect(mapStateToProps)(UserProfile)
+const mapDispatchToProps = dispatch => ({
+  fetchOneProfile(userId) {
+    dispatch(fetchOneProfile(userId))
+  }
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(UserProfile)
