@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
 import {logout} from '../store'
-import {Login} from '../components'
+import {Login, Signup} from '../components'
 import {Navbar, Button, Menu} from 'react-bulma-components/full'
 
 class NavbarMenu extends Component {
@@ -54,10 +54,6 @@ class NavbarMenu extends Component {
           ) : (
             <Menu.List>
               <Login />
-
-              <Button to="/signup" renderAs={Link} color="light" size="medium">
-                Sign Up
-              </Button>
             </Menu.List>
           )
         ) : null}
@@ -88,10 +84,6 @@ class NavbarMenu extends Component {
           <Navbar.Menu>
             <Navbar.Container position="end" className="NavMargins">
               <Login />
-
-              <Button to="/signup" renderAs={Link} color="light" size="medium">
-                Sign Up
-              </Button>
             </Navbar.Container>
           </Navbar.Menu>
         )}
