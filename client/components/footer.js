@@ -9,7 +9,13 @@ const FooterBar = () => {
   return (
     <footer className="footer">
       <Heading className="subtitle footer-text" size={5}>
-        Esteem Equalithon, Team 6
+        <a
+          className="button is-dark"
+          href="https://www.essteem.com/"
+          target="_blank"
+        >
+          Esteem Equalithon
+        </a>
       </Heading>
     </footer>
   )
