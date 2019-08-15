@@ -67,7 +67,7 @@ router.get('/:userId', async (req, res, next) => {
         'currentPosition',
         'dateJoinedCurrentCompany',
         'bio',
-        'createAt',
+        'createdAt',
         'calendlyUsername'
       ],
       include: [

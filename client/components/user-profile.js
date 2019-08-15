@@ -60,7 +60,7 @@ class UserProfile extends Component {
                     renderAs="article"
                     kind="child"
                     notification
-                    color="info"
+                    color="grey-light"
                   >
                     <Image size={128} src={user.imgUrl} />
                     <Heading>{user.fullName}</Heading>
@@ -95,7 +95,7 @@ class UserProfile extends Component {
                     renderAs="article"
                     kind="child"
                     notification
-                    color="$purple"
+                    color="info"
                   >
                     <Heading>I can be a Mentor in</Heading>
                     <ul>
@@ -114,17 +114,12 @@ class UserProfile extends Component {
               </Tile>
 
               <Tile kind="parent">
-                <Tile
-                  renderAs="article"
-                  kind="child"
-                  notification
-                  color="danger"
-                >
+                <Tile renderAs="article" kind="child" notification color="dark">
                   <Heading>Find a Mentor</Heading>
                   <Button
                     to="/search"
                     renderAs={Link}
-                    color="light"
+                    color="danger"
                     size="medium"
                   >
                     Learn something new!
