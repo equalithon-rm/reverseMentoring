@@ -4,7 +4,7 @@ import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
 import {logout} from '../store'
 import {Login} from '../components'
-import {Navbar, Button, Menu} from 'react-bulma-components/full'
+import {Navbar, Button, Dropdown, Icon} from 'react-bulma-components/full'
 
 class NavbarMenu extends Component {
   state = {
@@ -28,44 +28,42 @@ class NavbarMenu extends Component {
           />
         </Navbar.Brand>
 
-        {this.state.active ? (
-          isLoggedIn ? (
-            <Navbar.Menu>
-              <Button
-                to="/home"
-                renderAs={Link}
-                className="is-text"
-                size="medium"
-              >
-                Home
-              </Button>
-
-              <Button
-                to="/profile"
-                renderAs={Link}
-                className="is-text"
-                size="medium"
-              >
-                Profile
-              </Button>
-
-              <Button
-                to="/search"
-                renderAs={Link}
-                className="is-text"
-                size="medium"
-              >
-                Search
-              </Button>
-
-              <Button onClick={handleClick}>Logout</Button>
-            </Navbar.Menu>
-          ) : (
-            <Navbar.Item>
-              <Login />
-            </Navbar.Item>
-          )
-        ) : null}
+        <div className="Nav_mobile">
+          {this.state.active ? (
+            isLoggedIn ? (
+              <div>
+                <div className="sidenav">
+                  <Icon className="close" onClick={this.navToggleClick}>
+                    {' '}
+                    <span>X</span>
+                  </Icon>
+                  <Link to="/home" onClick={this.navToggleClick}>
+                    Home
+                  </Link>
+                  <Link to="/profile" onClick={this.navToggleClick}>
+                    Profile
+                  </Link>
+                  <Link to="/search" onClick={this.navToggleClick}>
+                    Search
+                  </Link>
+                  <Link to="" onClick={handleClick}>
+                    Logout
+                  </Link>
+                </div>
+              </div>
+            ) : (
+              <div className="sidenav">
+                <div className="btnSideNav">
+                  <Login />
+                </div>
+                <Icon className="close" onClick={this.navToggleClick}>
+                  {' '}
+                  <span>X</span>
+                </Icon>
+              </div>
+            )
+          ) : null}
+        </div>
 
         {isLoggedIn ? (
           <Navbar.Menu>
