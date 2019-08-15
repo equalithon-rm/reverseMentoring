@@ -3,10 +3,9 @@ import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
 import {logout} from '../store'
-import {Login} from '../components'
 import {Button, Heading} from 'react-bulma-components/full'
 
-const Footer = () => {
+const FooterBar = () => {
   return (
     <footer className="footer">
       <Heading className="subtitle footer-text" size={5}>
@@ -16,4 +15,4 @@ const Footer = () => {
   )
 }
 
-export default Footer
+export default FooterBar
