@@ -99,7 +99,7 @@ export class Search extends Component {
                   <SearchCardList
                     key={idx}
                     curUser={curUser}
-                    currentUserName={this.props.currentUserName}
+                    currentUser={this.props.currentUser}
                   />
                 )
               })
@@ -151,7 +151,7 @@ const mapStateToProps = state => ({
   allSkills: state.skillsReducer.allSkills,
   allUsersThatWantSelectedSkill: state.skillsReducer.skillUserWants,
   allUsersThatHaveSelectedSkill: state.skillsReducer.skillUserHas,
-  currentUserName: state.user.fullName
+  currentUser: state.user
 })
 
 const mapDispatchToProps = dispatch => ({
