@@ -112,6 +112,7 @@ router.put('/:id', async (req, res, next) => {
         gender,
         currentCompany,
         currentPosition,
+        skillsInterestedIn,
         bio,
         calendlyUsername,
         hasCompletedSignup: true

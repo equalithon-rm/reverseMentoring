@@ -4,22 +4,21 @@ import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
 
 export class Dashboard extends Component {
-  componentDidMount() {
-    this.props.fetchMentees()
-  }
+  // componentDidMount() {
+  //   this.props.fetchMentees()
+  // }
   render() {
-    const {loading, mentees} = this.props
-
-    if (loading) return <div>Loading...</div>
+    // const {loading, mentees} = this.props
 
     return (
       <div id="mentee-list">
-        {mentees.map(mentee => (
+        {/* {mentees.map(mentee => (
           <div key={mentee.id}>
             <h2>{`${mentee.firstName} ${mentee.lastName}`}</h2>
             <p>{mentee.blurb}</p>
           </div>
-        ))}
+        ))} */}
+        I am the Dashboard Component
       </div>
     )
   }
@@ -38,4 +37,4 @@ const mapDispatchToProps = dispatch => {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Dashboard)
+export default connect(mapDispatchToProps)(Dashboard)
