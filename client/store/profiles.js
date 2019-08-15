@@ -40,7 +40,6 @@ export const fetchProfiles = () => {
     try {
       dispatch(gettingProfiles())
       const {data} = await axios.get('/api/users')
-      console.log(data)
       dispatch(gotProfiles(data))
     } catch (error) {
       console.log(error)

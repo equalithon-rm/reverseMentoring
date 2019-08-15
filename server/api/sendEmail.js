@@ -4,7 +4,6 @@ const nodeMailer = require('nodemailer')
 module.exports = router
 
 router.post('/', (req, res, next) => {
-  console.log('REQ>>> ', req.body)
   const {email, targetId, skillId, currUserId, currUserName} = req.body
   try {
     const transporter = nodeMailer.createTransport({
@@ -25,7 +24,7 @@ router.post('/', (req, res, next) => {
         <body>
           <h4>Someone wants to connect with you!</h4>
           <a href="http://localhost:8080/api/connect/${currUserId}/${targetId}/${skillId}" target="_blank"><button type="button">TEST</button></a>
-      
+
         </body>
       </html>`
     }
