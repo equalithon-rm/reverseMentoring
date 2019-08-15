@@ -81,6 +81,10 @@ div.hero-body {
   padding: 35px;
 }
 
+.learn-buttons {
+  margin: 10px;
+}
+
 /* Flex containers */
 div.field-body {
   max-width: 300px;

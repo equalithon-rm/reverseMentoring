@@ -28,6 +28,15 @@ const Welcome = () => {
             It is a career development practice that helps businesses mine
             certain insights or information of the less experienced, often
             younger employees for senior executives
+            <p>
+              <a
+                href="https://grasshopperherder.com/reverse-mentoring-what-millennials-can-teach-executives-and-senior-managers"
+                target="_blank"
+                className="button learn-buttons is-danger"
+              >
+                Learn more
+              </a>
+            </p>
           </div>
           <div className="column">
             <Heading size={5}>
@@ -36,6 +45,15 @@ const Welcome = () => {
             Elevate provides a space where C-level executives can search for
             female coworkers by skills and offer them mentorship. This will
             enable more females to rise into C-level positions
+            <p>
+              <a
+                href="https://www.mckinsey.com/industries/high-tech/our-insights/closing-the-tech-gender-gap-through-philanthropy-and-corporate-social-responsibility"
+                target="_blank"
+                className="button learn-buttons is-danger"
+              >
+                Learn more
+              </a>
+            </p>
           </div>
           <div className="column">
             <Heading size={5}>
@@ -44,6 +62,15 @@ const Welcome = () => {
             Connect with a mentor in three clicks; Signup/login with your Gmail
             account; Receive calendar invite when your ready to meet; Get
             notified in real time when someone is interested in meeting you
+            <p>
+              <a
+                href="https://calendly.com"
+                target="_blank"
+                className="button learn-buttons is-danger"
+              >
+                Learn more
+              </a>
+            </p>
           </div>
         </div>
       </Hero.Body>
