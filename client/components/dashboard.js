@@ -18,7 +18,7 @@ export class Dashboard extends Component {
             <p>{mentee.blurb}</p>
           </div>
         ))} */}
-        Welcome ppl!
+        I am the Dashboard Component
       </div>
     )
   }

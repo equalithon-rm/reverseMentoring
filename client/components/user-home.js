@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
 import UserCaptureForm from './user-capture-form'
-import {FooterBar, Dashboard} from '../components'
+import {Dashboard} from '../components'
 import {Section, Hero, Heading} from 'react-bulma-components/full'
 
 /**
@@ -17,7 +17,7 @@ export const UserHome = props => {
         <Hero.Head renderAs="header">
           <Heading className="hero-title" size={1}>
             Welcome, {firstName ? firstName : email}.
-            {hasCompletedSignup ? false : <UserCaptureForm />}
+            {hasCompletedSignup ? <Dashboard /> : <UserCaptureForm />}
           </Heading>
         </Hero.Head>
       </Hero>
