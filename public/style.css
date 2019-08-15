@@ -112,6 +112,9 @@ div.is-grouped {
 div.is-grouped a {
   margin: 5px;
 }
+.mentoringImg {
+  max-width: 1012px;
+}
 
 @media (min-width: 1087px) {
   .Nav_mobile {
