@@ -3,15 +3,18 @@ import {createLogger} from 'redux-logger'
 import thunkMiddleware from 'redux-thunk'
 import {composeWithDevTools} from 'redux-devtools-extension'
 import user from './user'
-import mentorReducer from './mentorReducer'
-import menteeReducer from './menteeReducer'
+import profileReducer from './profiles'
+
+// import mentorReducer from './mentorReducer'
+// import menteeReducer from './menteeReducer'
 import bookingReducer from './bookingReducer'
 import skillsReducer from './skillsListReducer'
 
 const reducer = combineReducers({
   user,
-  mentorReducer,
-  menteeReducer,
+  profileReducer,
+  // mentorReducer,
+  // menteeReducer,
   bookingReducer,
   skillsReducer
 })
@@ -23,7 +26,8 @@ const store = createStore(reducer, middleware)
 
 export default store
 export * from './user'
-export * from './mentorReducer'
-export * from './menteeReducer'
+export * from './profiles'
+// export * from './mentorReducer'
+// export * from './menteeReducer'
 export * from './bookingReducer'
 export * from './skillsListReducer'

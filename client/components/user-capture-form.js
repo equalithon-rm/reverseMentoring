@@ -16,7 +16,8 @@ class UserCaptureForm extends React.Component {
         currentCompany: '',
         currentPosition: '',
         bio: '',
-        currentSkills: []
+        currentSkills: [],
+        calendlyUsername: ''
       }
     }
   }
@@ -29,7 +30,7 @@ class UserCaptureForm extends React.Component {
   handleSubmit = evt => {
     evt.preventDefault()
     this.props.updateUser(this.props.user.id, this.state.form)
-    history.push('/search')
+    history.push('/profile')
   }
 
   handleChange = evt => {
@@ -115,6 +116,36 @@ class UserCaptureForm extends React.Component {
                 name="currentPosition"
                 placeholder="Current Position"
               />
+            </div>
+          </div>
+
+          <div className="field" htmlFor="status">
+            <label className="label">
+              Enter Your Calendly Username: (Optional)
+            </label>
+            <div className="control">
+              <div>
+                <div>
+                  {'https://calendly.com/ '}
+                  <input
+                    className="input"
+                    type="text"
+                    name="calendlyUsername"
+                    placeholder="USERNAME"
+                  />
+                </div>
+                <div>
+                  Don't Have a Calendly Account?{' '}
+                  <a
+                    href="https://calendly.com/signup"
+                    alt="Calendly Sign Up"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Sign Up For Free!
+                  </a>
+                </div>
+              </div>
             </div>
           </div>
 

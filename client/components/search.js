@@ -94,12 +94,12 @@ export class Search extends Component {
           <br />
           {allUsersThatWantSelectedSkill ? (
             allUsersThatWantSelectedSkill.length ? (
-              allUsersThatWantSelectedSkill.map(curUser => {
+              allUsersThatWantSelectedSkill.map((curUser, idx) => {
                 return (
                   <SearchCardList
-                    key={curUser.usersId}
+                    key={idx}
                     curUser={curUser}
-                    currentUserName={this.props.currentUserName}
+                    currentUser={this.props.currentUser}
                   />
                 )
               })
@@ -122,13 +122,15 @@ export class Search extends Component {
           <br />
           {allUsersThatHaveSelectedSkill ? (
             allUsersThatHaveSelectedSkill.length ? (
-              allUsersThatHaveSelectedSkill.map(curUser => (
-                <SearchCardList
-                  key={curUser.usersId}
-                  curUser={curUser}
-                  currentUserName={this.props.currentUserName}
-                />
-              ))
+              allUsersThatHaveSelectedSkill.map((curUser, idx) => {
+                return (
+                  <SearchCardList
+                    key={idx}
+                    curUser={curUser}
+                    currentUserName={this.props.currentUserName}
+                  />
+                )
+              })
             ) : (
               <li className="flex-containee" style={{textAlign: 'center'}}>
                 No users were found for the selected skill.
@@ -149,7 +151,7 @@ const mapStateToProps = state => ({
   allSkills: state.skillsReducer.allSkills,
   allUsersThatWantSelectedSkill: state.skillsReducer.skillUserWants,
   allUsersThatHaveSelectedSkill: state.skillsReducer.skillUserHas,
-  currentUserName: state.user.fullName
+  currentUser: state.user
 })
 
 const mapDispatchToProps = dispatch => ({

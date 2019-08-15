@@ -39,6 +39,7 @@ router.get('/currentSkills', async (req, res, next) => {
                 'currentPosition',
                 'dateJoinedCurrentCompany',
                 'bio',
+                'calendlyUsername',
                 'hasCompletedSignup'
               ]
             }
@@ -77,6 +78,7 @@ router.get('/currentSkills/:skillId', async (req, res, next) => {
                 'currentPosition',
                 'dateJoinedCurrentCompany',
                 'bio',
+                'calendlyUsername',
                 'hasCompletedSignup'
               ]
             }
@@ -119,6 +121,7 @@ router.get('/skillsInterestedIn', async (req, res, next) => {
                 'currentPosition',
                 'dateJoinedCurrentCompany',
                 'bio',
+                'calendlyUsername',
                 'hasCompletedSignup'
               ]
             }
@@ -158,6 +161,7 @@ router.get('/skillsInterestedIn/:skillId', async (req, res, next) => {
                 'currentPosition',
                 'dateJoinedCurrentCompany',
                 'bio',
+                'calendlyUsername',
                 'hasCompletedSignup'
               ]
             }
