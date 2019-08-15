@@ -54,7 +54,14 @@ const Welcome = () => {
               Are you a member?
             </Heading>
             <div className="is-grouped">
-              <Login />
+              <Button
+                href="/auth/google"
+                color="dark"
+                renderAs="a"
+                size="medium"
+              >
+                Sign In
+              </Button>
               <br />
               <div>
                 <Button to="/signup" color="dark" renderAs={Link} size="medium">
