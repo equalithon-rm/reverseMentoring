@@ -8,23 +8,14 @@ body {
 a {
   text-decoration: none;
 }
-
+/*
 label {
   display: block;
-}
+} */
 
 nav a {
   display: inline-block;
   margin: 1em;
-}
-
-/* Form styling */
-.form {
-  padding: 50px;
-}
-
-.control input {
-  max-width: 300px;
 }
 
 /* Navbar styling */
@@ -111,6 +102,11 @@ footer.footer {
 
 div.is-grouped {
   display: inline-flex;
+  width: 200px;
+  margin-top: 50px;
+  align-items: center;
+  align-content: center;
+  padding-left: 50%;
 }
 
 div.is-grouped a {
@@ -169,4 +165,110 @@ div.is-grouped a {
   transform: translate(0%, -50%);
   background: rgb(67, 66, 66);
   color: white;
+}
+
+/* Form Style */
+
+label {
+  font-size: 1.2rem;
+  text-align: left;
+}
+
+.form-content {
+  padding: 0rem 1rem 0 1rem;
+}
+
+.form-content div {
+  padding-top: 0.5rem;
+}
+
+/* Hide the browser's default radio button */
+.container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+/* Form styling */
+.form {
+  padding: 1rem;
+}
+
+.controlRadio input {
+  margin: 1rem;
+  cursor: pointer;
+}
+
+.control input {
+  width: 90%;
+  font-size: 1rem;
+  height: 2.5rem;
+  border-color: none;
+  border: none;
+  border-radius: 5px;
+  background: #0000008c;
+  color: white;
+  padding: 1rem;
+}
+
+.control .checkbox input {
+  width: auto;
+  font-size: auto;
+  height: 1.5rem;
+  border-color: none;
+  border: none;
+  border-radius: 5px;
+
+  margin-right: 1.5rem;
+  padding: 1.5rem;
+}
+
+::placeholder {
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: whitesmoke;
+  opacity: 1; /* Firefox */
+  padding: 1rem;
+  margin: 1rem;
+}
+
+:-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
+  color: whitesmoke;
+  padding: 1rem;
+  margin: 1rem;
+}
+
+::-ms-input-placeholder {
+  /* Microsoft Edge */
+  color: whitesmoke;
+  padding: 1rem;
+  margin: 1rem;
+}
+
+.control .small div input {
+  max-width: 76.5%;
+  width: 65.5%;
+}
+
+.control textarea {
+  width: 90%;
+  height: 300px;
+  font-size: 1rem;
+  padding: 1rem;
+  border-color: none;
+  border: none;
+  border-radius: 5px;
+  background: #0000008c;
+  color: white;
+}
+
+.control input .checkbox {
+  margin: 0;
+  height: auto;
+}
+
+.checkbox {
+  padding: 0;
+  margin: 0;
+  height: 0;
 }

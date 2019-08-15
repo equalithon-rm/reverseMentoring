@@ -4,6 +4,7 @@ import SkillsList from './skills-list'
 import {connect} from 'react-redux'
 import {updateUser} from '../store/user'
 import history from '../history'
+import {Columns} from 'react-bulma-components/full'
 
 class UserCaptureForm extends React.Component {
   constructor(props) {
@@ -59,131 +60,132 @@ class UserCaptureForm extends React.Component {
 
   render() {
     return (
-      <div className="form">
+      <div>
         <form onSubmit={this.handleSubmit} onChange={this.handleChange}>
-          <div className="field" htmlFor="status">
-            <label className="label">Please Select Your Gender:</label>
-            <div className="control">
-              <p>
-                <input type="radio" name="gender" value="Female" />Female
-              </p>
-              <p>
-                <input type="radio" name="gender" value="Male" />Male
-              </p>
-              <p>
-                <input type="radio" name="gender" value="Non-binary" />Non-binary
-              </p>
-              <p>
-                <input type="radio" name="gender" value="Other" />Other
-              </p>
-            </div>
-          </div>
+          <Columns>
+            <Columns.Column size={6}>
+              <div className="form-content">
+                <div htmlFor="status">
+                  <label className="question">Please Select Your Gender</label>
 
-          <div className="field" htmlFor="skill">
-            <label className="label">
-              What skill(s) are you interested in?
-            </label>
-            <div className="control">
-              {this.state.skills.length ? (
-                <SkillsList
-                  skills={this.state.skills}
-                  skillType="skillsInterestedIn"
-                />
-              ) : (
-                false
-              )}
-            </div>
-          </div>
-
-          <div className="field" htmlFor="status">
-            <label className="label">Enter Your Current Company:</label>
-            <div className="control">
-              <input
-                className="input"
-                type="text"
-                name="currentCompany"
-                placeholder="Current Company"
-              />
-            </div>
-          </div>
-
-          <div className="field" htmlFor="status">
-            <label className="label">Enter Your Current Position:</label>
-            <div className="control">
-              <input
-                className="input"
-                type="text"
-                name="currentPosition"
-                placeholder="Current Position"
-              />
-            </div>
-          </div>
-
-          <div className="field" htmlFor="status">
-            <label className="label">
-              Enter Your Calendly Username: (Optional)
-            </label>
-            <div className="control">
-              <div>
-                <div>
-                  {'https://calendly.com/ '}
-                  <input
-                    className="input"
-                    type="text"
-                    name="calendlyUsername"
-                    placeholder="USERNAME"
-                  />
+                  <div className="controlRadio">
+                    <input type="radio" name="gender" value="Female" /> Female
+                    <input type="radio" name="gender" value="Male" /> Male
+                    <input type="radio" name="gender" value="Non-binary" />
+                    Non-binary
+                    <input type="radio" name="gender" value="Other" /> Other
+                  </div>
                 </div>
-                <div>
-                  Don't Have a Calendly Account?{' '}
-                  <a
-                    href="https://calendly.com/signup"
-                    alt="Calendly Sign Up"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    Sign Up For Free!
-                  </a>
+
+                <div htmlFor="status">
+                  <label>Enter Your Current Company</label>
+                  <div className="control">
+                    <input
+                      type="text"
+                      name="currentCompany"
+                      placeholder="Current Company"
+                    />
+                  </div>
+                </div>
+
+                <div htmlFor="status">
+                  <label>Enter Your Current Position</label>
+                  <div className="control">
+                    <input
+                      type="text"
+                      name="currentPosition"
+                      placeholder="Current Position"
+                    />
+                  </div>
+                </div>
+
+                <div className="field" htmlFor="status">
+                  <label>Enter Your Calendly Username: (Optional)</label>
+                  <div className="control">
+                    <div className="small">
+                      <div>
+                        {'https://calendly.com/ '}
+                        <input
+                          type="text"
+                          name="calendlyUsername"
+                          placeholder="USERNAME"
+                        />
+                      </div>
+                      <div>
+                        Don't Have a Calendly Account?{' '}
+                        <a
+                          href="https://calendly.com/signup"
+                          alt="Calendly Sign Up"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          Sign Up For Free!
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div htmlFor="status">
+                  <div>
+                    <label>Enter Your Bio</label>
+                    <div className="control">
+                      <textarea
+                        type="text"
+                        name="bio"
+                        placeholder="Tell us about yourself."
+                      />
+                    </div>
+                  </div>
                 </div>
               </div>
-            </div>
-          </div>
+            </Columns.Column>
 
-          <div className="field-body" htmlFor="status">
-            <div className="field">
-              <label className="label">Enter Your Bio:</label>
-              <div className="control">
-                <textarea
-                  className="textarea"
-                  type="text"
-                  name="bio"
-                  placeholder="Tell us about yourself."
-                />
+            <Columns.Column>
+              <div htmlFor="skill">
+                <label>What skill(s) are you interested in?</label>
+                <div className="control">
+                  {this.state.skills.length ? (
+                    <SkillsList
+                      skills={this.state.skills}
+                      skillType="skillsInterestedIn"
+                    />
+                  ) : (
+                    false
+                  )}
+                </div>
               </div>
-            </div>
-          </div>
+            </Columns.Column>
 
-          <div className="field" htmlFor="skill">
-            <label className="label">What skill(s) do you have?</label>
-            <div className="control">
-              {this.state.skills.length ? (
-                <SkillsList
-                  skills={this.state.skills}
-                  skillType="currentSkills"
-                />
-              ) : (
-                false
-              )}
-            </div>
-          </div>
+            <Columns.Column>
+              <div className="field" htmlFor="skill">
+                <label>What skill(s) do you have?</label>
+                <div className="control">
+                  {this.state.skills.length ? (
+                    <SkillsList
+                      skills={this.state.skills}
+                      skillType="currentSkills"
+                    />
+                  ) : (
+                    false
+                  )}
+                </div>
+              </div>
 
-          <div className="field is-grouped">
-            <p className="control">
-              <button className="button is-success" type="submit">
-                Submit
-              </button>
-            </p>
-          </div>
+              <Columns>
+                <div className="field is-grouped">
+                  <p className="control">
+                    <button
+                      className="button learn-buttons is-danger"
+                      type="submit"
+                    >
+                      Submit
+                    </button>
+                  </p>
+                </div>
+              </Columns>
+            </Columns.Column>
+          </Columns>
         </form>
       </div>
     )

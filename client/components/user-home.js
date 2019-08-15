@@ -17,8 +17,8 @@ export const UserHome = props => {
         <Hero.Head renderAs="header">
           <Heading className="hero-title" size={1}>
             Welcome, {firstName ? firstName : email}.
-            {hasCompletedSignup ? <Dashboard /> : <UserCaptureForm />}
           </Heading>
+          {hasCompletedSignup ? <Dashboard /> : <UserCaptureForm />}
         </Hero.Head>
       </Hero>
     </div>
