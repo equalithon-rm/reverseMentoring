@@ -31,12 +31,15 @@ if (!process.env.GOOGLE_CLIENT_ID || !process.env.GOOGLE_CLIENT_SECRET) {
     googleConfig,
     (token, refreshToken, profile, done) => {
       const googleId = profile.id
-      const name = profile.displayName
+      const firstName = profile.name.givenName
+      const lastName = profile.name.familyName
+      const fullName = profile.displayName
       const email = profile.emails[0].value
+      const imgUrl = profile.photos[0].value
 
       User.findOrCreate({
         where: {googleId},
-        defaults: {name, email}
+        defaults: {firstName, lastName, fullName, email, imgUrl}
       })
         .then(([user]) => done(null, user))
         .catch(done)
@@ -45,7 +48,10 @@ if (!process.env.GOOGLE_CLIENT_ID || !process.env.GOOGLE_CLIENT_SECRET) {
 
   passport.use(strategy)
 
-  router.get('/', passport.authenticate('google', {scope: 'email'}))
+  router.get(
+    '/',
+    passport.authenticate('google', {scope: ['email', 'profile']})
+  )
 
   router.get(
     '/callback',

@@ -1,18 +1,204 @@
 'use strict'
 
 const db = require('../server/db')
-const {User} = require('../server/db/models')
+const {
+  Skill,
+  User,
+  SkillsInterestedIn,
+  CurrentSkills
+} = require('../server/db/models')
 
 async function seed() {
   await db.sync({force: true})
   console.log('db synced!')
 
-  const users = await Promise.all([
-    User.create({email: 'cody@email.com', password: '123'}),
-    User.create({email: 'murphy@email.com', password: '123'})
-  ])
+  const seedSkills = [
+    {name: 'JavaScript'},
+    {name: 'Node.js'},
+    {name: 'Express.js'},
+    {name: 'Sequelize.js'},
+    {name: 'PostgreSQL'},
+    {name: 'React.js'},
+    {name: 'Redux.js'},
+    {name: 'Socket.io'},
+    {name: 'Bulma.css'}
+  ]
 
-  console.log(`seeded ${users.length} users`)
+  const seedUser = [
+    {
+      firstName: 'Macarena',
+      lastName: 'Carreno',
+      fullName: 'Macarena Carreno',
+      email: 'macarena@macarena.com',
+      imgUrl:
+        'https://journeypurebowlinggreen.com/wp-content/uploads/2018/05/placeholder-person.jpg',
+      gender: 'Female',
+      currentCompany: 'Essteem',
+      currentPosition: 'Full Stack Software Developer',
+      dateJoinedCompany: Date.now(),
+      bio: '1902 GH-NY Graduate',
+      currentskills: [{skillId: 1}],
+      SkillsInterestedIn: [{skillId: 2}]
+    },
+    {
+      firstName: 'Tal',
+      lastName: 'Luigi',
+      fullName: 'Tal Luigi',
+      email: 'tal@tal.com',
+      imgUrl:
+        'https://journeypurebowlinggreen.com/wp-content/uploads/2018/05/placeholder-person.jpg',
+      gender: 'Male',
+      currentCompany: 'Essteem',
+      currentPosition: 'Full Stack Software Developer',
+      dateJoinedCompany: Date.now(),
+      bio: '1904 FSA-NY Graduate',
+      currentskills: [{skillId: 1}],
+      SkillsInterestedIn: [{skillId: 2}]
+    },
+    {
+      firstName: 'Sam',
+      lastName: 'Peach',
+      fullName: 'Sam Peach',
+      email: 'sam@sam.com',
+      imgUrl:
+        'https://journeypurebowlinggreen.com/wp-content/uploads/2018/05/placeholder-person.jpg',
+      gender: 'Male',
+      currentCompany: 'Essteem',
+      currentPosition: 'Full Stack Software Developer',
+      dateJoinedCompany: Date.now(),
+      bio: '1904 FSA-NY Graduate',
+      currentskills: [{skillId: 1}],
+      SkillsInterestedIn: [{skillId: 2}]
+    },
+    {
+      firstName: 'Arianna',
+      lastName: 'Choza',
+      fullName: 'Arianna Choza',
+      email: 'arianna@arianna.com',
+      imgUrl:
+        'https://journeypurebowlinggreen.com/wp-content/uploads/2018/05/placeholder-person.jpg',
+      gender: 'Female',
+      currentCompany: 'Essteem',
+      currentPosition: 'Front End Software Developer',
+      dateJoinedCompany: Date.now(),
+      bio: 'GA Graduate',
+      currentskills: [{skillId: 1}],
+      SkillsInterestedIn: [{skillId: 2}]
+    },
+    {
+      firstName: 'Jocelyn',
+      lastName: 'Jeriah',
+      fullName: 'Jocelyn Jeriah',
+      email: 'jj@jj.com',
+      imgUrl:
+        'https://journeypurebowlinggreen.com/wp-content/uploads/2018/05/placeholder-person.jpg',
+      gender: 'Female',
+      currentCompany: 'Essteem',
+      currentPosition: 'Full Stack Software Developer',
+      dateJoinedCompany: Date.now(),
+      bio: 'GA Student',
+      currentskills: [{skillId: 1}],
+      SkillsInterestedIn: [{skillId: 2}]
+    },
+    {
+      firstName: 'Linda',
+      lastName: 'Saraguro',
+      fullName: 'Linda Saraguro',
+      email: 'linda@linda.com',
+      imgUrl:
+        'https://journeypurebowlinggreen.com/wp-content/uploads/2018/05/placeholder-person.jpg',
+      gender: 'Female',
+      currentCompany: 'Essteem',
+      currentPosition: 'Full Stack Software Developer',
+      dateJoinedCompany: Date.now(),
+      bio: '1902 GH-NY Graduate',
+      currentskills: [{skillId: 1}],
+      SkillsInterestedIn: [{skillId: 2}]
+    }
+  ]
+
+  const seedCurrentSkill = [
+    {
+      userId: 1,
+      skillId: 1
+    },
+    {
+      userId: 1,
+      skillId: 2
+    },
+    {
+      userId: 2,
+      skillId: 3
+    },
+    {
+      userId: 2,
+      skillId: 1
+    },
+    {
+      userId: 3,
+      skillId: 3
+    },
+    {
+      userId: 4,
+      skillId: 3
+    }
+  ]
+
+  const seedSkillInterestedOn = [
+    {
+      userId: 1,
+      skillId: 3
+    },
+    {
+      userId: 1,
+      skillId: 5
+    },
+    {
+      userId: 2,
+      skillId: 2
+    },
+    {
+      userId: 2,
+      skillId: 3
+    },
+    {
+      userId: 3,
+      skillId: 1
+    },
+    {
+      userId: 4,
+      skillId: 1
+    }
+  ]
+
+  await Promise.all(
+    seedSkills.map(skill => {
+      return Skill.create(skill)
+    })
+  )
+
+  await Promise.all(
+    seedUser.map(user => {
+      return User.create(user)
+    })
+  )
+
+  await Promise.all(
+    seedCurrentSkill.map(currSkill => {
+      return CurrentSkills.create(currSkill)
+    })
+  )
+  await Promise.all(
+    seedSkillInterestedOn.map(skillInt => {
+      return SkillsInterestedIn.create(skillInt)
+    })
+  )
+
+  console.log(`seeded ${seedSkills.length} skill`)
+  console.log(`seeded ${seedUser.length} users`)
+  console.log(`seeded ${seedCurrentSkill.length} UserSkills`)
+  console.log(`seeded ${seedSkillInterestedOn.length} UserSkills`)
+
   console.log(`seeded successfully`)
 }
 

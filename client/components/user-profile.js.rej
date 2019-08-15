@@ -1,0 +1,4 @@
+diff a/client/components/user-profile.js b/client/components/user-profile.js	(rejected hunks)
+@@ -19 +19 @@ class UserProfile extends Component {
+-        <br />    
++        <br />

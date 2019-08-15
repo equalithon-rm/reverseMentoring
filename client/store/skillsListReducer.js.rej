@@ -1,0 +1,4 @@
+diff a/client/store/skillsListReducer.js b/client/store/skillsListReducer.js	(rejected hunks)
+@@ -76 +75,0 @@ export default skillsReducer
+-  
+\ No newline at end of file

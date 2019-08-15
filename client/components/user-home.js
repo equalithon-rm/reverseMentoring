@@ -1,16 +1,26 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
+import UserCaptureForm from './user-capture-form'
+import {Dashboard} from '../components'
+import {Section, Hero, Heading} from 'react-bulma-components/full'
 
 /**
  * COMPONENT
  */
 export const UserHome = props => {
-  const {email} = props
+  const {firstName, email, hasCompletedSignup} = props
 
   return (
     <div>
-      <h3>Welcome, {email}</h3>
+      <Hero size="fullheight">
+        <Hero.Head renderAs="header">
+          <Heading className="hero-title" size={1}>
+            Welcome, {firstName ? firstName : email}.
+            {hasCompletedSignup ? <Dashboard /> : <UserCaptureForm />}
+          </Heading>
+        </Hero.Head>
+      </Hero>
     </div>
   )
 }
@@ -20,7 +30,9 @@ export const UserHome = props => {
  */
 const mapState = state => {
   return {
-    email: state.user.email
+    firstName: state.user.firstName,
+    email: state.user.email,
+    hasCompletedSignup: state.user.hasCompletedSignup
   }
 }
 
@@ -30,5 +42,6 @@ export default connect(mapState)(UserHome)
  * PROP TYPES
  */
 UserHome.propTypes = {
+  firstName: PropTypes.string,
   email: PropTypes.string
 }
