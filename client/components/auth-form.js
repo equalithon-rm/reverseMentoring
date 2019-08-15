@@ -18,7 +18,7 @@ const AuthForm = props => {
         Sign In
       </Button>
 
-      <Button href="/auth/google" renderAs="a" color="light" size="medium">
+      <Button href="/auth/google" renderAs="a" color="dark" size="medium">
         Sign Up
       </Button>
     </div>
