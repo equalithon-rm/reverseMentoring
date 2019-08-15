@@ -1,5 +1,7 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
+import {Link} from 'react-router-dom'
+
 import {fetchOneProfile} from '../store/profiles'
 import {
   Section,
@@ -7,7 +9,7 @@ import {
   Image,
   Box,
   Tile,
-  Columns
+  Button
 } from 'react-bulma-components/full'
 
 class UserProfile extends Component {
@@ -93,7 +95,7 @@ class UserProfile extends Component {
                     renderAs="article"
                     kind="child"
                     notification
-                    color="warning"
+                    color="$purple"
                   >
                     <Heading>I can be a Mentor in</Heading>
                     <ul>
@@ -119,7 +121,14 @@ class UserProfile extends Component {
                   color="danger"
                 >
                   <Heading>Find a Mentor</Heading>
-                  <Heading subtitle>Aligned with the right tile</Heading>
+                  <Button
+                    to="/search"
+                    renderAs={Link}
+                    color="light"
+                    size="medium"
+                  >
+                    Learn something new!
+                  </Button>
                   <div className="content" />
                 </Tile>
               </Tile>
@@ -129,7 +138,7 @@ class UserProfile extends Component {
                 renderAs="article"
                 kind="child"
                 notification
-                color="success"
+                color="warning"
               >
                 <div className="content">
                   <Heading>About Me</Heading>
