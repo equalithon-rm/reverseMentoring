@@ -48,9 +48,6 @@ export class Search extends Component {
                 <br />
                 <br />
                 <br />
-
-                {/* drop down start */}
-
                 <form
                   onSubmit={this.handleSubmit}
                   type="submit"
@@ -69,7 +66,7 @@ export class Search extends Component {
 
                   <div className="field">
                     <div className="control">
-                      <div className="select is-info">
+                      <div className="select is-warning">
                         <select
                           onChange={this.handleChange}
                           id="selectedSkillId"
@@ -95,15 +92,13 @@ export class Search extends Component {
                     </div>
                   </div>
                   <button
-                    className="button is-info is-active"
+                    className="button is-warning is-active"
                     onSubmit={this.handleSubmit}
                     type="submit"
                   >
                     Submit
                   </button>
                 </form>
-
-                {/* dropdown end */}
               </div>
 
               <div className="column">
@@ -114,13 +109,11 @@ export class Search extends Component {
             </div>
           </div>
         </section>
-        {/* form ends here */}
-
         <section className="section has-background-white">
           <div className="container">
             <div className="columns">
               <div className="column">
-                <div className="notification is-info">
+                <div className="notification is-warning">
                   <ul className="flex-container flex-containee">
                     <li>
                       <h1 className="title is-size-4 has-text-centered has-text-brown">
@@ -161,7 +154,7 @@ export class Search extends Component {
               </div>
 
               <div className="column">
-                <div className="notification is-info">
+                <div className="notification is-warning">
                   <ul className="flex-container flex-containee">
                     <li>
                       <h1 className="title is-size-4 has-text-centered has-text-brown">
