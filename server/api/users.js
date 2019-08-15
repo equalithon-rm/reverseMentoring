@@ -20,6 +20,7 @@ router.get('/', async (req, res, next) => {
         'currentPosition',
         'dateJoinedCurrentCompany',
         'bio',
+        'createdAt',
         'calendlyUsername'
       ],
       include: [
@@ -66,6 +67,7 @@ router.get('/:userId', async (req, res, next) => {
         'currentPosition',
         'dateJoinedCurrentCompany',
         'bio',
+        'createdAt',
         'calendlyUsername'
       ],
       include: [

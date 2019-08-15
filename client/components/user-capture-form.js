@@ -30,7 +30,7 @@ class UserCaptureForm extends React.Component {
   handleSubmit = evt => {
     evt.preventDefault()
     this.props.updateUser(this.props.user.id, this.state.form)
-    history.push('/search')
+    history.push('/profile')
   }
 
   handleChange = evt => {

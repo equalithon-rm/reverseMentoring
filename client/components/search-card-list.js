@@ -54,10 +54,7 @@ const SearchCardList = props => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <button
-                type="button"
-                disabled={!curUser.user.calendlyUsername}
-              >
+              <button type="button" disabled={!curUser.user.calendlyUsername}>
                 Schedule a meeting on Calendly
               </button>
             </a>
