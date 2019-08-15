@@ -41,6 +41,9 @@ const User = db.define('user', {
   bio: {
     type: Sequelize.TEXT
   },
+  calendlyUsername: {
+    type: Sequelize.STRING
+  },
   hasCompletedSignup: {
     type: Sequelize.BOOLEAN,
     defaultValue: false,

@@ -94,10 +94,10 @@ export class Search extends Component {
           <br />
           {allUsersThatWantSelectedSkill ? (
             allUsersThatWantSelectedSkill.length ? (
-              allUsersThatWantSelectedSkill.map(curUser => {
+              allUsersThatWantSelectedSkill.map((curUser, idx) => {
                 return (
                   <SearchCardList
-                    key={curUser.usersId}
+                    key={idx}
                     curUser={curUser}
                     currentUser={this.props.currentUser}
                   />
@@ -122,13 +122,15 @@ export class Search extends Component {
           <br />
           {allUsersThatHaveSelectedSkill ? (
             allUsersThatHaveSelectedSkill.length ? (
-              allUsersThatHaveSelectedSkill.map(curUser => (
-                <SearchCardList
-                  key={curUser.usersId}
-                  curUser={curUser}
-                  currentUser={this.props.currentUser}
-                />
-              ))
+              allUsersThatHaveSelectedSkill.map((curUser, idx) => {
+                return (
+                  <SearchCardList
+                    key={idx}
+                    curUser={curUser}
+                    currentUserName={this.props.currentUserName}
+                  />
+                )
+              })
             ) : (
               <li className="flex-containee" style={{textAlign: 'center'}}>
                 No users were found for the selected skill.

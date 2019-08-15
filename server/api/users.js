@@ -19,7 +19,8 @@ router.get('/', async (req, res, next) => {
         'currentCompany',
         'currentPosition',
         'dateJoinedCurrentCompany',
-        'bio'
+        'bio',
+        'calendlyUsername'
       ],
       include: [
         {
@@ -64,7 +65,8 @@ router.get('/:userId', async (req, res, next) => {
         'currentCompany',
         'currentPosition',
         'dateJoinedCurrentCompany',
-        'bio'
+        'bio',
+        'calendlyUsername'
       ],
       include: [
         {
@@ -98,16 +100,18 @@ router.put('/:id', async (req, res, next) => {
     currentPosition,
     bio,
     skillsInterestedIn,
-    currentSkills
+    currentSkills,
+    calendlyUsername
   } = req.body
   const userId = req.params.id
   try {
     const [numberOfAffectedUserRows, userInstance] = await User.update(
       {
-        gender: gender,
-        currentCompany: currentCompany,
-        currentPosition: currentPosition,
-        bio: bio,
+        gender,
+        currentCompany,
+        currentPosition,
+        bio,
+        calendlyUsername,
         hasCompletedSignup: true
       },
       {

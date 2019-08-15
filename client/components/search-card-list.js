@@ -31,7 +31,6 @@ const SearchCardList = props => {
             <h5>{curUser.user.currentCompany}</h5>
             <p>{curUser.user.currentPosition}</p>
             <p>{curUser.user.bio}</p>
-
             <button
               type="button"
               onClick={evt => {
@@ -48,6 +47,20 @@ const SearchCardList = props => {
             >
               Send a request to connect
             </button>
+            <span> </span>
+            <a
+              href={`https://calendly.com/${curUser.user.calendlyUsername}`}
+              alt="Calendly Sign Up"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <button
+                type="button"
+                disabled={!curUser.user.calendlyUsername}
+              >
+                Schedule a meeting on Calendly
+              </button>
+            </a>
           </Content>
         </Media.Item>
       </Media>
