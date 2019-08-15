@@ -1,63 +1,105 @@
 import React from 'react'
 import {Login, HeroBanner} from '../components'
-import {Section, Hero, Container, Heading} from 'react-bulma-components/full'
+import {
+  Section,
+  Hero,
+  Container,
+  Heading,
+  Button,
+  Media
+} from 'react-bulma-components/full'
 import {Link} from 'react-router-dom'
 
 const Welcome = () => {
   return (
-    <section>
-      <Hero size="medium" color="info" gradient>
-        <Hero.Head>
-          <div className="hero-title">
-            <Heading size={1}>Welcome to Elevate </Heading>
-            <Heading className="subtitle" size={3}>
-              A reverse mentoring app.
+    <Hero size="fullheight">
+      <Hero.Head renderAs="header">
+        <Heading className="hero-title" size={1}>
+          Welcome to Elevate{' '}
+        </Heading>
+        <Heading className="subtitle" size={3}>
+          A reverse mentoring app.
+        </Heading>
+      </Hero.Head>
+      <Hero.Body>
+        <div className="columns">
+          <div className="column">
+            <Heading size={5}>What is Reverse Mentoring?</Heading>
+            It is a career development practice that helps businesses mine
+            certain insights or information of the less experienced, often
+            younger employees for senior executives
+            <p>
+              <a
+                href="https://grasshopperherder.com/reverse-mentoring-what-millennials-can-teach-executives-and-senior-managers"
+                target="_blank"
+                className="button learn-buttons is-danger"
+              >
+                Learn more
+              </a>
+            </p>
+          </div>
+          <div className="column">
+            <Heading size={5}>
+              How can we close the gender gap for women in tech?
             </Heading>
-          </div>
-        </Hero.Head>
-        <Hero.Body>
-          <div className="hero-body">
+            Elevate provides a space where C-level executives can search for
+            female coworkers by skills and offer them mentorship. This will
+            enable more females to rise into C-level positions
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. In
-              rhoncus efficitur vulputate. Nullam bibendum augue ut luctus
-              posuere. Suspendisse ligula orci, maximus ac massa vitae, porta
-              luctus purus. Sed quis risus et orci imperdiet maximus. Donec
-              pulvinar luctus lacus vel ultricies. Nam vulputate sodales
-              feugiat. Mauris ligula tortor, porta id bibendum sit amet, cursus
-              vel ex. Vivamus in nulla non libero congue bibendum eget vitae
-              turpis.Donec blandit placerat mi ut faucibus. Nunc at quam
-              vestibulum, feugiat nulla at, fringilla lectus. Mauris posuere
-              sagittis varius. Duis ornare ac dolor eu ullamcorper. Ut pharetra
-              massa quis orci rhoncus tincidunt. Nam ullamcorper imperdiet mi,
-              at sollicitudin odio suscipit sed. Mauris in ex ornare, sodales
-              dui nec, efficitur tellus. Etiam interdum consequat blandit.
-            </p>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. In
-              rhoncus efficitur vulputate. Nullam bibendum augue ut luctus
-              posuere. Suspendisse ligula orci, maximus ac massa vitae, porta
-              luctus purus. Sed quis risus et orci imperdiet maximus. Donec
-              pulvinar luctus lacus vel ultricies. Nam vulputate sodales
-              feugiat. Mauris ligula tortor, porta id bibendum sit amet, cursus
-              vel ex. Vivamus in nulla non libero congue bibendum eget vitae
-              turpis.Donec blandit placerat mi ut faucibus. Nunc at quam
-              vestibulum, feugiat nulla at, fringilla lectus. Mauris posuere
-              sagittis varius. Duis ornare ac dolor eu ullamcorper. Ut pharetra
-              massa quis orci rhoncus tincidunt. Nam ullamcorper imperdiet mi,
-              at sollicitudin odio suscipit sed. Mauris in ex ornare, sodales
-              dui nec, efficitur tellus. Etiam interdum consequat blandit.
+              <a
+                href="https://www.mckinsey.com/industries/high-tech/our-insights/closing-the-tech-gender-gap-through-philanthropy-and-corporate-social-responsibility"
+                target="_blank"
+                className="button learn-buttons is-danger"
+              >
+                Learn more
+              </a>
             </p>
           </div>
-        </Hero.Body>
-        <Hero.Footer>
-          <div className="hero-footer">
-            <Heading size={6}>Are you a member?</Heading>
-            <Login />
-            <Link to="/signup">Sign Up here!</Link>
+          <div className="column">
+            <Heading size={5}>
+              User Friendly, Gmail Signup, Calendly Invites, Notifications
+            </Heading>
+            Connect with a mentor in three clicks; Signup/login with your Gmail
+            account; Receive calendar invite when your ready to meet; Get
+            notified in real time when someone is interested in meeting you
+            <p>
+              <a
+                href="https://calendly.com"
+                target="_blank"
+                className="button learn-buttons is-danger"
+              >
+                Learn more
+              </a>
+            </p>
           </div>
-        </Hero.Footer>
-      </Hero>
-    </section>
+        </div>
+      </Hero.Body>
+      <Hero.Footer>
+        <footer className="footer">
+          <div className="has-text-centered container">
+            <Heading className="subtitle footer-text" size={5}>
+              Are you a member?
+            </Heading>
+            <div className="is-grouped">
+              <Button
+                href="/auth/google"
+                color="dark"
+                renderAs="a"
+                size="medium"
+              >
+                Sign In
+              </Button>
+              <br />
+              <div>
+                <Button to="/signup" color="dark" renderAs={Link} size="medium">
+                  Sign Up
+                </Button>
+              </div>
+            </div>
+          </div>
+        </footer>
+      </Hero.Footer>
+    </Hero>
   )
 }
 

@@ -19,13 +19,9 @@ class NavbarMenu extends Component {
   render() {
     const {handleClick, isLoggedIn} = this.props
     return (
-      <Navbar
-        className="navbar is-light"
-        role="navigation"
-        aria-label="main navigation"
-      >
+      <Navbar role="navigation" aria-label="main navigation">
         <Navbar.Brand>
-          <img src={require('./elevate.png')} width="150" height="80" />
+          <img src={require('./elevate.png')} width="160" height="160" />
           <Navbar.Burger
             onClick={this.navToggleClick}
             active={String(this.state.active)}
@@ -34,56 +30,101 @@ class NavbarMenu extends Component {
 
         {this.state.active ? (
           isLoggedIn ? (
-            <Menu.List>
-              <Button to="/home" renderAs={Link} color="light" size="medium">
+            <Navbar.Menu>
+              <Button
+                to="/home"
+                renderAs={Link}
+                className="is-text"
+                size="medium"
+              >
                 Home
               </Button>
 
-              <Button to="/profile" renderAs={Link} color="light" size="medium">
+              <Button
+                to="/profile"
+                renderAs={Link}
+                className="is-text"
+                size="medium"
+              >
                 Profile
               </Button>
 
-              <Button to="/search" renderAs={Link} color="light" size="medium">
+              <Button
+                to="/search"
+                renderAs={Link}
+                className="is-text"
+                size="medium"
+              >
                 Search
               </Button>
 
-              <Menu.List onClick={handleClick}>
-                <Button>Logout</Button>
-              </Menu.List>
-            </Menu.List>
+              <Button onClick={handleClick}>Logout</Button>
+            </Navbar.Menu>
           ) : (
-            <Menu.List>
+            <Navbar.Item>
               <Login />
-            </Menu.List>
+
+              <Button to="/signup" renderAs={Link} color="dark" size="medium">
+                Sign Up
+              </Button>
+            </Navbar.Item>
           )
         ) : null}
 
         {isLoggedIn ? (
           <Navbar.Menu>
             <Navbar.Container className="NavMargins">
-              <Button to="/home" renderAs={Link} color="light" size="medium">
+              <Button
+                to="/home"
+                renderAs={Link}
+                className="is-text"
+                size="medium"
+              >
                 Home
               </Button>
 
-              <Button to="/profile" renderAs={Link} color="light" size="medium">
+              <Button
+                to="/profile"
+                renderAs={Link}
+                className="is-text"
+                size="medium"
+              >
                 Profile
               </Button>
 
-              <Button to="/search" renderAs={Link} color="light" size="medium">
+              <Button
+                to="/search"
+                renderAs={Link}
+                className="is-text"
+                size="medium"
+              >
                 Search
               </Button>
             </Navbar.Container>
 
             <Navbar.Container position="end">
               <Navbar.Item onClick={handleClick}>
-                <Button>Logout</Button>
+                <Button color="dark" size="medium">
+                  Logout
+                </Button>
               </Navbar.Item>
             </Navbar.Container>
           </Navbar.Menu>
         ) : (
           <Navbar.Menu>
             <Navbar.Container position="end" className="NavMargins">
-              <Login />
+              <Button
+                href="/auth/google"
+                color="dark"
+                renderAs="a"
+                size="medium"
+              >
+                Sign In
+              </Button>
+
+              <Button to="/signup" renderAs={Link} color="dark" size="medium">
+                Sign Up
+              </Button>
             </Navbar.Container>
           </Navbar.Menu>
         )}
