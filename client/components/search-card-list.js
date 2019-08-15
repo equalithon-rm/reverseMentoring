@@ -20,8 +20,6 @@ const handleClick = async (
 
 const SearchCardList = props => {
   const {curUser, currentUser} = props
-  console.log('PROPS>>> ', props)
-
   return (
     <Box size="4by3">
       <Media>
