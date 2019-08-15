@@ -39,7 +39,14 @@ export class Search extends Component {
     let allUsersThatHaveSelectedSkill = this.props.allUsersThatHaveSelectedSkill
     return (
       <div className="flex-container">
-        <br />
+        <section className="hero is-primary">
+          <div className="hero-body">
+            <div className="container">
+              <h1 className="title is-2 has-text-centered">Select a skill</h1>
+            </div>
+          </div>
+        </section>
+
         <br />
         <div>
           <form
