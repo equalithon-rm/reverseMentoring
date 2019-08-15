@@ -46,6 +46,9 @@ class NavbarMenu extends Component {
                   <Link to="/search" onClick={this.navToggleClick}>
                     Search
                   </Link>
+                  <Link to="/about" onClick={this.navToggleClick}>
+                    About
+                  </Link>
                   <Link to="" onClick={handleClick}>
                     Logout
                   </Link>
@@ -93,6 +96,15 @@ class NavbarMenu extends Component {
                 size="medium"
               >
                 Search
+              </Button>
+
+              <Button
+                to="/about"
+                renderAs={Link}
+                className="is-text"
+                size="medium"
+              >
+                About
               </Button>
             </Navbar.Container>
 
