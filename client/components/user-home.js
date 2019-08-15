@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
 import UserCaptureForm from './user-capture-form'
-import {FooterBar} from '../components'
+import {FooterBar, Dashboard} from '../components'
 import {Section, Hero, Heading} from 'react-bulma-components/full'
 
 /**
@@ -21,7 +21,6 @@ export const UserHome = props => {
           </Heading>
         </Hero.Head>
       </Hero>
-      <FooterBar />
     </div>
   )
 }

@@ -1,6 +1,6 @@
 import React from 'react'
 
-import {NavbarMenu} from './components'
+import {NavbarMenu, FooterBar} from './components'
 import Routes from './routes'
 
 const App = () => {
@@ -8,6 +8,7 @@ const App = () => {
     <div>
       <NavbarMenu />
       <Routes />
+      <FooterBar />
     </div>
   )
 }
