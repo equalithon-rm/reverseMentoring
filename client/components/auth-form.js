@@ -11,7 +11,6 @@ import {Button} from 'react-bulma-components/full'
  */
 const AuthForm = props => {
   const {displayName, name} = props
-  console.log(displayName, name)
   return (
     <div>
       <Button href="/auth/google" color="dark" renderAs="a" size="medium">
@@ -61,7 +60,7 @@ const mapDispatch = dispatch => {
 }
 
 export const Login = connect(mapLogin, mapDispatch)(AuthForm)
-export const Signup = connect(mapSignup, mapDispatch)(AuthForm)
+export const Signup = connect(mapLogin, mapDispatch)(AuthForm)
 
 /**
  * PROP TYPES
