@@ -6,7 +6,7 @@ import {Link} from 'react-router-dom'
 const Welcome = () => {
   return (
     <section>
-      <Hero size="small" color="info" gradient>
+      <Hero size="medium" color="info" gradient>
         <Hero.Head>
           <div className="hero-title">
             <Heading size={1}>Welcome to Elevate </Heading>
