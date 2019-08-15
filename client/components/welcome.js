@@ -1,14 +1,6 @@
 import React from 'react'
-import {Login, HeroBanner} from '../components'
-import {
-  Section,
-  Hero,
-  Container,
-  Heading,
-  Button,
-  Media
-} from 'react-bulma-components/full'
-import {Link} from 'react-router-dom'
+import {Login} from '../components'
+import {Hero, Heading} from 'react-bulma-components/full'
 
 const Welcome = () => {
   return (
@@ -32,6 +24,7 @@ const Welcome = () => {
               <a
                 href="https://grasshopperherder.com/reverse-mentoring-what-millennials-can-teach-executives-and-senior-managers"
                 target="_blank"
+                rel="noopener noreferrer"
                 className="button learn-buttons is-danger"
               >
                 Learn more
@@ -49,6 +42,7 @@ const Welcome = () => {
               <a
                 href="https://www.mckinsey.com/industries/high-tech/our-insights/closing-the-tech-gender-gap-through-philanthropy-and-corporate-social-responsibility"
                 target="_blank"
+                rel="noopener noreferrer"
                 className="button learn-buttons is-danger"
               >
                 Learn more
@@ -66,6 +60,7 @@ const Welcome = () => {
               <a
                 href="https://calendly.com"
                 target="_blank"
+                rel="noopener noreferrer"
                 className="button learn-buttons is-danger"
               >
                 Learn more
@@ -81,20 +76,7 @@ const Welcome = () => {
               Are you a member?
             </Heading>
             <div className="is-grouped">
-              <Button
-                href="/auth/google"
-                color="dark"
-                renderAs="a"
-                size="medium"
-              >
-                Sign In
-              </Button>
-              <br />
-              <div>
-                <Button to="/signup" color="dark" renderAs={Link} size="medium">
-                  Sign Up
-                </Button>
-              </div>
+              <Login />
             </div>
           </div>
         </footer>

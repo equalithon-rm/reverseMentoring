@@ -56,12 +56,7 @@ class UserProfile extends Component {
             <Tile size={8} vertical>
               <Tile>
                 <Tile kind="parent">
-                  <Tile
-                    renderAs="article"
-                    kind="child"
-                    notification
-                    color="grey-light"
-                  >
+                  <Tile renderAs="article" kind="child" notification>
                     <Image size={128} src={user.imgUrl} />
                     <Heading>{user.fullName}</Heading>
                     <Heading subtitle>{user.currentPosition}</Heading>
