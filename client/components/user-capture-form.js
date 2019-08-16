@@ -1,10 +1,10 @@
 import React from 'react'
 import axios from 'axios'
-import SkillsList from './skills-list'
+import {SkillsListName, SkillsListBox} from './skills-list'
 import {connect} from 'react-redux'
 import {updateUser} from '../store/user'
 import history from '../history'
-import {Columns} from 'react-bulma-components/full'
+import {Columns, Table} from 'react-bulma-components/full'
 
 class UserCaptureForm extends React.Component {
   constructor(props) {
@@ -141,36 +141,50 @@ class UserCaptureForm extends React.Component {
               </div>
             </Columns.Column>
 
-            <Columns.Column>
-              <div htmlFor="skill">
-                <label>What skill(s) are you interested in?</label>
-                <div className="control">
-                  {this.state.skills.length ? (
-                    <SkillsList
-                      skills={this.state.skills}
-                      skillType="skillsInterestedIn"
-                    />
-                  ) : (
-                    false
-                  )}
-                </div>
-              </div>
-            </Columns.Column>
+            <Columns.Column className="skills">
+              <label>Select your Skills</label>
 
-            <Columns.Column>
-              <div className="field" htmlFor="skill">
-                <label>What skill(s) do you have?</label>
-                <div className="control">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Skills</th>
+                    <th>I am interesting in</th>
+                    <th>My Skills</th>
+                  </tr>
+                </thead>
+                <tbody>
                   {this.state.skills.length ? (
-                    <SkillsList
-                      skills={this.state.skills}
-                      skillType="currentSkills"
-                    />
+                    <td>
+                      {' '}
+                      <SkillsListName skills={this.state.skills} />{' '}
+                    </td>
                   ) : (
                     false
                   )}
-                </div>
-              </div>
+
+                  {this.state.skills.length ? (
+                    <td>
+                      <SkillsListBox
+                        skills={this.state.skills}
+                        skillType="skillsInterestedIn"
+                      />
+                    </td>
+                  ) : (
+                    false
+                  )}
+
+                  {this.state.skills.length ? (
+                    <td>
+                      <SkillsListBox
+                        skills={this.state.skills}
+                        skillType="currentSkills"
+                      />
+                    </td>
+                  ) : (
+                    false
+                  )}
+                </tbody>
+              </table>
 
               <Columns>
                 <div className="field is-grouped">
