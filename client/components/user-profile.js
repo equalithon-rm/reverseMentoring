@@ -127,7 +127,7 @@ class UserProfile extends Component {
                   <Button
                     to="/search"
                     renderAs={Link}
-                    size="medium"
+                    size="large"
                     color="dark"
                     className="flex-containee"
                   >
