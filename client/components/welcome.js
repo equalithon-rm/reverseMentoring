@@ -73,16 +73,7 @@ const Welcome = () => {
       <AboutHome />
 
       <Hero.Footer>
-        <footer className="footer">
-          <div className="has-text-centered container">
-            <Heading className="subtitle footer-text" size={5}>
-              Are you a member?
-            </Heading>
-            <div className="is-grouped">
-              <Login />
-            </div>
-          </div>
-        </footer>
+        <footer className="footer" />
       </Hero.Footer>
     </Hero>
   )

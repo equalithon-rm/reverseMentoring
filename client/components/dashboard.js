@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import {fetchMentees} from '../store/menteeReducer'
 import {connect} from 'react-redux'
-import {Link} from 'react-router-dom'
+import {NavLink} from 'react-router-dom'
 
 import {
   Section,
@@ -13,12 +13,7 @@ import {
 } from 'react-bulma-components/full'
 
 export class Dashboard extends Component {
-  // componentDidMount() {
-  //   this.props.fetchMentees()
-  // }
   render() {
-    // const {loading, mentees} = this.props
-
     return (
       <Section>
         <Box>
