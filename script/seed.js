@@ -41,21 +41,6 @@ async function seed() {
       SkillsInterestedIn: [{skillId: 2}]
     },
     {
-      firstName: 'Tal',
-      lastName: 'Luigi',
-      fullName: 'Tal Luigi',
-      email: 'tal@email.com',
-      imgUrl:
-        'https://journeypurebowlinggreen.com/wp-content/uploads/2018/05/placeholder-person.jpg',
-      gender: 'Male',
-      currentCompany: 'Essteem',
-      currentPosition: 'Full Stack Software Developer',
-      dateJoinedCompany: Date.now(),
-      bio: '1904 FSA-NY Graduate',
-      currentskills: [{skillId: 1}],
-      SkillsInterestedIn: [{skillId: 2}]
-    },
-    {
       firstName: 'Sam',
       lastName: 'Peach',
       fullName: 'Sam Peach',
