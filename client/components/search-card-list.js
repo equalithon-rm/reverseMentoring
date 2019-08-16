@@ -29,7 +29,9 @@ const SearchCardList = props => {
             <h5>{curUser.user.currentCompany}</h5>
             <p>{curUser.user.currentPosition}</p>
             <p>{curUser.user.bio}</p>
+
             <button
+              className="searchCardButton"
               type="button"
               onClick={evt => {
                 evt.target.disabled = true
@@ -52,7 +54,11 @@ const SearchCardList = props => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <button type="button" disabled={!curUser.user.calendlyUsername}>
+              <button
+                className="searchCardButton"
+                type="button"
+                disabled={!curUser.user.calendlyUsername}
+              >
                 Schedule a meeting on Calendly
               </button>
             </a>

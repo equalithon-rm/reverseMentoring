@@ -275,3 +275,10 @@ label {
   margin: 0;
   height: 0;
 }
+
+.searchCardButton {
+  background-color: #ffe168;
+  border-radius: 12px;
+  display: inline-block;
+  margin: 4px 2px;
+}
