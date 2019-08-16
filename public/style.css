@@ -102,11 +102,11 @@ footer.footer {
 
 div.is-grouped {
   display: inline-flex;
-  width: 200px;
-  margin-top: 50px;
-  align-items: center;
-  align-content: center;
-  padding-left: 50%;
+  width: 100%;
+  margin-top: 10px;
+  padding-right: 40%;
+
+  padding-left: 40%;
 }
 
 div.is-grouped a {
@@ -335,4 +335,22 @@ input[type='checkbox'] {
   /* Checkbox text */
   font-size: 100%;
   display: inline;
+}
+
+div .center {
+  margin-left: 50%;
+  margin-right: 30%;
+}
+
+.aboutBox .box {
+  background: transparent;
+  box-shadow: none;
+}
+
+.aboutBox img {
+  border-radius: 50%;
+}
+
+.aboutSection .section {
+  margin-top: -100px;
 }
