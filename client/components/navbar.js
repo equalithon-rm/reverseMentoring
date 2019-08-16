@@ -23,14 +23,14 @@ class NavbarMenu extends Component {
         <a href={isLoggedIn ? '/home' : '/'} alt="Main Page">
           <Navbar.Brand>
             <img src={require('./elevate.png')} width="160" height="160" />
-            <Navbar.Burger
-              onClick={this.navToggleClick}
-              active={String(this.state.active)}
-            />
           </Navbar.Brand>
         </a>
 
         <div className="Nav_mobile">
+          <Icon className="close" onClick={this.navToggleClick}>
+            {' '}
+            <span className="rbc rbc-bars" />
+          </Icon>
           {this.state.active ? (
             isLoggedIn ? (
               <div>
