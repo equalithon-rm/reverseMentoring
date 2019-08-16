@@ -35,7 +35,7 @@ export class Dashboard extends Component {
                     renderAs="article"
                     kind="child"
                     notification
-                    color="primary"
+                    color="warning"
                   >
                     {' '}
                     <Heading>Connect with a Mentor</Heading>
@@ -43,10 +43,10 @@ export class Dashboard extends Component {
                       <Button
                         to="/search"
                         renderAs={Link}
-                        color="light"
                         size="medium"
+                        color="dark"
                       >
-                        Search...
+                        Search
                       </Button>
                     </div>
                   </Tile>
