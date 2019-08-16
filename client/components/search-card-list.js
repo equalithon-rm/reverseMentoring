@@ -1,6 +1,7 @@
 import React from 'react'
 import {Content, Media, Box} from 'react-bulma-components'
 import axios from 'axios'
+import {Link} from 'react-router-dom'
 
 import {
   Section,
@@ -33,13 +34,15 @@ const SearchCardList = props => {
       <Media>
         <Media.Item>
           <Content>
-            <h3>{curUser.user.fullName}</h3>
+            <Link className="link-profile" to={`/connect/${curUser.user.id}`}>
+              <h3>{curUser.user.fullName}</h3>
+            </Link>
             <h5>{curUser.user.currentCompany}</h5>
             <p>{curUser.user.currentPosition}</p>
             <p>{curUser.user.bio}</p>
 
             {/* <button
-              className="searchCardButton"
+              className="searchCardButton button is-warning is-focused is-small is-rounded"
               type="button"
               onClick={evt => {
                 evt.target.disabled = true
@@ -85,7 +88,7 @@ const SearchCardList = props => {
               style={{textDecoration: 'none'}}
             >
               {/* <button
-                className="searchCardButton"
+                className="searchCardButton button is-warning is-focused is-small is-rounded"
                 type="button"
                 disabled={!curUser.user.calendlyUsername}
               >

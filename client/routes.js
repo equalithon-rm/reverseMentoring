@@ -41,6 +41,8 @@ class Routes extends Component {
             <Route path="/booking" component={Booking} />
             <Route path="/search" component={Search} />
             <Route path="/about" component={About} />
+            {/* <Route path="/user/:userId" component={SearchCardUserProfile}/>
+            <Route path="/profile/:senderId" component={UserProfile}/> */}
           </Switch>
         )}
         {/* Displays our Login component as a fallback */}

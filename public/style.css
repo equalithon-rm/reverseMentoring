@@ -278,6 +278,12 @@ label {
   height: 0;
 }
 
+
+.searchCardButton {
+  margin: 4px 2px;
+}
+
+
 .skills table {
   font-size: 1.2rem;
   margin: 0 1rem 0 1rem;
