@@ -56,9 +56,16 @@ class UserProfile extends Component {
             <Tile size={8} vertical>
               <Tile>
                 <Tile kind="parent">
-                  <Tile renderAs="article" kind="child" notification>
-                    <Image size={128} src={user.imgUrl} />
+                  <Tile
+                    renderAs="article"
+                    kind="child"
+                    notification
+                    color="warning"
+                  >
                     <Heading>{user.fullName}</Heading>
+                    <br />
+                    <Image size={128} src={user.imgUrl} />
+                    <br />
                     <Heading subtitle>{user.currentPosition}</Heading>
                     <Heading subtitle>{user.email}</Heading>
                     <Heading subtitle>#{user.gender}</Heading>
@@ -70,9 +77,9 @@ class UserProfile extends Component {
                     renderAs="article"
                     kind="child"
                     notification
-                    color="primary"
+                    color="warning"
                   >
-                    <Heading>I want to Learn...</Heading>
+                    <Heading>Seeking mentoring in:</Heading>
                     <ul>
                       {skillsInterestedIns ? (
                         skillsInterestedIns.map(curSkill => (
@@ -90,9 +97,9 @@ class UserProfile extends Component {
                     renderAs="article"
                     kind="child"
                     notification
-                    color="info"
+                    color="warning"
                   >
-                    <Heading>I can be a Mentor in</Heading>
+                    <Heading>Offering mentoring in:</Heading>
                     <ul>
                       {currentSkills ? (
                         currentSkills.map(curSkill => (
@@ -109,13 +116,20 @@ class UserProfile extends Component {
               </Tile>
 
               <Tile kind="parent">
-                <Tile renderAs="article" kind="child" notification color="dark">
-                  <Heading>Find a Mentor</Heading>
+                <Tile
+                  renderAs="article"
+                  kind="child"
+                  notification
+                  color="warning"
+                  className="flex-container"
+                >
+                  <Heading className="flex-containee">Find a Mentor</Heading>
                   <Button
                     to="/search"
                     renderAs={Link}
-                    color="danger"
                     size="large"
+                    color="dark"
+                    className="flex-containee"
                   >
                     Learn something new!
                   </Button>
@@ -132,9 +146,17 @@ class UserProfile extends Component {
               >
                 <div className="content">
                   <Heading>About Me</Heading>
-                  <Heading subtitle>{user.bio}</Heading>
                   <hr />
-                  <div className="content">In Elevate since: {sinceDate}</div>
+                  <div>{user.bio}</div>
+                  <br />
+                  <div className="content">
+                    Working at {user.currentCompany} since:{' '}
+                    {user.dateJoinedCurrentCompany ? (
+                      user.dateJoinedCurrentCompany.slice(0, 10)
+                    ) : (
+                      <div>Loading start date..</div>
+                    )}.
+                  </div>
                 </div>
               </Tile>
             </Tile>

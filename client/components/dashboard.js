@@ -13,12 +13,7 @@ import {
 } from 'react-bulma-components/full'
 
 export class Dashboard extends Component {
-  // componentDidMount() {
-  //   this.props.fetchMentees()
-  // }
   render() {
-    // const {loading, mentees} = this.props
-
     return (
       <Section>
         <Box>
