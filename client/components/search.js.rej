@@ -1,0 +1,51 @@
+diff a/client/components/search.js b/client/components/search.js	(rejected hunks)
+@@ -71,24 +70,25 @@ export class Search extends Component {
+-                <div className="field">
+-                  <div className="control">
+-                    <div className="select is-info">
+-                      <select
+-                        onChange={this.handleChange}
+-                        id="selectedSkillId"
+-                        required
+-                        className="flex-containee"
+-                      >
+-                        <option value="" disabled className="flex-containee">
+-                          --Please choose an option--
+-                        </option>
+-                        {this.props.allSkills.length
+-                          ? this.props.allSkills.map(curSkill => (
+-                              <option
+-                                key={curSkill.id}
+-                                value={curSkill.id}
+-                                className="flex-containee"
+-                              >
+-                                {curSkill.name}
+-                              </option>
+-                            ))
+-                          : null}
+-                      </select>
++                  <div className="field">
++                    <div className="control">
++                      <div className="select is-info">
++                        <select
++                          onChange={this.handleChange}
++                          id="selectedSkillId"
++                          required
++                          className="flex-containee"
++                        >
++                          <option value="" disabled className="flex-containee">
++                            --Please choose an option--
++                          </option>
++                          {this.props.allSkills.length
++                            ? this.props.allSkills.map(curSkill => (
++                                <option
++                                  key={curSkill.id}
++                                  value={curSkill.id}
++                                  className="flex-containee"
++                                >
++                                  {curSkill.name}
++                                </option>
++                              ))
++                            : null}
++                        </select>
++                      </div>
