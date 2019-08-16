@@ -31,10 +31,7 @@ export default class About extends Component {
                     >
                       <Heading>Madinah S. Ali</Heading>
                       <Heading className="subtitle">Mentor</Heading>
-                      <Image
-                        size="1by1"
-                        src="https://equalithon-team-elevate.s3.amazonaws.com/madinah.jpg"
-                      />
+                      <Image size="1by1" src="./img/madinah.jpg" />
                     </Tile>
 
                     <Tile
@@ -47,10 +44,7 @@ export default class About extends Component {
                       <Heading className="subtitle">
                         Fullstack Developer
                       </Heading>
-                      <Image
-                        size="1by1"
-                        src="https://equalithon-team-elevate.s3.amazonaws.com/linda.jpg"
-                      />
+                      <Image size="1by1" src="./img/linda.jpg" />
                     </Tile>
                   </Tile>
 
@@ -65,10 +59,7 @@ export default class About extends Component {
                       <Heading className="subtitle">
                         Fullstack Developer
                       </Heading>
-                      <Image
-                        size="1by1"
-                        src="https://equalithon-team-elevate.s3.amazonaws.com/macarena_crop.png"
-                      />
+                      <Image size="1by1" src="./img/macarena.png" />
                     </Tile>
 
                     <Tile
@@ -81,10 +72,7 @@ export default class About extends Component {
                       <Heading className="subtitle">
                         Fullstack Developer
                       </Heading>
-                      <Image
-                        size="1by1"
-                        src="https://equalithon-team-elevate.s3.amazonaws.com/tal.jpg"
-                      />
+                      <Image size="1by1" src="./img/tal.jpg" />
                     </Tile>
                   </Tile>
 
@@ -99,10 +87,7 @@ export default class About extends Component {
                       <Heading className="subtitle">
                         Fullstack Developer
                       </Heading>
-                      <Image
-                        size="1by1"
-                        src="https://equalithon-team-elevate.s3.amazonaws.com/jocelyn.jpg"
-                      />
+                      <Image size="1by1" src="./img/jocelyn.jpg" />
                     </Tile>
 
                     <Tile
@@ -115,10 +100,7 @@ export default class About extends Component {
                       <Heading className="subtitle">
                         Fullstack Developer
                       </Heading>
-                      <Image
-                        size="1by1"
-                        src="https://equalithon-team-elevate.s3.amazonaws.com/sam.jpg"
-                      />
+                      <Image size="1by1" src="./img/sam.jpg" />
                     </Tile>
                   </Tile>
                 </Tile>
