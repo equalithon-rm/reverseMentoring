@@ -23,29 +23,6 @@ class UserProfile extends Component {
     const {loading, user} = this.props
     const currentSkills = this.props.user.currentSkills
     const skillsInterestedIns = this.props.user.skillsInterestedIns
-    let sinceDate = ''
-
-    // Format  the date //
-    if (user.createdAt) {
-      const months = [
-        'January',
-        'February',
-        'March',
-        'April',
-        'May',
-        'June',
-        'July',
-        'August',
-        'September',
-        'October',
-        'November',
-        'December'
-      ]
-      const d = user.createdAt.split('-')
-      const month = Number(d[1])
-      const year = d[0]
-      sinceDate = months[month] + ', ' + year
-    }
 
     if (loading) return <div>Loading...</div>
 
@@ -56,9 +33,16 @@ class UserProfile extends Component {
             <Tile size={8} vertical>
               <Tile>
                 <Tile kind="parent">
-                  <Tile renderAs="article" kind="child" notification>
-                    <Image size={128} src={user.imgUrl} />
+                  <Tile
+                    renderAs="article"
+                    kind="child"
+                    notification
+                    color="warning"
+                  >
                     <Heading>{user.fullName}</Heading>
+                    <br />
+                    <Image size={128} src={user.imgUrl} />
+                    <br />
                     <Heading subtitle>{user.currentPosition}</Heading>
                     <Heading subtitle>{user.email}</Heading>
                     <Heading subtitle>#{user.gender}</Heading>
@@ -70,9 +54,9 @@ class UserProfile extends Component {
                     renderAs="article"
                     kind="child"
                     notification
-                    color="primary"
+                    color="warning"
                   >
-                    <Heading>I want to Learn...</Heading>
+                    <Heading>Seeking mentoring in:</Heading>
                     <ul>
                       {skillsInterestedIns ? (
                         skillsInterestedIns.map(curSkill => (
@@ -90,9 +74,9 @@ class UserProfile extends Component {
                     renderAs="article"
                     kind="child"
                     notification
-                    color="info"
+                    color="warning"
                   >
-                    <Heading>I can be a Mentor in</Heading>
+                    <Heading>Offering mentoring in:</Heading>
                     <ul>
                       {currentSkills ? (
                         currentSkills.map(curSkill => (
@@ -114,8 +98,9 @@ class UserProfile extends Component {
                   <Button
                     to="/search"
                     renderAs={Link}
-                    color="danger"
-                    size="medium"
+                    size="large"
+                    color="warning"
+                    className="center"
                   >
                     Learn something new!
                   </Button>
@@ -132,9 +117,17 @@ class UserProfile extends Component {
               >
                 <div className="content">
                   <Heading>About Me</Heading>
-                  <Heading subtitle>{user.bio}</Heading>
                   <hr />
-                  <div className="content">In Elevate since: {sinceDate}</div>
+                  <div>{user.bio}</div>
+                  <br />
+                  <div className="content">
+                    Working at {user.currentCompany} since:{' '}
+                    {user.dateJoinedCurrentCompany ? (
+                      user.dateJoinedCurrentCompany.slice(0, 10)
+                    ) : (
+                      <div>Loading start date..</div>
+                    )}.
+                  </div>
                 </div>
               </Tile>
             </Tile>

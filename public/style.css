@@ -8,23 +8,14 @@ body {
 a {
   text-decoration: none;
 }
-
+/*
 label {
   display: block;
-}
+} */
 
 nav a {
   display: inline-block;
   margin: 1em;
-}
-
-/* Form styling */
-.form {
-  padding: 50px;
-}
-
-.control input {
-  max-width: 300px;
 }
 
 /* Navbar styling */
@@ -33,7 +24,8 @@ div.navbar-brand {
 }
 
 nav.navbar {
-  background: #ebdc69;
+  background: #ffdd57;
+  height: 150px;
 }
 
 div.navbar-menu.is-active {
@@ -47,7 +39,7 @@ div.navbar-menu.is-active {
 
 /* Hero welcome banner styling */
 section.hero {
-  background-image: url('https://random-stuff-123.s3-us-west-2.amazonaws.com/professional_woman_bkgrd.png');
+  background-image: url('https://equalithon-team-elevate.s3.amazonaws.com/professional_woman_bkgrd.png');
 }
 
 h1.title {
@@ -105,16 +97,25 @@ div.field-body {
 /* Footer styling */
 footer.footer {
   width: 100%;
-  background: #ebdc69;
+  background: #ffdd57;
   padding: 50px 25px;
 }
 
 div.is-grouped {
   display: inline-flex;
+  width: 100%;
+  margin-top: 10px;
+  padding-right: 40%;
+
+  padding-left: 40%;
 }
 
 div.is-grouped a {
   margin: 5px;
+}
+
+.mentoringImg {
+  max-width: 1012px;
 }
 
 @media (min-width: 1087px) {
@@ -169,4 +170,195 @@ div.is-grouped a {
   transform: translate(0%, -50%);
   background: rgb(67, 66, 66);
   color: white;
+}
+
+/* Form Style */
+
+label {
+  font-size: 1.2rem;
+  text-align: left;
+}
+
+.form-content {
+  padding: 0rem 1rem 0 1rem;
+}
+
+.form-content div {
+  padding-top: 0.5rem;
+}
+
+/* Hide the browser's default radio button */
+.container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+/* Form styling */
+.form {
+  padding: 1rem;
+}
+
+.controlRadio input {
+  margin: 1rem;
+  cursor: pointer;
+}
+
+.control input {
+  width: 90%;
+  font-size: 1rem;
+  height: 2.5rem;
+  border-color: none;
+  border: none;
+  border-radius: 5px;
+  background: #0000008c;
+  color: white;
+  padding: 1rem;
+}
+
+.control .checkbox input {
+  width: auto;
+  font-size: auto;
+  height: 1.5rem;
+  border-color: none;
+  border: none;
+  border-radius: 5px;
+
+  margin-right: 1.5rem;
+  padding: 1.5rem;
+}
+
+::placeholder {
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: whitesmoke;
+  opacity: 1; /* Firefox */
+  padding: 1rem;
+  margin: 1rem;
+}
+
+:-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
+  color: whitesmoke;
+  padding: 1rem;
+  margin: 1rem;
+}
+
+::-ms-input-placeholder {
+  /* Microsoft Edge */
+  color: whitesmoke;
+  padding: 1rem;
+  margin: 1rem;
+}
+
+.control .small div input {
+  max-width: 76.5%;
+  width: 65.5%;
+}
+
+.control textarea {
+  width: 90%;
+  height: 300px;
+  font-size: 1rem;
+  padding: 1rem;
+  border-color: none;
+  border: none;
+  border-radius: 5px;
+  background: #0000008c;
+  color: white;
+}
+
+.control input .checkbox {
+  margin: 0;
+  height: auto;
+}
+
+.checkbox {
+  padding: 0;
+  margin: 0;
+  height: 0;
+}
+
+
+.searchCardButton {
+  margin: 4px 2px;
+}
+
+
+.skills table {
+  font-size: 1.2rem;
+  margin: 0 1rem 0 1rem;
+  border: #0000008c 20px solid;
+  border-radius: 5px;
+  border-collapse: inherit;
+  background: #7878781d;
+  color: whitesmoke;
+}
+
+.skills tbody,
+.skills thead {
+  background: #0000008c;
+  font-size: 1.2rem;
+  border-bottom: 2px white solid;
+  text-align: center;
+}
+
+.skills label {
+  margin: 1rem;
+}
+
+.skills td {
+  color: whitesmoke;
+  padding-right: 1.5rem;
+}
+
+table thead th {
+  padding: 0 1.2rem 1.5rem 1.2rem;
+  font-size: 1rem;
+  border-bottom: 2px white solid;
+  color: whitesmoke;
+}
+
+thead tr {
+  text-align: center;
+}
+
+.skills table td .checkBox {
+  size: 20px;
+  margin-left: 40%;
+  margin-right: 40%;
+}
+
+input[type='checkbox'] {
+  /* Double-sized Checkboxes */
+  -ms-transform: scale(1.5); /* IE */
+  -moz-transform: scale(1.5); /* FF */
+  -webkit-transform: scale(1.5); /* Safari and Chrome */
+  -o-transform: scale(1.5); /* Opera */
+  transform: scale(1.5);
+  padding: 10px;
+}
+
+/* Might want to wrap a span around your checkbox text */
+.checkboxtext {
+  /* Checkbox text */
+  font-size: 100%;
+  display: inline;
+}
+
+div .center {
+  margin-left: 50%;
+  margin-right: 30%;
+}
+
+.aboutBox .box {
+  background: transparent;
+  box-shadow: none;
+}
+
+.aboutBox img {
+  border-radius: 50%;
+}
+
+.aboutSection .section {
+  margin-top: -100px;
 }

@@ -1,10 +1,10 @@
 import React from 'react'
-import {Login} from '../components'
+import {Login, AboutHome} from '../components'
 import {Hero, Heading} from 'react-bulma-components/full'
 
 const Welcome = () => {
   return (
-    <Hero size="fullheight">
+    <Hero size="fullheight" className="aboutSection">
       <Hero.Head renderAs="header">
         <Heading className="hero-title" size={1}>
           Welcome to Elevate{' '}
@@ -13,6 +13,7 @@ const Welcome = () => {
           A reverse mentoring app.
         </Heading>
       </Hero.Head>
+      <br />
       <Hero.Body>
         <div className="columns">
           <div className="column">
@@ -69,17 +70,11 @@ const Welcome = () => {
           </div>
         </div>
       </Hero.Body>
+
+      <AboutHome />
+
       <Hero.Footer>
-        <footer className="footer">
-          <div className="has-text-centered container">
-            <Heading className="subtitle footer-text" size={5}>
-              Are you a member?
-            </Heading>
-            <div className="is-grouped">
-              <Login />
-            </div>
-          </div>
-        </footer>
+        <footer className="footer" />
       </Hero.Footer>
     </Hero>
   )

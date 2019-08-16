@@ -14,7 +14,7 @@ const FooterBar = () => {
           href="https://www.essteem.com/"
           target="_blank"
         >
-          Esteem Equalithon
+          Essteem Equalithon
         </a>
       </Heading>
     </footer>

@@ -20,15 +20,17 @@ class NavbarMenu extends Component {
     const {handleClick, isLoggedIn} = this.props
     return (
       <Navbar role="navigation" aria-label="main navigation">
-        <Navbar.Brand>
-          <img src={require('./elevate.png')} width="160" height="160" />
-          <Navbar.Burger
-            onClick={this.navToggleClick}
-            active={String(this.state.active)}
-          />
-        </Navbar.Brand>
+        <a href={isLoggedIn ? '/home' : '/'} alt="Main Page">
+          <Navbar.Brand>
+            <img src={require('./elevate.png')} width="160" height="160" />
+          </Navbar.Brand>
+        </a>
 
         <div className="Nav_mobile">
+          <Icon className="close" onClick={this.navToggleClick}>
+            {' '}
+            <span className="rbc rbc-bars" />
+          </Icon>
           {this.state.active ? (
             isLoggedIn ? (
               <div>
@@ -45,6 +47,9 @@ class NavbarMenu extends Component {
                   </Link>
                   <Link to="/search" onClick={this.navToggleClick}>
                     Search
+                  </Link>
+                  <Link to="/about" onClick={this.navToggleClick}>
+                    About
                   </Link>
                   <Link to="" onClick={handleClick}>
                     Logout
@@ -73,6 +78,7 @@ class NavbarMenu extends Component {
                 renderAs={Link}
                 className="is-text"
                 size="medium"
+                style={{textDecoration: 'none'}}
               >
                 Home
               </Button>
@@ -82,6 +88,7 @@ class NavbarMenu extends Component {
                 renderAs={Link}
                 className="is-text"
                 size="medium"
+                style={{textDecoration: 'none'}}
               >
                 Profile
               </Button>
@@ -91,14 +98,30 @@ class NavbarMenu extends Component {
                 renderAs={Link}
                 className="is-text"
                 size="medium"
+                style={{textDecoration: 'none'}}
               >
                 Search
+              </Button>
+
+              <Button
+                to="/about"
+                renderAs={Link}
+                className="is-text"
+                size="medium"
+                style={{textDecoration: 'none'}}
+              >
+                About
               </Button>
             </Navbar.Container>
 
             <Navbar.Container position="end">
-              <Navbar.Item onClick={handleClick}>
-                <Button color="dark" size="medium">
+              <Navbar.Item style={{height: '100px'}} backgroundColor="warning">
+                <Button
+                  onClick={handleClick}
+                  color="dark"
+                  size="medium"
+                  className="button"
+                >
                   Logout
                 </Button>
               </Navbar.Item>
