@@ -23,29 +23,6 @@ class UserProfile extends Component {
     const {loading, user} = this.props
     const currentSkills = this.props.user.currentSkills
     const skillsInterestedIns = this.props.user.skillsInterestedIns
-    let sinceDate = ''
-
-    // Format  the date //
-    if (user.createdAt) {
-      const months = [
-        'January',
-        'February',
-        'March',
-        'April',
-        'May',
-        'June',
-        'July',
-        'August',
-        'September',
-        'October',
-        'November',
-        'December'
-      ]
-      const d = user.createdAt.split('-')
-      const month = Number(d[1])
-      const year = d[0]
-      sinceDate = months[month] + ', ' + year
-    }
 
     if (loading) return <div>Loading...</div>
 
@@ -116,20 +93,14 @@ class UserProfile extends Component {
               </Tile>
 
               <Tile kind="parent">
-                <Tile
-                  renderAs="article"
-                  kind="child"
-                  notification
-                  color="warning"
-                  className="flex-container"
-                >
-                  <Heading className="flex-containee">Find a Mentor</Heading>
+                <Tile renderAs="article" kind="child" notification color="dark">
+                  <Heading>Find a Mentor</Heading>
                   <Button
                     to="/search"
                     renderAs={Link}
                     size="large"
-                    color="dark"
-                    className="flex-containee"
+                    color="warning"
+                    className="center"
                   >
                     Learn something new!
                   </Button>

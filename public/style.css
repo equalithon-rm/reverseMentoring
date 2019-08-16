@@ -25,6 +25,7 @@ div.navbar-brand {
 
 nav.navbar {
   background: #ffdd57;
+  height: 150px;
 }
 
 div.navbar-menu.is-active {
@@ -112,6 +113,7 @@ div.is-grouped {
 div.is-grouped a {
   margin: 5px;
 }
+
 .mentoringImg {
   max-width: 1012px;
 }

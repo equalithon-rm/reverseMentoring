@@ -13,6 +13,7 @@ const Welcome = () => {
           A reverse mentoring app.
         </Heading>
       </Hero.Head>
+      <br />
       <Hero.Body>
         <div className="columns">
           <div className="column">

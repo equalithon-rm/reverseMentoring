@@ -6,7 +6,7 @@ export const SkillsListName = props => {
     <div>
       {skills.length
         ? skills.map(skill => {
-            return <tr key={skill.id}> • {skill.name}</tr>
+            return <tr key={skill.id}> {skill.name}</tr>
           })
         : ''}
     </div>

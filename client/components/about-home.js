@@ -66,7 +66,7 @@ export default class AboutHome extends Component {
       <Section className="aboutBox">
         <Box>
           <Heading className="hero-title" size={1}>
-            Elevate Team
+            The Elevate Team
           </Heading>
 
           <Columns>
