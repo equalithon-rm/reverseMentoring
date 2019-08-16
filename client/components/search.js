@@ -102,7 +102,7 @@ export class Search extends Component {
               </div>
 
               <div className="column">
-                <figure className="image center">
+                <figure className="image">
                   <img src="/img/mentoring.png" className="mentoringImg" />
                 </figure>
               </div>
