@@ -11,7 +11,7 @@ import {
   Booking,
   Search,
   Welcome,
-  About
+  AboutHome
 } from './components'
 import {me} from './store'
 
@@ -40,7 +40,7 @@ class Routes extends Component {
             <Route path="/dashboard" component={Dashboard} />
             <Route path="/booking" component={Booking} />
             <Route path="/search" component={Search} />
-            <Route path="/about" component={About} />
+            <Route path="/about" component={AboutHome} />
             {/* <Route path="/user/:userId" component={SearchCardUserProfile}/>
             <Route path="/profile/:senderId" component={UserProfile}/> */}
           </Switch>
