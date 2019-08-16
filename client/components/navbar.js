@@ -115,8 +115,13 @@ class NavbarMenu extends Component {
             </Navbar.Container>
 
             <Navbar.Container position="end">
-              <Navbar.Item onClick={handleClick}>
-                <Button color="dark" size="medium">
+              <Navbar.Item style={{height: '100px'}} backgroundColor="warning">
+                <Button
+                  onClick={handleClick}
+                  color="dark"
+                  size="medium"
+                  className="button"
+                >
                   Logout
                 </Button>
               </Navbar.Item>

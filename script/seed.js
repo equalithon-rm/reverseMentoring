@@ -35,7 +35,7 @@ async function seed() {
       gender: 'Female',
       currentCompany: 'Essteem',
       currentPosition: 'Full Stack Software Developer',
-      dateJoinedCompany: Date.now(),
+      dateJoinedCurrentCompany: Date.now(),
       bio: '1902 GH-NY Graduate',
       currentskills: [{skillId: 1}],
       SkillsInterestedIn: [{skillId: 2}]
@@ -50,7 +50,7 @@ async function seed() {
       gender: 'Female',
       currentCompany: 'Essteem',
       currentPosition: 'Full Stack Software Developer',
-      dateJoinedCompany: Date.now(),
+      dateJoinedCurrentCompany: Date.now(),
       bio: '1902 GH-NY Graduate',
       currentskills: [{skillId: 1}],
       SkillsInterestedIn: [{skillId: 2}]
@@ -65,7 +65,7 @@ async function seed() {
       gender: 'Female',
       currentCompany: 'Essteem',
       currentPosition: 'Full Stack Software Developer',
-      dateJoinedCompany: Date.now(),
+      dateJoinedCurrentCompany: Date.now(),
       bio: 'GA Student',
       currentskills: [{skillId: 1}],
       SkillsInterestedIn: [{skillId: 2}]
@@ -80,7 +80,7 @@ async function seed() {
       gender: 'Male',
       currentCompany: 'Essteem',
       currentPosition: 'Full Stack Software Developer',
-      dateJoinedCompany: Date.now(),
+      dateJoinedCurrentCompany: Date.now(),
       bio: '1904 FSA-NY Graduate',
       currentskills: [{skillId: 1}],
       SkillsInterestedIn: [{skillId: 2}]

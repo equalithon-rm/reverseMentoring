@@ -24,7 +24,7 @@ div.navbar-brand {
 }
 
 nav.navbar {
-  background: #ebdc69;
+  background: #ffdd57;
 }
 
 div.navbar-menu.is-active {
@@ -96,7 +96,7 @@ div.field-body {
 /* Footer styling */
 footer.footer {
   width: 100%;
-  background: #ebdc69;
+  background: #ffdd57;
   padding: 50px 25px;
 }
 
