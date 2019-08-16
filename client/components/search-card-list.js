@@ -34,7 +34,11 @@ const SearchCardList = props => {
       <Media>
         <Media.Item>
           <Content>
-            <Link className="link-profile" to={`/connect/${curUser.user.id}`}>
+            <Link
+              className="link-profile"
+              style={{textDecoration: 'none'}}
+              to={`/connect/${curUser.user.id}`}
+            >
               <h3>{curUser.user.fullName}</h3>
             </Link>
             <h5>{curUser.user.currentCompany}</h5>
