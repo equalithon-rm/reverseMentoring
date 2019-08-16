@@ -19,39 +19,39 @@ export default class AboutHome extends Component {
           <Columns>
             <Columns.Column size={2}>
               {' '}
-              <Image src="https://equalithon-team-elevate.s3.amazonaws.com/madinah.jpg" />
+              <Image src="./img/madinah.jpg" />
               <Heading size={5}>Madinah S. Ali</Heading>
               <Heading className="subtitle">Mentor</Heading>
             </Columns.Column>
 
             <Columns.Column size={2}>
               {' '}
-              <Image src="https://equalithon-team-elevate.s3.amazonaws.com/linda.jpg" />
+              <Image src="./img/linda.jpg" />
               <Heading size={5}>Linda Saraguro</Heading>
               <Heading className="subtitle">Fullstack Developer</Heading>
             </Columns.Column>
             <Columns.Column size={2}>
               {' '}
-              <Image src="https://equalithon-team-elevate.s3.amazonaws.com/macarena_crop.png" />
+              <Image src="./img/macarena.jpeg" />
               <Heading size={5}>Macarena Carreno</Heading>
               <Heading className="subtitle">Fullstack Developer</Heading>
             </Columns.Column>
             <Columns.Column size={2}>
               {' '}
-              <Image src="https://equalithon-team-elevate.s3.amazonaws.com/tal.jpg" />
+              <Image src="./img/tal.jpg" />
               <Heading size={5}>Tal Luigi</Heading>
               <Heading className="subtitle">Fullstack Developer</Heading>
             </Columns.Column>
 
             <Columns.Column size={2}>
               {' '}
-              <Image src="https://equalithon-team-elevate.s3.amazonaws.com/jocelyn.jpg" />
+              <Image src="./img/jocelyn.jpg" />
               <Heading size={5}>Jocelyn Jeriah</Heading>
               <Heading className="subtitle">Fullstack Developer</Heading>
             </Columns.Column>
             <Columns.Column size={2}>
               {' '}
-              <Image src="https://equalithon-team-elevate.s3.amazonaws.com/sam.jpg" />
+              <Image src="./img/sam.jpg" />
               <Heading size={5}>Sam Peach</Heading>
               <Heading className="subtitle">Fullstack Developer</Heading>
             </Columns.Column>
