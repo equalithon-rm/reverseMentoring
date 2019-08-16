@@ -59,7 +59,7 @@ export default class About extends Component {
                       <Heading className="subtitle">
                         Fullstack Developer
                       </Heading>
-                      <Image size="1by1" src="./img/macarena.png" />
+                      <Image size="1by1" src="./img/macarena.jpeg" />
                     </Tile>
 
                     <Tile
