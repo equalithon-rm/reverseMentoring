@@ -20,13 +20,15 @@ class NavbarMenu extends Component {
     const {handleClick, isLoggedIn} = this.props
     return (
       <Navbar role="navigation" aria-label="main navigation">
-        <Navbar.Brand>
-          <img src={require('./elevate.png')} width="160" height="160" />
-          <Navbar.Burger
-            onClick={this.navToggleClick}
-            active={String(this.state.active)}
-          />
-        </Navbar.Brand>
+        <a href={isLoggedIn ? '/home' : '/'} alt="Main Page">
+          <Navbar.Brand>
+            <img src={require('./elevate.png')} width="160" height="160" />
+            <Navbar.Burger
+              onClick={this.navToggleClick}
+              active={String(this.state.active)}
+            />
+          </Navbar.Brand>
+        </a>
 
         <div className="Nav_mobile">
           {this.state.active ? (
@@ -76,6 +78,7 @@ class NavbarMenu extends Component {
                 renderAs={Link}
                 className="is-text"
                 size="medium"
+                style={{textDecoration: 'none'}}
               >
                 Home
               </Button>
@@ -85,6 +88,7 @@ class NavbarMenu extends Component {
                 renderAs={Link}
                 className="is-text"
                 size="medium"
+                style={{textDecoration: 'none'}}
               >
                 Profile
               </Button>
@@ -94,6 +98,7 @@ class NavbarMenu extends Component {
                 renderAs={Link}
                 className="is-text"
                 size="medium"
+                style={{textDecoration: 'none'}}
               >
                 Search
               </Button>
@@ -103,6 +108,7 @@ class NavbarMenu extends Component {
                 renderAs={Link}
                 className="is-text"
                 size="medium"
+                style={{textDecoration: 'none'}}
               >
                 About
               </Button>

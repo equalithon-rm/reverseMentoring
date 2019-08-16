@@ -41,17 +41,17 @@ async function seed() {
       SkillsInterestedIn: [{skillId: 2}]
     },
     {
-      firstName: 'Sam',
-      lastName: 'Peach',
-      fullName: 'Sam Peach',
-      email: 'sam@email.com',
+      firstName: 'Linda',
+      lastName: 'Saraguro',
+      fullName: 'Linda Saraguro',
+      email: 'linda@email.com',
       imgUrl:
         'https://journeypurebowlinggreen.com/wp-content/uploads/2018/05/placeholder-person.jpg',
-      gender: 'Male',
+      gender: 'Female',
       currentCompany: 'Essteem',
       currentPosition: 'Full Stack Software Developer',
       dateJoinedCompany: Date.now(),
-      bio: '1904 FSA-NY Graduate',
+      bio: '1902 GH-NY Graduate',
       currentskills: [{skillId: 1}],
       SkillsInterestedIn: [{skillId: 2}]
     },
@@ -71,17 +71,17 @@ async function seed() {
       SkillsInterestedIn: [{skillId: 2}]
     },
     {
-      firstName: 'Linda',
-      lastName: 'Saraguro',
-      fullName: 'Linda Saraguro',
-      email: 'linda@email.com',
+      firstName: 'Sam',
+      lastName: 'Peach',
+      fullName: 'Sam Peach',
+      email: 'sam@email.com',
       imgUrl:
         'https://journeypurebowlinggreen.com/wp-content/uploads/2018/05/placeholder-person.jpg',
-      gender: 'Female',
+      gender: 'Male',
       currentCompany: 'Essteem',
       currentPosition: 'Full Stack Software Developer',
       dateJoinedCompany: Date.now(),
-      bio: '1902 GH-NY Graduate',
+      bio: '1904 FSA-NY Graduate',
       currentskills: [{skillId: 1}],
       SkillsInterestedIn: [{skillId: 2}]
     }
