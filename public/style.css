@@ -102,11 +102,11 @@ footer.footer {
 
 div.is-grouped {
   display: inline-flex;
-  width: 200px;
-  margin-top: 50px;
-  align-items: center;
-  align-content: center;
-  padding-left: 50%;
+  width: 100%;
+  margin-top: 10px;
+  padding-right: 40%;
+
+  padding-left: 40%;
 }
 
 div.is-grouped a {
@@ -274,4 +274,83 @@ label {
   padding: 0;
   margin: 0;
   height: 0;
+}
+
+.skills table {
+  font-size: 1.2rem;
+  margin: 0 1rem 0 1rem;
+  border: #0000008c 20px solid;
+  border-radius: 5px;
+  border-collapse: inherit;
+  background: #7878781d;
+  color: whitesmoke;
+}
+
+.skills tbody,
+.skills thead {
+  background: #0000008c;
+  font-size: 1.2rem;
+  border-bottom: 2px white solid;
+  text-align: center;
+}
+
+.skills label {
+  margin: 1rem;
+}
+
+.skills td {
+  color: whitesmoke;
+  padding-right: 1.5rem;
+}
+
+table thead th {
+  padding: 0 1.2rem 1.5rem 1.2rem;
+  font-size: 1rem;
+  border-bottom: 2px white solid;
+  color: whitesmoke;
+}
+
+thead tr {
+  text-align: center;
+}
+
+.skills table td .checkBox {
+  size: 20px;
+  margin-left: 40%;
+  margin-right: 40%;
+}
+
+input[type='checkbox'] {
+  /* Double-sized Checkboxes */
+  -ms-transform: scale(1.5); /* IE */
+  -moz-transform: scale(1.5); /* FF */
+  -webkit-transform: scale(1.5); /* Safari and Chrome */
+  -o-transform: scale(1.5); /* Opera */
+  transform: scale(1.5);
+  padding: 10px;
+}
+
+/* Might want to wrap a span around your checkbox text */
+.checkboxtext {
+  /* Checkbox text */
+  font-size: 100%;
+  display: inline;
+}
+
+div .center {
+  margin-left: 50%;
+  margin-right: 30%;
+}
+
+.aboutBox .box {
+  background: transparent;
+  box-shadow: none;
+}
+
+.aboutBox img {
+  border-radius: 50%;
+}
+
+.aboutSection .section {
+  margin-top: -100px;
 }

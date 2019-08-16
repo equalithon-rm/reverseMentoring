@@ -115,7 +115,7 @@ class UserProfile extends Component {
                     to="/search"
                     renderAs={Link}
                     color="danger"
-                    size="medium"
+                    size="large"
                   >
                     Learn something new!
                   </Button>
