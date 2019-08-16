@@ -29,7 +29,7 @@ async function seed() {
       firstName: 'Macarena',
       lastName: 'Carreno',
       fullName: 'Macarena Carreno',
-      email: 'macarena@macarena.com',
+      email: 'macarena@email.com',
       imgUrl:
         'https://journeypurebowlinggreen.com/wp-content/uploads/2018/05/placeholder-person.jpg',
       gender: 'Female',
@@ -44,7 +44,7 @@ async function seed() {
       firstName: 'Tal',
       lastName: 'Luigi',
       fullName: 'Tal Luigi',
-      email: 'tal@tal.com',
+      email: 'tal@email.com',
       imgUrl:
         'https://journeypurebowlinggreen.com/wp-content/uploads/2018/05/placeholder-person.jpg',
       gender: 'Male',
@@ -59,7 +59,7 @@ async function seed() {
       firstName: 'Sam',
       lastName: 'Peach',
       fullName: 'Sam Peach',
-      email: 'sam@sam.com',
+      email: 'sam@email.com',
       imgUrl:
         'https://journeypurebowlinggreen.com/wp-content/uploads/2018/05/placeholder-person.jpg',
       gender: 'Male',
@@ -71,25 +71,10 @@ async function seed() {
       SkillsInterestedIn: [{skillId: 2}]
     },
     {
-      firstName: 'Arianna',
-      lastName: 'Choza',
-      fullName: 'Arianna Choza',
-      email: 'arianna@arianna.com',
-      imgUrl:
-        'https://journeypurebowlinggreen.com/wp-content/uploads/2018/05/placeholder-person.jpg',
-      gender: 'Female',
-      currentCompany: 'Essteem',
-      currentPosition: 'Front End Software Developer',
-      dateJoinedCompany: Date.now(),
-      bio: 'GA Graduate',
-      currentskills: [{skillId: 1}],
-      SkillsInterestedIn: [{skillId: 2}]
-    },
-    {
       firstName: 'Jocelyn',
       lastName: 'Jeriah',
       fullName: 'Jocelyn Jeriah',
-      email: 'jj@jj.com',
+      email: 'jocelyn@email.com',
       imgUrl:
         'https://journeypurebowlinggreen.com/wp-content/uploads/2018/05/placeholder-person.jpg',
       gender: 'Female',
@@ -104,7 +89,7 @@ async function seed() {
       firstName: 'Linda',
       lastName: 'Saraguro',
       fullName: 'Linda Saraguro',
-      email: 'linda@linda.com',
+      email: 'linda@email.com',
       imgUrl:
         'https://journeypurebowlinggreen.com/wp-content/uploads/2018/05/placeholder-person.jpg',
       gender: 'Female',
@@ -117,7 +102,7 @@ async function seed() {
     }
   ]
 
-  const seedCurrentSkill = [
+  const seedCurrentSkills = [
     {
       userId: 1,
       skillId: 1
@@ -144,7 +129,7 @@ async function seed() {
     }
   ]
 
-  const seedSkillInterestedOn = [
+  const seedSkillsInterestedin = [
     {
       userId: 1,
       skillId: 3
@@ -184,20 +169,22 @@ async function seed() {
   )
 
   await Promise.all(
-    seedCurrentSkill.map(currSkill => {
-      return CurrentSkills.create(currSkill)
+    seedCurrentSkills.map(currentSkill => {
+      return CurrentSkills.create(currentSkill)
     })
   )
   await Promise.all(
-    seedSkillInterestedOn.map(skillInt => {
-      return SkillsInterestedIn.create(skillInt)
+    seedSkillsInterestedin.map(skillInterestedIn => {
+      return SkillsInterestedIn.create(skillInterestedIn)
     })
   )
 
-  console.log(`seeded ${seedSkills.length} skill`)
+  console.log(`seeded ${seedSkills.length} skills`)
   console.log(`seeded ${seedUser.length} users`)
-  console.log(`seeded ${seedCurrentSkill.length} UserSkills`)
-  console.log(`seeded ${seedSkillInterestedOn.length} UserSkills`)
+  console.log(`seeded ${seedCurrentSkills.length} user current skills`)
+  console.log(
+    `seeded ${seedSkillsInterestedin.length} user skills interested in`
+  )
 
   console.log(`seeded successfully`)
 }
