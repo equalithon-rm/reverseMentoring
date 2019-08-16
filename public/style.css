@@ -276,13 +276,6 @@ label {
   height: 0;
 }
 
-
-.searchCardButton {
-  background-color: #ffe168;
-  border-radius: 12px;
-  display: inline-block;
-  margin: 4px 2px;
-
 .skills table {
   font-size: 1.2rem;
   margin: 0 1rem 0 1rem;
@@ -360,5 +353,4 @@ div .center {
 
 .aboutSection .section {
   margin-top: -100px;
-
 }
