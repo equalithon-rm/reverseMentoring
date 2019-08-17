@@ -1,4 +1,4 @@
-# Elevate - An Webapp for address gender equality through reverse mentoring
+# Elevate - A Web App to address gender equality through reverse mentoring
 
 * Our Goal
 
@@ -24,12 +24,15 @@ The goal of the app is to provide a platform for female employees to showcase th
 
 ## Create DB and Seed Tables
 
-export MY_APP_NAME=elevate
+```export MY_APP_NAME=elevate
+
 createdb $MY_APP_NAME
+
 createdb $MY_APP_NAME-test
 
 npm install
-npm run seed
+
+npm run seed```
 
 ## Start
 
