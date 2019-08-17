@@ -32,7 +32,8 @@ createdb $MY_APP_NAME-test
 
 npm install
 
-npm run seed```
+npm run seed
+```
 
 ## Start
 
