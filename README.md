@@ -1,13 +1,13 @@
 # Elevate - A Web App to address gender equality through reverse mentoring
 
-* Our Goal
+**Our Goal**
 
 The goal of the app is to provide a platform for female employees to showcase their skills and provide mentorship.
 
-* Reverse Mentoring
+**Reverse Mentoring**
   It is a career development practice that helps businesses mine certain insights or information of the less experienced, often younger employees for senior executives.
 
-- Team
+**Team**
 
 * Linda Saraguro
 * Jocelyn Jeriah
@@ -16,7 +16,7 @@ The goal of the app is to provide a platform for female employees to showcase th
 * Tal Luigui
 * Sam Peach
 
-# gender equality is for everyone
+# Gender equality is for everyone!
 
 ---
 
@@ -24,7 +24,8 @@ The goal of the app is to provide a platform for female employees to showcase th
 
 ## Create DB and Seed Tables
 
-```export MY_APP_NAME=elevate
+```
+export MY_APP_NAME=elevate
 
 createdb $MY_APP_NAME
 
