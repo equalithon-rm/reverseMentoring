@@ -4,7 +4,7 @@
 
 ### Video Presentation:
 
-[![Elevate Video Presentation](https://img.youtube.com/vi/BuI-knrxfHU/0.jpg)](https://www.youtube.com/watch?v=BuI-knrxfHU&feature=youtu.be)
+[![Elevate Video Presentation](https://img.youtube.com/vi/BuI-knrxfHU/0.jpg)](https://www.youtube.com/watch?v=BuI-knrxfHU)
 
 ### URL:
 
