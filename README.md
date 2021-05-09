@@ -14,7 +14,7 @@ https://elevateus.herokuapp.com
 
 Responsive web app that connects women in entry to mid-level tech roles with executives across various industries through inclusive reverse mentoring.
 
-MVP completed using Agile methodologies in 14 days for the Essteem Hackathon for Gender Equality sponsored by Nasdaq and Capital One, [in which it won first place](https://www.essteem.com/equalithon-challenges).
+MVP completed using Agile methodologies in 14 days for the Essteem Hackathon for Gender Equality sponsored by Nasdaq and Capital One, [in which it won first place](https://www.equalithon.io/past-challenges/project-one-6dt56).
 
 ### Tech Stack:
 
