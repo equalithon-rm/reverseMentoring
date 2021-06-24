@@ -16,7 +16,7 @@ before_script:
   - psql -c 'create database "elevate-test";' -U postgres # remember to change this name if you change it elsewhere (e.g. package.json)
 script:
   - npm test             # test the code
-  - npm run build-client # make the bundle
+  - npm run build # make the bundle
 
 # before_deploy:
 #   - rm -rf node_modules # omit from the tarball, since we skip cleanup
