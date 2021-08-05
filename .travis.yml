@@ -1,28 +1,27 @@
 language: node_js
 node_js:
-  - node # uses most recent stable node version
+  - 12 # Uses Node.js v12
 services:
-  - postgresql # starts up postgres
+  - postgresql # Starts up PostgreSQL
 addons:
-  postgresql: '10' # recent postgres version on Travis
-dist: xenial # uses xenial environment
+  postgresql: '10' # Recent PostgreSQL version on Travis
+dist: xenial # Uses Xenial environment
 notifications:
   email:
-    on_success: change # default: change (only when going from broken to fixed)
-    on_failure: always # default: always (which is annoying, as it should be)
+    on_success: change # Default: change (only when going from broken to fixed)
+    on_failure: always # Default: always (which is annoying, as it should be)
 install:
-  - npm ci # faster, goes only from package-lock
+  - npm ci # Faster, goes only from package-lock.json
 before_script:
-  - psql -c 'create database "elevate-test";' -U postgres # remember to change this name if you change it elsewhere (e.g. package.json)
+  - psql -c 'create database "elevate-test";' -U postgres # Remember to change this name if you change it elsewhere (e.g. package.json)
 script:
-  - npm test             # test the code
-  - npm run build # make the bundle
-
+  - npm test # Test the code
+  - npm run build # Make the bundle
 # before_deploy:
-#   - rm -rf node_modules # omit from the tarball, since we skip cleanup
+#   - rm -rf node_modules # Omit from the tarball, since we skip cleanup
 # deploy:
-#   skip_cleanup: true # prevents travis from deleting the build
+#   skip_cleanup: true # Prevents Travis from deleting the build
 #   provider: heroku
-#   app: YOUR-HEROKU-APP-NAME-HERE # see README
+#   app: YOUR-HEROKU-APP-NAME-HERE # See README
 #   api_key:
-#     secure: YOUR-***ENCRYPTED***-API-KEY-HERE # see README
+#     secure: YOUR-***ENCRYPTED***-API-KEY-HERE # See README
