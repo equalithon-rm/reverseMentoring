@@ -1,9 +1,11 @@
+// Initializations
 const isDev = process.env.NODE_ENV === 'development'
 
+// Exports
 module.exports = {
   mode: isDev ? 'development' : 'production',
   entry: [
-    '@babel/polyfill', // enables async-await
+    '@babel/polyfill', // Enables async-await
     './client/index.js'
   ],
   output: {
